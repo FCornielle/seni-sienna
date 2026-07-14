@@ -1,0 +1,23 @@
+# Datos confidenciales (exports PowerFactory, tablas MODOM, datos OC) — NUNCA a git
+data/raw/*
+!data/raw/README.md
+
+# Sistemas serializados con datos reales
+data/sys/*
+!data/sys/.gitkeep
+
+# Resultados de simulación
+validation/output/
+results/
+
+# Julia
+Manifest.toml
+*.jl.cov
+*.jl.mem
+.julia/
+
+# SO / editor
+Thumbs.db
+Desktop.ini
+.vscode/
+*.tmp

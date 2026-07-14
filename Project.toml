@@ -1,0 +1,7 @@
+name = "SeniSienna"
+uuid = "bf622b4c-24a3-48b8-b806-ebff46d82f06"
+authors = ["Fernando Cornielle <fernandocornielle@gmail.com>"]
+version = "0.1.0"
+
+# Las dependencias (PowerSystems, PowerSimulations, PSID, PowerFlows, HiGHS, …)
+# se agregan con sus UUIDs correctos ejecutando: julia scripts/00_setup_environment.jl
