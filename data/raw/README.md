@@ -22,4 +22,14 @@ Copiar aquí desde la copia local de `modom-pypsa`:
    modom-pypsa/data/external/buses_with_coords.csv   →   data/raw/
    ```
 
+4. **Workbook MODOM crudo** (opcional, fuente original de la capa canónica):
+   ```
+   MODOM_DIARIO_dd-mm-yyyy_V449.xlsm
+   ```
+   La Fase 1 lee las tablas ya procesadas de `processed/`; el workbook queda
+   como respaldo para regenerarlas con los scripts de modom-pypsa.
+
 Todo lo que esté en esta carpeta (excepto este README) está excluido por `.gitignore`.
+
+Estado actual: `salida_PDD_30_09_2025/`, `processed/`, `buses_with_coords.csv`
+y el workbook MODOM ya están copiados.

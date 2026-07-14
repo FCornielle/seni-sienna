@@ -15,11 +15,15 @@ module SeniSienna
 using CSV
 using DataFrames
 using Dates
+using TimeSeries: TimeArray
 using PowerSystems
 
 const PSY = PowerSystems
 
-# Fase 1 — traducción de datos
+# Fase 1 — System de despacho desde las tablas canónicas MODOM
+include("build_modom_system.jl")
+
+# Fase 2 — System físico desde el export PowerFactory (pendiente)
 include("parse_powerfactory.jl")
 include("parse_modom.jl")
 include("timeseries.jl")
@@ -28,6 +32,6 @@ include("build_system.jl")
 # Fase 5 — capa dinámica
 include("dynamics_library.jl")
 
-export build_seni_system
+export build_seni_dispatch_system, build_seni_system
 
 end # module
