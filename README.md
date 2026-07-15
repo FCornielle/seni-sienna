@@ -42,7 +42,7 @@ julia scripts/01_build_system.jl
 - [x] Fase 2 — System físico AC + flujo de carga (|ΔV| medio 0.019 pu; meta 0.005 pendiente del punto de operación P20 exacto — Bloque I)
 - [x] Fase 3a — Despacho ED con commitment fijo (**R² 0.957 vs MODOM**, ENS 0)
 - [x] Fase 3b — UC MILP con PSI + reservas RPF/RSF co-optimizadas (commitment 89.9% vs MODOM)
-- [ ] Fase 4 — Contingencias N-1 y cuasi-dinámico 24h
+- [x] Fase 4 — Contingencias N-1 (659 evaluadas, LODF + AC en críticas) y cuasi-dinámico 24h (24/24 convergen)
 - [ ] Fase 5 — Pequeña señal y transitorios (PSID; extracción dinámica ya validada)
 - [ ] Fase 6 — Análisis, reportes y cierre de gaps
 

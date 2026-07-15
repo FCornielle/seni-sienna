@@ -1,0 +1,660 @@
+contingencia,kv,flujo_base_mw,sobrecargas_nuevas,peor_carga_pct,peor_rama
+138 kV Canabacoa – Moca,138.0,102.1,11,183.3,69 kV La Vega – SFM_b
+138/69 kV Transformador 1 Pizarrete,69.0,104.4,10,130.7,69 kV Cruce de Ocoa – km 15 de Azua_d
+138/69 kV Trafo Puerto Plata 2,69.0,88.7,10,190.7,69 kV Canabacoa – Playa Dorada_a
+138/69 kV Transformador ZF Santiago,69.0,72.5,9,174.3,69 kV Imbert 2 – Navarrete_e
+138 kV Moca – Salcedo,138.0,73.2,8,140.0,69 kV La Vega – SFM_b
+138/69 kV Transformador SPM,69.0,86.4,8,180.1,138/69 kV Transformador Boca Chica
+138/69 kV Transformador SFM,69.0,60.0,7,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Puerto Plata – Puerto Plata 2,69.0,-68.7,6,244.6,69 kV Canabacoa – Playa Dorada_a
+69 kV Playa Dorada – Puerto Plata_a,69.0,35.9,5,167.8,69 kV Canabacoa – Playa Dorada_a
+138 kV Salcedo – SFM,138.0,51.1,5,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Playa Dorada – Puerto Plata_b,69.0,43.5,5,185.5,69 kV Canabacoa – Playa Dorada_a
+138/69 kV Transformador Bonao 2,69.0,113.6,5,147.5,69 kV La Vega – La Vega Generadora_b
+69 kV Cruce de Ocoa – Pizarrete_e,69.0,45.9,4,140.7,69 kV Cruce de Ocoa – km 15 de Azua_d
+69 kV Cruce de Ocoa – km 15 de Azua_e,69.0,-43.5,3,140.7,69 kV Cruce de Ocoa – Pizarrete_e
+69 kV Cruce de Ocoa – km 15 de Azua_c,69.0,43.4,3,140.4,69 kV Cruce de Ocoa – Pizarrete_e
+69 kV Cruce de Ocoa – Pizarrete_d,69.0,-26.5,3,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Ocoa – km 15 de Azua_d,69.0,43.5,3,140.7,69 kV Cruce de Ocoa – Pizarrete_e
+69 kV Navarrete – ZF Santiago_e,69.0,50.8,3,123.5,69 kV Imbert 2 – Navarrete_e
+69 kV Navarrete – ZF Santiago_d,69.0,49.5,3,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Ocoa – Pizarrete_c,69.0,-25.6,3,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Santiago_c,69.0,49.3,3,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Arroyo Hondo,69.0,84.2,3,149.2,69 kV Palamara – Plastifar_a
+138/69 kV Transformador 2 Canabacoa,69.0,95.1,3,134.8,69 kV Puerto Plata – Puerto Plata 2
+69 kV Bonao 2 – La Vega_a,69.0,45.1,2,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – REFIDOMSA_a,69.0,28.7,2,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación S/E Móvil ETED,69.0,-53.0,2,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – REFIDOMSA_b,69.0,27.1,2,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – La Vega_b,69.0,-43.7,2,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV S/E Móvil ETED,69.0,53.2,2,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador km 15 de Azua,69.0,56.3,2,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Haina,69.0,58.5,2,140.8,69 kV Derivación S/E Móvil ETED
+69 kV Canabacoa – Playa Dorada_d,69.0,-13.2,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Playa Dorada_a,69.0,35.7,1,131.7,69 kV Puerto Plata – Puerto Plata 2
+69 kV Bonao 2 – Hatillo_c,69.0,49.0,1,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – Puerto Plata 2_b,138.0,67.3,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Playa Dorada_e,69.0,-11.7,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Playa Dorada_b,69.0,31.8,1,126.8,69 kV Puerto Plata – Puerto Plata 2
+69 kV La Vega – La Vega Generadora_b,69.0,-58.9,1,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – Puerto Plata 2_a,138.0,67.7,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Playa Dorada_c,69.0,-13.9,1,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – Navarrete 2,138.0,77.8,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – Hatillo_b,69.0,51.0,1,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – Puerto Plata 2_c,138.0,66.8,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – La Vega Generadora_a,69.0,56.2,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – Hatillo_a,69.0,51.4,1,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador San Juan 2,69.0,48.2,1,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Boca Chica,69.0,57.7,1,120.6,345/22 kV Transformador Punta Catalina 1
+345/138 kV Transformador 1 El Naranjo,138.0,254.6,1,120.6,345/22 kV Transformador Punta Catalina 1
+345/138 kV Transformador 2 El Naranjo,138.0,254.6,1,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación E León Jiménez_a,69.0,3.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Madre Vieja_b,69.0,20.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Agua Clara – Guanillo_c,138.0,-20.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – La Vega_d,69.0,30.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Juan Dolio_a,138.0,24.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – ZF Santiago_b,138.0,4.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Aguacate – Jigüey,138.0,22.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Capotillo_a,69.0,19.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Agua Clara – Navarrete 2_a,138.0,19.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sabana Yegua – San Juan_c,69.0,-9.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV CZFI Santiago – SAJOMA_b,69.0,-13.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Metropolitano – Listín Diario_d,69.0,0.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Estrella del Mar 3 – Timbeque 2,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Art Piel Favoritos,69.0,-0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Bonao 3 – Julio Sauri_a,345.0,351.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cumayasa – La Romana_b,138.0,83.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua –Powership KPS26 _a,138.0,-236.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Elías Piña – San Juan 2_b,69.0,12.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV CIP La Luisa – SPM 2_a,138.0,13.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Brisal – Villa Duarte_a,138.0,40.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Esperanza_c,69.0,20.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Estrella del Mar 2 – Timbeque 2,138.0,-99.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Esperanza_e,69.0,0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pizarrete – Madre Vieja_e,69.0,46.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Acueducto INAPA SCN,69.0,0.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – Mata de Palma_a,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Navarrete 2 – Valverde Mao_b,138.0,18.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Acueducto Oriental,69.0,5.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matadero – METALDOM,138.0,-36.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – Mata de Palma_g,69.0,-5.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Troquelados Dominicanos,69.0,1.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Calabaza – Pizarrete_b,138.0,76.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV INCA km 22 – Palamara_d,69.0,36.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – Cervecería Vegana,69.0,-0.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Orígenes – SPM 2_a,138.0,46.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+230 kV Bonao 3 – Quisqueya 2_b,230.0,176.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Mina – Los Mina 7,138.0,106.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Santiago_b,69.0,-33.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Khoury Industrial,69.0,7.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hato Mayor 2 – SPM_b,69.0,10.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – Boca Chica(Cementos)_e,69.0,0.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Capotillo_d,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Santanasol – Pizarrete_b,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sosúa 2 – Sabaneta de Yásica_e,69.0,11.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Los Alcarrizos_b,69.0,27.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – La Vega Generadora_d,69.0,-4.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Ciudad Satélite,69.0,13.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – La Vega Generadora_b,69.0,-19.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hainamosa – Boca Chica(Tamarindo)c,69.0,-18.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hato Mayor 2 – SPM_c,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV INCA km 22 – Palamara_e,69.0,36.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pimentel – Abanico_a,69.0,11.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Cuarenta – Timbeque 2_b,69.0,-23.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Julio Sauri – Punta Catalina L1,345.0,418.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bayasol – km 15 de Azua_c,138.0,51.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Soco – SPM 2_a,138.0,72.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – SPM_a,69.0,-16.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV km 15 Azua – Quita Coraza_a,69.0,2.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Brisal – Villa Duarte_b,138.0,40.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Madre Vieja_e,69.0,18.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Mina – Timbeque 2,138.0,-90.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hainamosa – Boca Chica(Tamarindo)d,69.0,15.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – Nibaje_b,138.0,30.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV CEMEX – SPM 2,138.0,-24.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Oleoducto FALCONDO,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Base Aerea San Isidro,69.0,2.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Duvergé – Jimaní,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Cabral – Duvergé_b,69.0,30.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+Derivación 69 kV CCN,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Monción – Santiago Rodríguez_a,138.0,-35.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Herrera – Itabo_b,138.0,71.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Ocoa – km 15 de Azua_a,69.0,12.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bayona – Multiparques,69.0,14.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cruce de Cabral 2 – Los Cocos L1,138.0,0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Ocoa – Pizarrete_b,69.0,-17.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Villa Duarte_b,138.0,19.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Nagua 2 – Nagua,69.0,-25.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Gildan,69.0,5.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bonao 2 – Bonao 3 L1,138.0,71.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Juan Dolio – SPM 2_a,138.0,32.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce Cabral – Cruce Cabral 2,69.0,40.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV CZFI Santiago – SAJOMA_e,69.0,11.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo – Los Prados_b,138.0,-41.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – San Juan 2_a,138.0,8.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – ZF Santiago_a,138.0,4.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Acueducto Sosúa,69.0,2.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Plaza Santiago Center_a,69.0,0.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV César Nicolás Penson – UASD,138.0,-92.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – Mata de Palma_e,69.0,8.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bayasol – km 15 de Azua_b,138.0,50.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Pedro García,69.0,1.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hainamosa – Invivienda_a,69.0,31.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – Tavera L1,138.0,19.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Esperanza – Navarrete 2 L1,138.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Dajao – Hainamosa_a,138.0,-121.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palenque – Punta Catalina_b,138.0,59.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Los Alcarrizos_a,69.0,35.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Smurfit Kappa,69.0,-1.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Jarabacoa,69.0,15.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Multiform,69.0,3.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Multinodal Caucedo,69.0,3.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Guerra – Julio Sauri_b,345.0,-149.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Ojiva,69.0,1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV ZF Dos Ríos – Bonao PER_c,69.0,-39.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+230 kV PVDC – Quisqueya 1_b,230.0,207.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – Mata de Palma_f,69.0,7.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV INCA km 22 – Palamara_a,69.0,11.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Kilómetro 24,69.0,7.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sosúa 2 – Sabaneta de Yásica_d,69.0,18.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+230 kV Bonao 3 – PVDC_a,230.0,17.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Plastifar,69.0,21.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bar Carbón – Cruce Cabral 2 L1,138.0,18.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Timbeque – Timbeque 2,69.0,-34.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Bonao,69.0,4.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Hato Nuevo,69.0,8.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Brisal – Hainamosa_a,138.0,41.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – SFM_d,69.0,2.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Metropolitano – Listín Diario_c,69.0,0.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Orígenes – SPM 2_b,138.0,-46.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Goya – Pizarrete_d,69.0,0.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Dajao – Sabana Perdida_b,69.0,30.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Portela Pasta Linda,69.0,0.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Haina – Itabo L2,138.0,50.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Coastal – SPM_b,138.0,72.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palenque – Punta Catalina_a,138.0,-58.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cítricos Nacionales – INCA km 22_c,69.0,13.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pimentel – SFM_b,69.0,14.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Arroyo Hondo – Palamara_b,138.0,-30.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce Cabral 2 – Acd Sur-Oeste_e,69.0,2.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Arroyo Hondo – La Isabela,138.0,-53.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Julio Sauri – Paraíso,138.0,70.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Timbeque – Villa Duarte_a,69.0,-1.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Campamento 16 Agosto,69.0,0.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Metropolitano – Listín Diario_b,69.0,1.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Solar Canoa,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Puerto Plata 2_a,69.0,-19.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – Boca Chica(Cementos)_a,69.0,7.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Invivienda – Villa Duarte_a,69.0,30.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Domingo Rodríguez,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Seibo – Hato Mayor 2,138.0,40.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV km 15 Azua – Los Toros,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matafongo – Pizarrete_b,138.0,39.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sosúa 2 – Sabaneta de Yásica_a,69.0,35.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación CORMIDOM,69.0,6.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Herrera_d L1,69.0,34.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – Constanza_a,69.0,21.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hato Mayor 2 – Sabana de la Mar,69.0,4.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – La Vega Generadora_a,69.0,-43.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV CZFI Santiago – SAJOMA_c,69.0,-12.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – Boca Chica(Cementos)_c,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Nagua 2 – Sánchez,138.0,34.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Barahona – Cruce de Cabral_a,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV César Nicolás Penson – Metro,138.0,7.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV La Gallera – ZF Santiago,138.0,-45.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138kV SP Bio-Energy – SPM_b,138.0,-54.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Navarrete_b,69.0,12.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Maimón,69.0,14.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Los Mina – Villa Duarte,69.0,-13.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Megacentro,69.0,1.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Ocoa – San José de Ocoa,69.0,7.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación F Ochoa Las Lavas,69.0,0.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF de Gurabo,69.0,0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Navarrete_d,69.0,-1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – Mirasol L2,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Dajao – Monte Plata Solar_b,69.0,41.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Ocoa – km 15 de Azua_b,69.0,16.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hainamosa – Invivienda,69.0,31.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Mina – Los Mina 6,138.0,96.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Julio Sauri – Palenque_b,138.0,59.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – La Vega Generadora_c,69.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sabana Yegua – San Juan_a,69.0,-9.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – ZF Las Americas_f,69.0,12.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Playa Dorada – Sosúa 2_b,69.0,35.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Juan Dolio – SPM 2_b,138.0,-32.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Fantino_a,69.0,-12.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Ingenio CAEI,69.0,-0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – SFM_b,69.0,13.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo – Palamara,138.0,44.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV AES Interconexión – Guerra L2,138.0,-140.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Grupo Haché,69.0,-0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Metropolitano – Paraíso,138.0,-33.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce Cabral 2 – Acd Sur-Oeste_a,69.0,17.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Acueducto Hnas Mirabal,69.0,1.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matafongo – Pizarrete_a,138.0,-39.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Haina – Matadero L2,138.0,21.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Julio Sauri – Palenque_a,138.0,59.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Kilómetro 10.5_b,69.0,26.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Playa Dorada – Sosúa 2_c,69.0,35.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – El Naranjo L1,138.0,-68.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Caribbean Ind Park,69.0,1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Dajabón – Santiago Rodríguez_b,138.0,14.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Herrera_b L2,69.0,1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Los Mina L1,138.0,-5.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV km 15 de Azua – Sabana Yegua_d,69.0,-9.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – Monte Río_a,138.0,-84.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Buena Vista – Higüey_a,69.0,30.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Bco Nacional Vivienda_a,69.0,19.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Santiago_a,69.0,-32.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – Hatillo_f,69.0,-26.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Barahona – Cruce de Cabral_c,69.0,-1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Dajao – Hainamosa_b,138.0,-122.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF San Isidro_a,69.0,-5.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Kilómetro 15 de Azua – Palomino_b,138.0,13.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Luperón,69.0,7.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – ZF Las Americas_e,69.0,13.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Jigüey – Valdesia_a,138.0,42.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Herrera_c L1,69.0,34.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Guzmancito – Navarrete 2_b,138.0,-39.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV  Derivación Ferretería Ochoa,69.0,-0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Agua Clara – Navarrete 2_c,138.0,19.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – ZF Dos Ríos,69.0,-51.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Julio Sauri – Palamara L1,138.0,104.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Romana – Rancho Peligro_c,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Cementos Cibao_a,69.0,15.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sosúa 2 – Sabaneta de Yásica_b,69.0,35.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hainamosa – Boca Chica(Tamarindo)a,69.0,25.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Aero Las Américas,69.0,3.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Plastifar_a,69.0,34.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación INDAL,69.0,-0.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce Cabral 2 – Acd Sur-Oeste_d,69.0,16.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Brisal – Villa Duarte_c,138.0,40.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV López Angostura – Tavera,138.0,3.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Maranatha,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – Río Blanco,69.0,11.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cumayasa – SPM_a,138.0,83.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Las Matas de Farfán,69.0,-7.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Julio Sauri – Punta Catalina L2,345.0,418.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Elías Piña – San Juan 2_c,69.0,5.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Soco – Hato Mayor 2_b,138.0,72.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sabaneta – San Juan_b,69.0,1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Bonao 3 – El Naranjo L2,345.0,-254.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Aero de Puerto Plata,69.0,7.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Esperanza_b,69.0,21.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pimentel – SFM_c,69.0,15.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Madre Vieja_h,69.0,16.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pizarrete – Madre Vieja_d,69.0,46.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Agua Clara – Navarrete 2_b,138.0,19.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bonao 2 – Palamara L1,138.0,-51.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV LAFZID – Cementos Colón_d,69.0,-2.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Baní Matadero,69.0,7.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV San Juan 2 – Vallejuelo,69.0,1.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palenque – Punta Catalina_d,138.0,-59.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Bco Nacional Vivienda_c,69.0,18.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bayona – Palamara_c,69.0,44.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cítricos Nacionales – INCA km 22_a,69.0,0.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo TG – Julio Sauri L2,138.0,82.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV ZF Dos Ríos – Bonao PER_a,69.0,45.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Cocos – Pedernales L1_a,138.0,1.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV INCA km 22 – Palamara_b,69.0,-25.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Grupo Malla,69.0,2.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palamara – Villa Mella_b,138.0,-29.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Romana – Rancho Peligro_a,69.0,1.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cítricos Nacionales – INCA km 22_d,69.0,-13.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación SODOCAL_b,69.0,0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Arroyo Hondo – Palamara_a,138.0,-30.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Madre Vieja_c,69.0,19.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Yamasá,69.0,-13.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Las Parras,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – La Vega_c,69.0,-31.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Orígenes – SPM_a,138.0,-86.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matrisol – Nagua 2_b,138.0,-7.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Nibaje – ZF Santiago_a,138.0,37.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Buena Vista – Higüey_b,69.0,28.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Haina – Itabo L1,138.0,-50.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Dajao – Monte Plata Solar_c,69.0,-27.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matrisol – Río San Juan_a,138.0,7.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Monción – Valverde Mao_a,138.0,5.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – La Vega_e,69.0,30.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Batey Lechuga,69.0,0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Boca Chica – SPM 2_a,138.0,-2.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Mirasol – Mata de Palma 2 L1,138.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Invivienda – Villa Duarte_b,69.0,37.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – Constanza_b,69.0,10.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cumayasa – SPM_b,138.0,85.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – SPM 2_b,138.0,-5.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Rancho Arriba,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Lucila,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Agua Clara – Guanillo_b,138.0,20.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – Hatillo_e,69.0,27.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palomino – San Juan 2_a,138.0,40.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Bonao 3 – Julio Sauri_b,345.0,-351.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Calabaza – Pizarrete_c,138.0,76.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pimentel – SFM_a,69.0,13.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Boca Chica – SPM 2_c,138.0,2.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo – Los Prados_a,138.0,-41.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – La Luisa_a,138.0,-5.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pizarrete – Madre Vieja_f,69.0,32.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Kilómetro 15 de Azua – Palomino_a,138.0,13.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación La Cumbre Bonao_b,69.0,1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Imbert,69.0,-10.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Los Mina – Templástica_a,69.0,-1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua –Powership KPS26 _b,138.0,239.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Rincón,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – Mata de Palma_d,69.0,7.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce Cabral 2 – Acd Sur-Oeste_b,69.0,17.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hato Mayor 2 – SPM_a,69.0,-25.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Dajao – Martí,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Sánchez – Samaná,138.0,12.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cumayasa – SPM_c,138.0,84.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV CZFI Santiago – SAJOMA_d,69.0,11.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Villa Duarte_a,138.0,19.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Acueducto Quinigua,69.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV AES Andrés – AES Andrés Intercon,138.0,-282.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Baltimore Domincana_a,69.0,1.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Aguacate – Valdesia,138.0,-73.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Julio Sauri – Pizarrete_c,138.0,57.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Kilómetro 10.5_a,69.0,63.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – Monte Río_b,138.0,-85.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cruce Cabral 2 – km 15 de Azua L1,138.0,19.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV César Nicolás Penson – Timbeque 2,138.0,107.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – San Juan 2_b,138.0,8.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Unión Médica_c,69.0,1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bonao 2 – Bonao 3 L2,138.0,71.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Julio Sauri – Pizarrete_b,138.0,-56.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación SODOCAL_a,69.0,0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – REFIDOMSA_d,69.0,41.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Navarrete_a,69.0,-12.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Brisal – Hainamosa_b,138.0,41.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Madre Vieja_a,69.0,20.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Villa Duarte_c,138.0,-19.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bayona – CAASD Bayona_a,69.0,2.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Fantino_b,69.0,12.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Herrera_b L1,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – ZF SPM Chentec_e,69.0,0.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Navarrete_e,69.0,-1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – Pinalito,69.0,23.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Buena Vista – La Romana,69.0,45.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Haina – Matadero L1,138.0,21.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV San Juan – San Juan 2,69.0,21.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Madre Vieja_f,69.0,-18.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Embajador – Matadero,138.0,111.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – La Luisa_b,138.0,5.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Boca Chica – SIBA,138.0,-147.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bonao 2 – Palamara L2,138.0,-51.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Coastal – La Romana_c,138.0,70.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Madre Vieja_g,69.0,16.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Soco – Hato Mayor 2_a,138.0,-72.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138kV SP Bio-Energy – SPM_a,138.0,54.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cotoperí – La Romana,138.0,-40.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación G. Ramos Charles,69.0,0.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palamara – Villa Mella_a,138.0,-29.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – Boca Chica(Cementos)_d,69.0,-0.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo TG – Julio Sauri L1,138.0,82.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Puerto de Haina_b,69.0,1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Cartonera del Caribe_b,69.0,-0.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – Boca Chica(Cementos)_g,69.0,5.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Herrera_a L1,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Romana – Rancho Peligro_b,69.0,1.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Invivienda – Villa Duarte_d,69.0,38.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Invivienda – Villa Duarte_c,69.0,37.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Molinos del Ozama,69.0,2.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guanillo – Guayubín_b,138.0,21.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV AES Interconexión – Guerra L1,138.0,141.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Consuelo,69.0,10.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Calabaza – Peravia L1,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Dajabón – Monte Cristi,138.0,-2.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bonao 2 – Hatillo_d,69.0,33.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Julio Sauri – Palamara L2,138.0,104.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Kilómetro 10.5_b,69.0,-61.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación E León Jiménez_d,69.0,0.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Cuarenta – Timbeque 2_c,69.0,-24.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – Punta Catalina_a,138.0,60.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Pizarrete Distribución,69.0,-11.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Los Mina – Templástica_c,69.0,-0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Jumper Pedernales,138.0,1.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Bco Nacional Vivienda_b,69.0,-19.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Bonao 3 – Guerra_a,345.0,130.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV REFIDOMSA – LAFZID_b,69.0,-18.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV km 15 de Azua – Sabana Yegua_a,69.0,-1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hainamosa – Boca Chica(Tamar(1),69.0,15.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo TG – UASD,138.0,15.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Nagua 2 – Payita,69.0,-7.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – Boca Chica(Cementos)_f,69.0,0.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Bonao 3 – El Naranjo L1,345.0,-254.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Puerto Plata 2_b,69.0,-19.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación MERCASID_a,69.0,15.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Villa Altagracia_b,69.0,0.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – ZF Las Americas_a,69.0,40.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bayona – Palamara_d,69.0,47.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Palamara_b,138.0,-11.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV CZFI Santiago – SAJOMA_f,69.0,11.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Soco – SPM 2_b,138.0,-72.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – Constanza_d,69.0,8.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Los Mina – Timbeque,69.0,-3.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Capotillo – Timbeque,69.0,47.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bayona – Palamara_a,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – SFM_c,69.0,-12.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Los Alcarrizos_c,69.0,25.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo – ItaboTG,138.0,149.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Mina – Los Mina 5,138.0,-100.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Cementos Cibao_b,69.0,13.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Capotillo_c,69.0,1.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Hosp Metropilitano Stgo,69.0,1.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – Tavera L2,138.0,19.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV San Pedro Bio-Energy – SPM 2_b,138.0,-26.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Dajao – Sabana Perdida_a,69.0,51.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+230 kV Bonao 3 – PVDC_b,230.0,-17.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV km 15 de Azua – Sabana Yegua_c,69.0,-9.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Multiparques,69.0,23.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Coastal – La Romana_b,138.0,71.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Arroz Bisonó,69.0,-0.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – La Gallera,138.0,-19.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Nibaje – ZF Santiago_b,138.0,37.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Pastas Princesa,69.0,-1.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Boca Chica – Hainamosa_a,138.0,-52.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palamara – SCN L1_a,138.0,40.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sabana Yegua – San Juan_b,69.0,-9.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sabana Yegua – San Juan_d,69.0,-11.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Calabaza – Peravia L2,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Aeropuerto El Higüero,69.0,0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – Hainamosa L2,138.0,148.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Timbeque – Villa Duarte_b,69.0,-3.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV SCN – Valdesia L1_b,138.0,59.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hatillo – Pimentel_d,69.0,-33.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Herrera_a L2,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Playa Dorada – Sosúa 2_a,69.0,43.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV CIP La Luisa – SPM 2_b,138.0,13.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – SFM_a,69.0,42.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sabaneta – San Juan_a,69.0,1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Itabo – Palamara_a,138.0,-9.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Pizarrete – Valdesia,138.0,4.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pimentel – Abanico_b,69.0,11.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hatillo – Pimentel_c,69.0,2.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación La Cumbre Bonao_a,69.0,1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF San Isidro,69.0,-5.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Brazo Derecho,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV km 15 de Azua – Sabana Yegua_b,69.0,-1.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Bayona – Palamara_b,69.0,-8.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación E León Jiménez_b,69.0,1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Juan Dolio_b,138.0,-24.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Grupo Alaska,69.0,0.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Puerto de Haina_a,69.0,1.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Calabaza – km 15 de Azua_b,138.0,77.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SFM – El Chivo_a,69.0,-47.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guayubín – Monte Cristi_b,138.0,21.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palomino – San Juan 2_b,138.0,40.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matadero – UASD,138.0,72.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hainamosa – Boca Chica(Tamarindo)b,69.0,23.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SFM – El Chivo_b,69.0,47.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Pimentel – SFM,138.0,-9.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Sosúa 2 – Sabaneta de Yásica_c,69.0,32.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación CODAL,69.0,0.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – La Cuarenta,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Puerto Plata 2 – San Felipe L2,138.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV ZF Dos Ríos – Bonao PER_b,69.0,45.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Palamara_a,138.0,-11.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Villa Altagracia_a,69.0,10.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Los Mina L2,138.0,-5.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Cuarenta – Timbeque 2_a,69.0,19.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación INCA La Isabela_a,69.0,3.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Ingenio Barahona,69.0,0.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación E León Jiménez_c,69.0,1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Unión Médica_b,69.0,-26.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Buena Vista – Higüey_c,69.0,27.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cumayasa – La Romana_a,138.0,83.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Embajador – Los Prados,138.0,46.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Guerra – Julio Sauri_a,345.0,149.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Cruce de Esperanza,69.0,-20.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cítricos Nacionales – INCA km 22_e,69.0,-16.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Barahona – Barahona Carbón,69.0,-27.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV SPM – SPM 2_a,138.0,59.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Plastifar_c,69.0,7.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bonao 2 – Canabacoa L2,138.0,66.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Kilómetro 10.5_a,69.0,28.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – ZF Santiago L1,138.0,113.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – Acueducto Brujuela_a,69.0,-10.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación CENOVI,69.0,-9.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Romana – La Romana Pueblo_a,69.0,30.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación INCA La Isabela_b,69.0,-0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Acueducto Brujela_b,69.0,4.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Boca Chica – SPM 2_b,138.0,2.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Jigüey – Valdesia_b,138.0,42.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Baltimore Domincana_b,69.0,-1.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Duvergé – Neyba,69.0,19.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Elías Piña – San Juan 2_a,69.0,-12.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palamara – SCN L2_a,138.0,40.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – Nibaje_a,138.0,30.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV SPM – SPM 2_b,138.0,-59.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – SAJOMA L1,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – ZF SPM Chentec_d,69.0,34.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Boca Chica – Hainamosa_b,138.0,-52.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Guzmancito – Puerto Plata 2_b,138.0,-40.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV La Isabela – Los Mina,138.0,59.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Canabacoa – El Naranjo L2,138.0,-68.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Coastal – SPM_a,138.0,71.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Azua,69.0,-27.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Girasol – Pizarrete_a,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – SAJOMA L2,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – Constanza_c,69.0,10.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Dajao – Monte Plata Solar_a,69.0,44.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Coastal – La Romana_a,138.0,71.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Palamara – Plastifar_b,69.0,28.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Aluminio Dominicano,69.0,0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guanillo – Guayubín_a,138.0,-21.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Villa Mella_b,138.0,53.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Seibo – Higüey,138.0,24.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Dajabón – Santiago Rodríguez_a,138.0,-14.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bonao 2 – Canabacoa L1,138.0,66.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+230 kV Bonao 3 – Quisqueya 2_a,230.0,172.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF Hainamosa,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Cervecería Bohemia,69.0,1.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – Mata de Palma_h,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV San Pedro Bio-Energy – SPM 2_a,138.0,26.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Barahona – Cruce de Cabral_b,69.0,-0.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Villa Mella_a,138.0,-53.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Monción – Valverde Mao_b,138.0,5.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación ZF La Vega,69.0,-4.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cruce Cabral 2 – km 15 de Azua L2,138.0,19.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Los Mina – Templástica_b,69.0,0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Bayasol – Pizarrete_b,138.0,50.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+230 kV PVDC – Quisqueya 1_a,230.0,-202.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – Punta Catalina_b,138.0,59.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Acueducto La Isabela,69.0,0.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Palamara_a,69.0,21.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – Mirasol L1,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Hatillo – Pimentel_b,69.0,2.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138kV SP Bio-Energy – SPM_c,138.0,98.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Girasol – Santanasol_b,138.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Monción – Santiago Rodríguez_c,138.0,35.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Orígenes – SPM_b,138.0,-86.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Moca,69.0,23.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cítricos Nacionales – INCA km 22_b,69.0,10.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matrisol – Río San Juan_b,138.0,-7.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV LAFZID – Cementos Colón_c,69.0,-2.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – Matafongo_b,138.0,39.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Juan Dolio_c,138.0,-24.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Estrella del Mar 3 – Timbeque,69.0,-47.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matrisol – Nagua 2_a,138.0,-7.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Timbeque 2 – Villa Duarte,138.0,1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Esperanza_d,69.0,20.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Dajao – Monte Plata Solar_d,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cotoperí – Higüey,138.0,40.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV El Naranjo – ZF Santiago L2,138.0,113.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – ZF SPM Chentec_a,69.0,39.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Hospital Juan Bosch,69.0,0.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Unión Médica_a,69.0,27.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Fantino_c,69.0,5.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Girasol – Pizarrete_b,138.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – ZF Las Americas_d,69.0,17.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Mirasol – Mata de Palma 2 L2,138.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – ZF SPM Chentec_c,69.0,38.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Canabacoa – Cementos Cibao_c,69.0,12.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – La Victoria_a,138.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Tamarindo,69.0,-1.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Mina – Villa Duarte,138.0,103.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV SPM – ZF SPM Chentec_b,69.0,39.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Ocoa – Pizarrete_a,69.0,3.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – ZF Las Americas_b,69.0,-36.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Cruce de Cabral 2 – Los Cocos L1a,138.0,0.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Duvergé – Las Damas,69.0,6.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – La Victoria_b,138.0,-0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce Cabral 2 – Acd Sur-Oeste_c,69.0,16.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Capotillo_b,69.0,16.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Templastisa_b,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+345 kV Bonao 3 – Guerra_b,345.0,-130.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV AES Andrés – ENADOM,138.0,0.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Guzmancito – Puerto Plata 2_a,138.0,-40.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – Punta Catalina_d,138.0,59.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Parque Industrial DISDO,69.0,2.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Guavaberry,69.0,0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV km 15 de Azua – Matafongo_a,138.0,40.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Derivación Sultana del Este,138.0,43.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Grupo Ramos SFM,69.0,-0.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Guanito 2,69.0,2.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Los Guzmancito – Navarrete 2_a,138.0,39.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Cabral – Duvergé_a,69.0,38.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Herrera – Los Prados_b,138.0,11.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Imbert 2 – Navarrete_c,69.0,1.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Palenque – Punta Catalina_c,138.0,59.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Matafongo – Pizarrete_c,138.0,39.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Haina – Herrera_c L2,69.0,-1.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Agua Clara – Guanillo_a,138.0,20.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Cruce de Cabral – Duvergé_c,69.0,27.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Nagua 2 – Pimentel,138.0,76.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV CZFI Santiago – SAJOMA_g,69.0,-8.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Pizarrete – Madre Vieja_h,69.0,31.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV La Vega – Constanza_e,69.0,-6.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Navarrete 2 – Valverde Mao_a,138.0,19.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Monción – Santiago Rodríguez_b,138.0,-35.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Hainamosa – Los Mina L3,138.0,-6.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Navarrete – ZF Esperanza_a,69.0,21.9,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Templastisa_a,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Boca Chica – ZF Las Americas_c,69.0,35.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Metropolitano,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV SCN – Valdesia L2_b,138.0,59.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Arroyo Hondo – Palamara_b,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – SPM 2_a,138.0,5.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+69 kV Derivación Zona Franca Barahona,69.0,-1.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138 kV Guerra – Hainamosa L1,138.0,-147.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Nagua 2,69.0,33.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Trafo Playa Dorada,69.0,0.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Herrera,69.0,50.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+345/138 kV Transformador 2 Julio Sauri,138.0,164.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Canabacoa,69.0,27.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+345/230 kV Transformador 2 Bonao 3,230.0,-44.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador La Romana,69.0,78.1,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Dajao,69.0,95.3,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Barahona Carbón,69.0,27.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+230/138 kV Transformador 2 Bonao 3,138.0,143.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+345/138 kV Transformador 2 Guerra,138.0,8.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+345/138 kV Transformador 1 Guerra,138.0,8.5,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador 2 Palamara,69.0,70.0,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Hainamosa,69.0,56.4,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Villa Duarte,69.0,55.6,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador 1 Palamara,69.0,54.2,0,120.6,345/22 kV Transformador Punta Catalina 1
+345/138 kV Transformador 1 Julio Sauri,138.0,164.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Timbeque 2,69.0,58.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Metropolitano 2,69.0,25.7,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformado Cruce de Cabral 2,69.0,57.8,0,120.6,345/22 kV Transformador Punta Catalina 1
+138/69 kV Transformador Hato Mayor 2,69.0,30.7,0,120.6,345/22 kV Transformador Punta Catalina 1
