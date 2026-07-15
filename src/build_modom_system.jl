@@ -31,7 +31,26 @@ function load_modom_tables(processed::AbstractString)
         "fg_limits"     => _read_csv(processed, "flowgates", "flowgate_limits.csv"),
         "fg_members"    => _read_csv(processed, "flowgates", "flowgate_members.csv"),
         "gen_reservoir" => _read_csv(processed, "hydro", "gen_reservoir.csv"),
+        "modom_flows"   => _read_csv(processed, "modom_results", "modom_branch_flows.csv"),
     )
+end
+
+"Ramas con flujo distinto de cero en la solución MODOM (red efectiva)."
+function _branches_with_modom_flow(t)::Set{String}
+    flows = t["modom_flows"]
+    activos = Set{String}()
+    cols = Set(String.(names(flows)))
+    for row in eachrow(t["branches"])
+        cc = replace(String(row.circuit_id), r"^[LT]" => "c")
+        for col in (String(row.from_bus) * "|" * String(row.to_bus) * "|" * cc,
+                    String(row.to_bus) * "|" * String(row.from_bus) * "|" * cc)
+            if col in cols && maximum(abs, skipmissing(flows[!, col]); init = 0.0) > 0.01
+                push!(activos, String(row.branch_id))
+                break
+            end
+        end
+    end
+    return activos
 end
 
 """
@@ -57,6 +76,7 @@ function build_seni_dispatch_system(
     _add_generators!(sys, t, timestamps, stats)
     _add_loads!(sys, t, timestamps, stats)
     _add_flowgates!(sys, t, stats)
+    _reconnect_deficient_islands!(sys, t, stats)
     _set_reference_bus!(sys, t)
 
     _report(sys, t, stats)
@@ -85,11 +105,17 @@ end
 function _add_branches!(sys::System, t, stats)
     arcs = Dict{Tuple{String,String},Arc}()
     stats["lineas"] = 0; stats["trafos"] = 0; stats["ramas_omitidas"] = 0
+    stats["ramas_por_flujo"] = 0
+    # la red EFECTIVA de MODOM incluye ramas marcadas fuera de servicio en el
+    # caso base pero con flujo real en su solución (19 detectadas)
+    con_flujo = _branches_with_modom_flow(t)
     for row in eachrow(t["branches"])
-        if !_bool(row.pypsa_v1_include)
+        forzada = String(row.branch_id) in con_flujo
+        if !_bool(row.pypsa_v1_include) && !forzada
             stats["ramas_omitidas"] += 1
             continue
         end
+        forzada && !_bool(row.pypsa_v1_include) && (stats["ramas_por_flujo"] += 1)
         fb = get_component(ACBus, sys, String(row.from_bus))
         tb = get_component(ACBus, sys, String(row.to_bus))
         if fb === nothing || tb === nothing || row.from_bus == row.to_bus
@@ -106,7 +132,7 @@ function _add_branches!(sys::System, t, stats)
         # rating en pu del sistema; fmax <= 0 o centinela grande = sin límite
         fmax = _num(row.fmax_mw, 0.0)
         rating = (fmax > 0 && fmax < 5_000) ? fmax / MODOM_SBASE : 99.99
-        available = string(row.operational_status) == "closed"
+        available = string(row.operational_status) == "closed" || forzada
         name = String(row.branch_id)
         # PSY no admite Line entre tensiones distintas (v_nom inferida en la
         # capa canónica) → esas ramas se modelan como Transformer2W
@@ -301,6 +327,96 @@ function _add_flowgates!(sys::System, t, stats)
     end
 end
 
+# ------------------------------------------------- reconexión de islas -------
+
+# La capa canónica marca fuera de servicio (caso base) algunos enlaces que en la
+# operación real están energizados: quedan islas con demanda asignada (VEROPE)
+# y sin generación, que MODOM sí sirve (su ENS ahí es 0). Reconexión mínima:
+# para cada isla deficitaria se reactiva/crea el enlace físico del catálogo de
+# ramas hacia la red principal, uno por isla y pasada, hasta eliminar el déficit.
+function _reconnect_deficient_islands!(sys::System, t, stats)
+    stats["ramas_reconectadas"] = 0
+    demanda = Dict{String,Float64}()
+    for g in groupby(t["loads"], :load_id)
+        demanda[String(first(g.load_id))] = maximum(_num.(g.p_set_mw, 0.0))
+    end
+    capacidad = Dict{String,Float64}()
+    for row in eachrow(t["generators"])
+        b = String(row.bus_id)
+        capacidad[b] = get(capacidad, b, 0.0) + _num(row.effective_pmax_mw, 0.0)
+    end
+
+    for _ in 1:20
+        # islas sobre ramas disponibles
+        uf_parent = Dict{String,String}()
+        _f(x) = (get!(uf_parent, x, x);
+                 while uf_parent[x] != x
+                     uf_parent[x] = uf_parent[uf_parent[x]]; x = uf_parent[x]
+                 end; x)
+        for b in get_components(ACBus, sys)
+            _f(get_name(b))
+        end
+        for T in (Line, Transformer2W), br in get_components(T, sys)
+            get_available(br) || continue
+            a = get_arc(br)
+            ra, rb = _f(get_name(get_from(a))), _f(get_name(get_to(a)))
+            ra != rb && (uf_parent[ra] = rb)
+        end
+        islas = Dict{String,Vector{String}}()
+        for b in get_components(ACBus, sys)
+            push!(get!(islas, _f(get_name(b)), String[]), get_name(b))
+        end
+        dem(v) = sum(get(demanda, x, 0.0) for x in v; init = 0.0)
+        cap(v) = sum(get(capacidad, x, 0.0) for x in v; init = 0.0)
+        main_root = argmax(k -> dem(islas[k]), collect(keys(islas)))
+        main_set = Set(islas[main_root])
+
+        reconectado = false
+        for (root, v) in islas
+            root == main_root && continue
+            dem(v) - cap(v) > 0.5 || continue
+            vset = Set(v)
+            # preferir enlace directo a la isla principal; si no hay, a cualquier
+            # otra isla (las pasadas sucesivas lo fusionan todo con la principal)
+            candidatos = NamedTuple[]
+            for row in eachrow(t["branches"])
+                fb, tb = String(row.from_bus), String(row.to_bus)
+                interno = (fb in vset) == (tb in vset)
+                interno && continue
+                a_main = (fb in main_set) || (tb in main_set)
+                push!(candidatos, (row = row, a_main = a_main))
+            end
+            isempty(candidatos) && continue
+            sort!(candidatos; by = c -> !c.a_main)
+            for c in candidatos[1:1]
+                row = c.row
+                name = String(row.branch_id)
+                br = get_component(Line, sys, name)
+                br === nothing && (br = get_component(Transformer2W, sys, name))
+                if br !== nothing
+                    set_available!(br, true)
+                else
+                    fbus = get_component(ACBus, sys, String(row.from_bus))
+                    tbus = get_component(ACBus, sys, String(row.to_bus))
+                    (fbus === nothing || tbus === nothing) && continue
+                    arc = Arc(fbus, tbus)
+                    add_component!(sys, arc)
+                    add_component!(sys, Transformer2W(; name = name * " (reconectada)",
+                        available = true, active_power_flow = 0.0,
+                        reactive_power_flow = 0.0, arc,
+                        r = max(_num(row.r_pu, 0.0), 0.0),
+                        x = max(abs(_num(row.x_pu, 1e-4)), 1e-5),
+                        primary_shunt = 0.0, rating = 99.99))
+                end
+                stats["ramas_reconectadas"] += 1
+                reconectado = true
+                break
+            end
+        end
+        reconectado || break
+    end
+end
+
 # ------------------------------------------------------------- referencia ----
 
 "Barra de referencia: la del generador térmico de mayor capacidad."
@@ -322,7 +438,9 @@ function _report(sys::System, t, stats)
     println("  Térmicos:    ", stats["termicos"], "  Hidro: ", stats["hidro"],
             "  Renovables: ", stats["renovables"], "  (omitidos: ", stats["gens_omitidos"], ")")
     println("  Cargas:      ", stats["cargas"], "  (omitidas: ", stats["cargas_omitidas"], ")")
-    println("  Flowgates:   ", stats["flowgates"])
+    println("  Flowgates:   ", stats["flowgates"],
+            "  Ramas por flujo MODOM: ", stats["ramas_por_flujo"],
+            "  Reconectadas (islas): ", stats["ramas_reconectadas"])
     # con NATURAL_UNITS los getters devuelven MW directamente
     cap(T) = sum(get_active_power_limits(g).max for g in get_components(T, sys); init = 0.0)
     println("  Capacidad térmica:   ", round(cap(ThermalStandard); digits = 1), " MW")
