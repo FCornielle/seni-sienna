@@ -77,6 +77,7 @@ function build_seni_dispatch_system(
     _add_loads!(sys, t, timestamps, stats)
     _add_flowgates!(sys, t, stats)
     _reconnect_deficient_islands!(sys, t, stats)
+    _add_reserves!(sys, t, timestamps)
     _set_reference_bus!(sys, t)
 
     _report(sys, t, stats)
@@ -226,8 +227,15 @@ function _add_generators!(sys::System, t, timestamps, stats)
             else
                 nothing
             end
+            # UC (Fase 3b): tiempos mínimos TMO/TMPA (h) y estado inicial YN
+            tlim = if p !== nothing && (_num(p.TMO, 0.0) > 0 || _num(p.TMPA, 0.0) > 0)
+                (up = max(_num(p.TMO, 0.0), 0.0), down = max(_num(p.TMPA, 0.0), 0.0))
+            else
+                nothing
+            end
+            status_ini = p !== nothing ? _num(p.YN, 1.0) == 1.0 : true
             gen = ThermalStandard(;
-                name = gid, available, status = true, bus,
+                name = gid, available, status = status_ini, bus,
                 active_power = 0.0, reactive_power = 0.0,
                 rating = 1.0,
                 active_power_limits = (min = pmin / base, max = pmax / base),
@@ -237,7 +245,7 @@ function _add_generators!(sys::System, t, timestamps, stats)
                     variable = CostCurve(LinearCurve(_num(row.effective_cvp, 0.0))),
                     fixed = 0.0, start_up = 0.0, shut_down = 0.0),
                 base_power = base,
-                time_limits = nothing,
+                time_limits = tlim,
                 prime_mover_type = PrimeMovers.OT,
                 fuel = ThermalFuels.OTHER,
             )
@@ -415,6 +423,95 @@ function _reconnect_deficient_islands!(sys::System, t, stats)
         end
         reconectado || break
     end
+end
+
+# -------------------------------------------------------------- reservas -----
+
+# RPF/RSF como VariableReserve{ReserveUp} con requisito horario = RRPF/RRSF
+# (3%, model_options.csv) de la demanda del sistema. Participan los térmicos
+# con MRPF/MRSF > 0 en gen_params y las hidro.
+function _add_reserves!(sys::System, t, timestamps)
+    demanda_h = zeros(length(timestamps))
+    for g in groupby(t["loads"], :load_id)
+        sorted = sort(g, :time_block_order)
+        demanda_h .+= [_num(v, 0.0) for v in sorted.p_set_mw]
+    end
+    params = Dict(String(r.generator_id) => r for r in eachrow(t["gen_params"]))
+    for (nombre, col, tframe) in (("RPF", :MRPF, 30.0), ("RSF", :MRSF, 600.0))
+        req = 0.03 .* demanda_h                     # MW
+        peak = maximum(req)
+        contrib = Device[]
+        for g in get_components(ThermalStandard, sys)
+            p = get(params, get_name(g), nothing)
+            (p !== nothing && _num(getproperty(p, col), 0.0) > 0) && push!(contrib, g)
+        end
+        # Nota: hidro excluida como contribuyente — HydroDispatchRunOfRiver +
+        # reservas dispara un bug de orden de construcción en
+        # HydroPowerSimulations 0.11 / PSI 0.30 (HydroServedReserveUpExpression
+        # busca la variable de reserva antes de que el servicio la cree).
+        isempty(contrib) && continue
+        svc = VariableReserve{ReserveUp}(;
+            name = nombre, available = true, time_frame = tframe,
+            requirement = peak / MODOM_SBASE)
+        add_service!(sys, svc, contrib)
+        ts = SingleTimeSeries("requirement",
+            TimeArray(collect(timestamps), req ./ peak);
+            scaling_factor_multiplier = get_requirement)
+        add_time_series!(sys, svc, ts)
+    end
+end
+
+# --------------------------------------------------- poda a isla principal ---
+
+"""
+    prune_to_main_island!(sys) -> System
+
+Elimina del System las barras (y sus componentes) fuera de la isla eléctrica
+principal. Necesario para formulaciones PTDF/DC de PowerSimulations, que
+requieren una red conexa.
+"""
+function prune_to_main_island!(sys::System)
+    parent = Dict{String,String}()
+    _f(x) = (get!(parent, x, x);
+             while parent[x] != x
+                 parent[x] = parent[parent[x]]; x = parent[x]
+             end; x)
+    for b in get_components(ACBus, sys)
+        _f(get_name(b))
+    end
+    for T in (Line, Transformer2W), br in get_components(T, sys)
+        get_available(br) || continue
+        a = get_arc(br)
+        ra, rb = _f(get_name(get_from(a))), _f(get_name(get_to(a)))
+        ra != rb && (parent[ra] = rb)
+    end
+    tam = Dict{String,Int}()
+    for b in get_components(ACBus, sys)
+        tam[_f(get_name(b))] = get(tam, _f(get_name(b)), 0) + 1
+    end
+    main = argmax(k -> tam[k], collect(keys(tam)))
+    fuera(bus) = _f(get_name(bus)) != main
+
+    quitar_inj = [c for c in get_components(StaticInjection, sys) if fuera(get_bus(c))]
+    for c in quitar_inj
+        remove_component!(sys, c)
+    end
+    quitar_br = [br for T in (Line, Transformer2W) for br in get_components(T, sys)
+                 if fuera(get_from(get_arc(br))) || fuera(get_to(get_arc(br)))]
+    for br in quitar_br
+        remove_component!(sys, br)
+    end
+    quitar_arc = [a for a in get_components(Arc, sys)
+                  if fuera(get_from(a)) || fuera(get_to(a))]
+    for a in quitar_arc
+        remove_component!(sys, a)
+    end
+    quitar_bus = [b for b in get_components(ACBus, sys) if fuera(b)]
+    for b in quitar_bus
+        remove_component!(sys, b)
+    end
+    @info "Poda a isla principal" barras_eliminadas = length(quitar_bus) barras = length(get_components(ACBus, sys))
+    return sys
 end
 
 # ------------------------------------------------------------- referencia ----

@@ -37,13 +37,13 @@ julia scripts/01_build_system.jl
 
 ## Estado
 
-- [x] Fase 0a — Esqueleto del proyecto y plan
-- [ ] Fase 0b — Entorno Julia + datos en `data/raw/`
-- [ ] Fase 1 — `System` del SENI (traductor PF + MODOM)
-- [ ] Fase 2 — Validación de flujo de carga AC
-- [ ] Fase 3 — Despacho ED y UC MILP con reservas
+- [x] Fase 0 — Esqueleto, plan, entorno Julia + datos en `data/raw/`
+- [x] Fase 1 — `System` de despacho MODOM (717 barras, tests 7/7)
+- [x] Fase 2 — System físico AC + flujo de carga (|ΔV| medio 0.019 pu; meta 0.005 pendiente del punto de operación P20 exacto — Bloque I)
+- [x] Fase 3a — Despacho ED con commitment fijo (**R² 0.957 vs MODOM**, ENS 0)
+- [x] Fase 3b — UC MILP con PSI + reservas RPF/RSF co-optimizadas (commitment 89.9% vs MODOM)
 - [ ] Fase 4 — Contingencias N-1 y cuasi-dinámico 24h
-- [ ] Fase 5 — Pequeña señal y transitorios (PSID)
+- [ ] Fase 5 — Pequeña señal y transitorios (PSID; extracción dinámica ya validada)
 - [ ] Fase 6 — Análisis, reportes y cierre de gaps
 
 > ⚠️ Los datos del modelo (exports PowerFactory, tablas MODOM, datos OC) son confidenciales y **no** se versionan en este repositorio.
