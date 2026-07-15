@@ -23,15 +23,12 @@ const PSY = PowerSystems
 # Fase 1 — System de despacho desde las tablas canónicas MODOM
 include("build_modom_system.jl")
 
-# Fase 2 — System físico desde el export PowerFactory (pendiente)
+# Fase 2 — System físico desde el export PowerFactory
 include("parse_powerfactory.jl")
-include("parse_modom.jl")
-include("timeseries.jl")
-include("build_system.jl")
 
 # Fase 5 — capa dinámica
 include("dynamics_library.jl")
 
-export build_seni_dispatch_system, build_seni_system
+export build_seni_dispatch_system, build_seni_physical_system
 
 end # module

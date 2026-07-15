@@ -89,6 +89,20 @@ Sobre el escenario de referencia (usar **P20**, demanda máxima, y anotar cuál 
 2. **RMS de referencia**: simulación con **pérdida del mayor generador en línea** (identificarlo del despacho del escenario): exportar `referencia_rms_frecuencia.csv` con `t_s, f_coi_hz, f_barras_clave` (paso ≤ 10 ms, 30 s) y `referencia_rms_tensiones.csv` con tensiones de 5–10 barras 138/345 kV
 3. **Flujo de carga del escenario**: `referencia_loadflow.csv` (barra, V_pu, ángulo) — para inicializar/validar la Fase 2
 
+## 8-bis. BLOQUE I — Punto de operación exacto del escenario (pendiente, para Fase 2)
+
+La validación del flujo AC detectó que el export `salida_PDD_*` fue tomado con un
+escenario distinto a P20 (demanda 3,645 vs 3,466 MW). Con el **mismo escenario y
+study case** usados para `referencia_loadflow.csv`, exportar:
+
+1. `escenario_P20_cargas.csv`: por carga (`for_name`, `ruta`): `P_MW, Q_Mvar, outserv`
+2. `escenario_P20_generacion.csv`: por generador síncrono y estático: `P_desp_MW,
+   Q_desp_Mvar, U_consigna_pu, num_unidades, outserv, ref_slack`
+3. `escenario_P20_taps.csv`: por trafo 2/3 devanados: `tap_actual` (posición del escenario)
+4. `comldf_opciones.json`: opciones del `ComLdf` usado en la referencia: dependencia
+   de tensión de cargas (iopt_lod / voltage dependency ON-OFF y exponentes), ajuste
+   automático de taps, cumplimiento de límites de reactiva, slack distribuido
+
 ## 9. Metadatos (`_META.json`)
 
 `proyecto, escenario_activo, fecha_extraccion, version_pf, conteos por clase, hash/fecha del PDD`.
