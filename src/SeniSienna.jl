@@ -29,6 +29,7 @@ include("parse_powerfactory.jl")
 # Fase 5 — capa dinámica
 include("dynamics_library.jl")
 
-export build_seni_dispatch_system, build_seni_physical_system, prune_to_main_island!
+export build_seni_dispatch_system, build_seni_physical_system, prune_to_main_island!,
+       attach_dynamic_models!
 
 end # module

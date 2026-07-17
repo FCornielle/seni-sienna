@@ -261,6 +261,7 @@ function build_seni_physical_system(
     # síncronos agregados por nodo, con límites de Q reales del tipo de máquina
     gtyp_by_name = Dict(_s(t.loc_name) => t for t in eachrow(tipos_g))
     agg = Dict{String,Dict{Symbol,Float64}}()
+    maquinas = Dict{String,Vector{NamedTuple}}()  # identidad para la capa dinámica
     for row in eachrow(gsinc)
         _inservice(row) || continue
         node = get(node_of, _s(row.barra_con_id), "")
@@ -275,12 +276,18 @@ function build_seni_physical_system(
                0.6 * _num(row.P_max_MW, 0.0) * nu
         qmin = typ !== nothing ? _num(typ.Q_min_Mvar, 0.0) * nu :
                -0.4 * _num(row.P_max_MW, 0.0) * nu
+        smva = typ !== nothing ? _num(typ.S_nom_MVA, 0.0) * nu :
+               max(_num(row.P_max_MW, 0.0), 1.0) * nu / 0.85
         a = get!(agg, node, Dict(:p => 0.0, :vm => vm, :pmax => -1.0,
-                                 :qmin => 0.0, :qmax => 0.0))
+                                 :qmin => 0.0, :qmax => 0.0, :smva => 0.0))
         a[:p] += p
         a[:qmin] += min(qmin, 0.0)
         a[:qmax] += max(qmax, 0.0)
+        a[:smva] += max(smva, 0.0)
         p > a[:pmax] && (a[:pmax] = p; a[:vm] = vm)
+        push!(get!(maquinas, node, NamedTuple[]),
+              (for_name = _s(row.for_name), loc_name = _s(row.loc_name),
+               p_mw = p, categoria = _s(row.categoria), n_unidades = nu))
     end
     slack_in_main = in_main(slack_node)
     stats["gens"] = 0
@@ -290,7 +297,7 @@ function build_seni_physical_system(
         set_bustype!(bus, is_slack ? ACBusTypes.REF : ACBusTypes.PV)
         set_magnitude!(bus, a[:vm])
         stats["gens"] += 1
-        add_component!(sys, ThermalStandard(;
+        gen = ThermalStandard(;
             name = "gen_" * string(stats["gens"]) * "_" * get_name(bus),
             available = true, status = true, bus,
             active_power = a[:p] / MODOM_SBASE, reactive_power = 0.0, rating = 99.9,
@@ -302,7 +309,12 @@ function build_seni_physical_system(
                 variable = CostCurve(LinearCurve(0.0)),
                 fixed = 0.0, start_up = 0.0, shut_down = 0.0),
             base_power = MODOM_SBASE, time_limits = nothing,
-            prime_mover_type = PrimeMovers.OT, fuel = ThermalFuels.OTHER))
+            prime_mover_type = PrimeMovers.OT, fuel = ThermalFuels.OTHER)
+        add_component!(sys, gen)
+        # identidad de las máquinas físicas del nodo + MVA total (capa dinámica)
+        ext = get_ext(gen)
+        ext["maquinas"] = get(maquinas, node, NamedTuple[])
+        ext["smva"] = a[:smva]
     end
     if !slack_in_main
         # respaldo: REF en la barra PV de mayor tensión
