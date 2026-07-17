@@ -29,7 +29,12 @@ include("parse_powerfactory.jl")
 # Fase 5 — capa dinámica
 include("dynamics_library.jl")
 
+# Fase 6 — veredictos del Código de Conexión
+include("verdicts.jl")
+
 export build_seni_dispatch_system, build_seni_physical_system, prune_to_main_island!,
-       attach_dynamic_models!
+       attach_dynamic_models!,
+       veredicto_tension, veredicto_sobrecargas, veredicto_amortiguamiento,
+       veredicto_nadir
 
 end # module
