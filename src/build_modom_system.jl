@@ -234,6 +234,12 @@ function _add_generators!(sys::System, t, timestamps, stats)
                 nothing
             end
             status_ini = p !== nothing ? _num(p.YN, 1.0) == 1.0 : true
+            # Costo de arranque: e_datgen no trae C^ARR explícito (el objetivo
+            # MODOM sí lo incluye) → estimación de ingeniería: combustible del
+            # proceso de arranque = CVP_ef × PMN × TARR (documentado)
+            cvp = _num(row.effective_cvp, 0.0)
+            tarr = p !== nothing ? max(_num(p.TARR, 1.0), 0.5) : 1.0
+            c_arr = cvp * pmin * tarr
             gen = ThermalStandard(;
                 name = gid, available, status = status_ini, bus,
                 active_power = 0.0, reactive_power = 0.0,
@@ -242,8 +248,8 @@ function _add_generators!(sys::System, t, timestamps, stats)
                 reactive_power_limits = (min = -0.4, max = 0.4),
                 ramp_limits = ramp,
                 operation_cost = ThermalGenerationCost(;
-                    variable = CostCurve(LinearCurve(_num(row.effective_cvp, 0.0))),
-                    fixed = 0.0, start_up = 0.0, shut_down = 0.0),
+                    variable = CostCurve(LinearCurve(cvp)),
+                    fixed = 0.0, start_up = c_arr, shut_down = 0.0),
                 base_power = base,
                 time_limits = tlim,
                 prime_mover_type = PrimeMovers.OT,
