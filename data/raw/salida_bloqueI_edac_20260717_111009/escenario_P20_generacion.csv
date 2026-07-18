@@ -1,0 +1,158 @@
+﻿clase,for_name,loc_name,barra_for_name,barra_loc_name,P_desp_MW,Q_desp_Mvar,U_consigna_pu,modo_ctrl_av,num_unidades,outserv,ref_slack
+sym,G4PALAM3,Palamara Grupo 3,,1,1.8279000520706177,0.0,0.9900000095367432,constv,4,0,0
+sym,G4PALAM2,Palamara Grupo 2,,R1,10.766400337219238,0.0,1.0,constv,2,0,0
+sym,G4PALAM1,Palamara Grupo 1,,L2,10.766400337219238,0.0,0.9900000095367432,constv,4,0,0
+sym,G4IKM22,INCA km 22 Grupo 1,,L1,4.331200122833252,0.0,1.0,constq,2,0,0
+sym,G5IKM22,INCA km 22 Grupo 2,,L2,5.737599849700928,0.0,1.0,constq,1,0,0
+sym,G5EMA3G1,EDM3 TG1,WEM31K,Terminal EDM3 TG1,48.0,0.0,0.9480000138282776,constv,1,0,0
+sym,G5EMA3G2,EDM3 TG2,WEM32K,Terminal EDM3 TG2,48.0,0.0,0.9480000138282776,constv,1,0,0
+sym,G5EMAR3V,EDM3 TV,WEM33K,Terminal EDM3 TV,48.0,0.0,1.0,constv,1,0,0
+sym,G4Q1SPED,Quisqueya 1 San Pedro,,E1,16.487499237060547,0.0,1.0,constv,4,0,0
+sym,G4QUIS12,Quisqueya 1 Grupo 2,,E15,17.076000213623047,0.0,1.0,constv,4,0,0
+sym,G4QUIS21,Quisqueya 2 Grupo 1,,E1,17.076000213623047,0.0,1.0,constv,4,0,0
+sym,G4QUIS22,Quisqueya 2 Grupo 2,,E15,17.076000213623047,0.0,1.0,constv,4,0,0
+sym,G4QUIS23,Quisqueya 2 Grupo 3,,E9,11.267999649047852,0.0,1.0,constv,4,0,0
+sym,G5QUISQ2,Quisqueya 2 TV,,E13,1.000000013351432e-10,0.0,1.0,constq,1,1,0
+sym,G4QUIS13,Quisqueya 1 Grupo 3,,E9,17.076000213623047,0.0,1.0,constv,4,0,0
+sym,G5QUISQ1,Quisqueya 1 TV,,E13,8.892000198364258,0.0,1.0,constv,1,0,0
+sym,G3PCATA1,Punta Catalina 1,WPCA1K,Terminal Punta Catalina 1,339.989990234375,164.66468811035156,1.0499999523162842,constv,1,0,1
+sym,G3PCATA2,Punta Catalina 2,WPCA2K,Terminal Punta Catalina 2,359.989990234375,174.3511199951172,1.0499999523162842,constv,1,0,0
+sym,G4SESTE3,Sultana del Este Grupo 3,WSES3K,Terminal Sultana del Este 3,1.000000013351432e-10,6.00007751816456e-11,1.0,constv,3,1,0
+sym,G4SESTE1,Sultana del Este Grupo 1,WSES1K,Terminal Sultana del Este 1,14.5,0.0,1.0,constv,3,0,0
+sym,G4SESTE2,Sultana del Este Grupo 2,WSES2K,Terminal Sultana del Este 2,1.000000013351432e-10,0.0,1.0,constv,4,1,0
+sym,G3CESPM3,CESPM 3,WCES3K,Terminal CESPM 3,87.30000305175781,0.0,1.0,constv,1,0,0
+sym,G3CESPM2,CESPM 2,WCES2K,Terminal CESPM 2,87.30000305175781,0.0,1.0199999809265137,constv,1,0,0
+sym,G3CESPM1,CESPM 1,WCES1K,Terminal CESPM 1,87.30000305175781,0.0,1.0199999809265137,constv,1,0,0
+sym,G3ENE4TG,ENERGAS 4 TG,WXEN4K,Terminal ENERGAS 4 TG,40.0,0.0,1.0199999809265137,constv,1,0,0
+sym,G3ENE4TV,ENERGAS 4 TV,WXEV4K,Terminal ENERGAS 4 TV,1.000000013351432e-10,0.0,1.0199999809265137,constv,1,1,0
+sym,G3BERSAL,Bersal,,R1,1.909999966621399,0.0,1.0,constq,4,0,0
+sym,G4LOPPL1,Los Orígenes Power Plant Grupo 1,WLORIK,Terminal Los Orígenes,2.130000114440918,0.0,1.0,constq,3,0,0
+sym,G4LOPPL2,Los Orígenes Power Plant Grupo 2,WLORIK,Terminal Los Orígenes,17.18000030517578,0.0,1.0490000247955322,constv,2,0,0
+sym,G3SPBIOE,San Pedro Bio-Energy,,R1,30.0,14.529670715332031,1.0499999523162842,constv,1,0,0
+sym,G3CEMON2,Contra Embalse Monción 2,WCEMOK,Terminal Contra Embalse Monción,0.75,0.36324170231819153,1.0,constq,1,0,0
+sym,G3CEMON1,Contra Embalse Monción 1,WCEMOK,Terminal Contra Embalse Monción,0.75,0.36324170231819153,1.0,constq,1,0,0
+sym,G3MONCI2,Monción 2,WMONCK,Terminal Monción,22.309999465942383,0.0,1.0,constv,1,0,0
+sym,G3MONCI1,Monción 1,WMONCK,Terminal Monción,19.399999618530273,0.0,1.0,constq,1,0,0
+sym,G3PIMEN3,Pimentel 3,WPIM3K,Terminal Pimentel Grupo 3,8.526670455932617,0.0,1.0,constq,3,0,0
+sym,G3PIMEN2,Pimentel 2,,R2,3.944999933242798,0.0,1.0,constv,4,0,0
+sym,G3PIMEN1,Pimentel 1,,L2,3.055000066757202,0.0,1.0,constv,4,0,0
+sym,G3LANGOS,López Angostura,WLANGK,Terminal López Angostura,4.0,0.0,1.0,constv,1,0,0
+sym,G3BAIGU2,Baiguaque 2,WBAI1K,Terminal 1 Baiguaque,1.000000013351432e-10,3.2868412852549156e-11,1.0,constq,1,1,0
+sym,G3BAIGU1,Baiguaque 1,WBAI1K,Terminal 1 Baiguaque,0.10000000149011612,0.04843222349882126,1.0,constq,1,0,0
+sym,G3TAVER2,Tavera 2,WTAV2K,Terminal Tavera 2,45.099998474121094,0.0,1.0,constq,1,0,0
+sym,G3TAVER1,Tavera 1,WTAV1K,Terminal Tavera 1,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3SFELIG,San Felipe TG,,WSFEGK(7),1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3SFV,San Felipe Vapor,WSFEVK,Terminal San Felipe Vapor,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3PIMEN4,Pimentel 4,WXPI4K,Terminal Pimentel 4,17.55500030517578,0.0,1.0,constv,2,0,0
+sym,G3LTORO1,Los Toros 1,WLTO1K,Terminal Los Toros,1.000000013351432e-10,6.00007751816456e-11,1.0,constq,1,1,0
+sym,G3LTORO2,Los Toros 2,WLTO1K,Terminal Los Toros,1.000000013351432e-10,3.2868412852549156e-11,1.0,constq,1,1,0
+sym,G3NNAJAY,Nizao Najayo,WXNNAK,Terminal Nizao-Najayo,1.000000013351432e-10,4.843220963168804e-11,1.0,constq,1,1,0
+sym,G3LANONE,Los Anones,WXLANK,Terminal Los Anones,1.000000013351432e-10,4.843220963168804e-11,1.0,constq,1,1,0
+sym,G3SYEGUA,Sabana Yegua,WSYEGK,Terminal Sabana Yegua,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3SABANE,Sabaneta,WSABAK,Terminal Sabaneta,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3MAGUE2,Magueyal 2,WMAGUK,Terminal Magueyal,1.000000013351432e-10,4.843220963168804e-11,1.0,constq,1,1,0
+sym,G3MAGUE1,Magueyal 1,WMAGUK,Terminal Magueyal,1.000000013351432e-10,4.843220963168804e-11,1.0,constq,1,1,0
+sym,G3LDAMAS,Las Damas,,WLDAMK(10),1.840000033378601,0.8911530375480652,1.0,constv,1,0,0
+sym,G3DRODR2,Domingo Rodríguez 2,WDRODL,Terminal Domingo Rodríguez 2,1.000000013351432e-10,3.2868412852549156e-11,1.0,constq,1,1,0
+sym,G3DRODR1,Domingo Rodríguez 1,WDRODL,Terminal Domingo Rodríguez 2,1.000000013351432e-10,3.2868412852549156e-11,1.0,constq,1,1,0
+sym,G3HTG,Haina TG,WHAIGK,Terminal Haina TG,1.000000013351432e-10,0.0,1.0,constq,1,1,0
+sym,G3VALDE2,Valdesia 2,WVAL2K,Terminal Valdesia 2,1.000000013351432e-10,0.0,1.0,constq,1,1,0
+sym,G3VALDE1,Valdesia 1,WVAL1K,Terminal Valdesia 1,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3LBARIA,Las Barías,WLBARK,Terminal Las Barías,1.000000013351432e-10,4.843220963168804e-11,1.0,constq,1,1,0
+sym,G3BCARBO,Barahona Carbón,WBCARK,Terminal Barahona Carbón,50.0,0.0,1.0,constv,1,0,0
+sym,G3JIGUE2,Jigüey 2,WJIG2K,Terminal Jigüey 2,37.349998474121094,0.0,1.0,constv,1,0,0
+sym,G3JIGUE1,Jigüey 1,WJIG1K,Terminal Jigüey 1,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3AGUAC2,Aguacate 2,WAGU2K,Terminal Aguacate 2,27.15999984741211,0.0,1.0,constq,1,0,0
+sym,G3AGUAC1,Aguacate 1,WAGU1K,Terminal Aguacate 1,25.0,0.0,1.0,constq,1,0,0
+sym,G4MRIO3,Monte Río Grupo 2,WMRI3K,Terminal Monte Río 3,5.764510154724121,0.0,1.0199999809265137,constv,7,0,0
+sym,G4MRIO1,Monte Río Grupo 1,WMRI1K,Terminal Monte Río 1,7.806399822235107,0.0,1.0199999809265137,constv,6,0,0
+sym,G3ITABO2,Itabo 2,WITA2K,Terminal Itabo 2,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3ITABO1,Itabo 1,WITA1K,Terminal Itabo 1,120.0,0.0,1.0,constv,1,0,0
+sym,G3SLORE1,San Lorenzo 1,,1,1.000000013351432e-10,0.0,1.0,constv,1,1,0
+sym,G3PALOM2,Palomino 2,WPLM1K,Terminal Palomino 1,35.0,0.0,1.0199999809265137,constv,1,0,0
+sym,G3PALOM1,Palomino 1,WPLM2K,Terminal Palomino 2,1.000000013351432e-10,0.0,1.0199999809265137,constv,1,1,0
+sym,G4PAK262,POWERSHIP AZUA KPS26 2,WXPA2K,Terminal POWERSHIP AZUA KPS26 2,16.75527000427246,8.114946365356445,1.0,constv,3,0,0
+sym,G4PAK261,POWERSHIP AZUA KPS26 1,WXPA1K,Terminal POWERSHIP AZUA KPS26 1,18.164730072021484,8.797582626342773,1.0,constv,3,0,0
+sym,G4PAK601,POWERSHIP AZUA KPS60,WXPA3K,Terminal Powership Azua KPS60,18.464550018310547,8.942789077758789,1.0,constv,4,0,0
+sym,G5PAK6TV,POWERSHIP AZUA TV,WXPA3K,Terminal Powership Azua KPS60,1.4817999601364136,0.7176684737205505,1.0,constv,1,0,0
+sym,G3PALENQ,Palenque,WPAQ2K,Terminal Palenque 2,6.0,2.9059336185455322,1.0499999523162842,constv,4,0,0
+sym,G4PAK561,POWERSHIP AZUA KPS56,WXPA4K,Terminal POWERSHIP AZUA KPS56,8.125,3.93511700630188,1.0,constv,8,0,0
+sym,G3LMINA6,Los Mina 6,WLMI6K,Terminal Los Mina 6,101.09124755859375,0.0,1.0,constv,1,0,0
+sym,G5AANDRV,AES Andrés TV,WAANVK,Terminal AES Andrés Vapor,100.80999755859375,0.0,1.0,constv,1,0,0
+sym,G5AANDRG,AES Andrés TG,WAANGK,Terminal AES Andrés Gas,195.69000244140625,0.0,1.0,constv,1,0,0
+sym,G3METALD,METALDOM,WMETAK,Terminal METALDOM,9.729999542236328,0.0,0.9900000095367432,constv,4,0,0
+sym,G3LMINA5,Los Mina 5,WLMI5K,Terminal Los Mina 5,101.09124755859375,0.0,1.0,constv,1,0,0
+sym,G4EMAR21,EDM2 Grupo 1,,L1,18.14324951171875,0.0,1.0,constq,3,0,0
+sym,G4EMAR22,EDM2 Grupo 2,,R1,16.35342025756836,0.0,1.0,constq,3,0,0
+sym,G4EMAR23,EDM2 TV,,R4,1.000000013351432e-10,0.0,1.0,constq,1,1,0
+sym,G3LMINA7,Los Mina 7,WLMI7K,Terminal Los Mina 7,108.86750030517578,52.72693634033203,1.0,constv,1,0,0
+sym,G4SIBA1,SIBA Grupo 1,WXSI1K,Terminal SIBA Grupo 1,0.5699999928474426,0.27606356143951416,1.0,constv,2,0,0
+sym,G4SIBA2,SIBA Grupo 2,WXSI2K,Terminal SIBA Grupo 2,16.700000762939453,8.08818244934082,1.0,constv,2,0,0
+sym,G4SIBA3,SIBA Grupo 3,WXSI3K,Terminal SIBA Grupo 3,1.000000013351432e-10,0.0,1.0,constv,2,1,0
+sym,G4SIBA4,SIBA Grupo 4,WXSI4K,Terminal SIBA Grupo 4,16.700000762939453,8.08818244934082,1.0,constv,2,0,0
+sym,G4SIBA6,SIBA Grupo 6,WXSI6K,Terminal SIBA Grupo 6,25.0,12.108054161071777,1.0,constv,2,0,0
+sym,G4SIBA5,SIBA Grupo 5,WXSI5K,Terminal SIBA Grupo 5,16.700000762939453,8.08818244934082,1.0,constv,2,0,0
+sym,G3PINAL2,Pinalito 2,WPIN2K,Terminal Pinalito 2,24.25,14.550185203552246,1.0490000247955322,constv,1,0,0
+sym,G3PINAL1,Pinalito 1,WPIN1K,Terminal Pinalito 1,1.000000013351432e-10,5.933650792933065e-11,1.0490000247955322,constv,1,1,0
+sym,G3RBLAN2,Río Blanco 2,WRBLCK,Terminal Río Blanco Secc. C,12.130000114440918,7.278094291687012,1.0490000247955322,constv,1,0,0
+sym,G3RBLAN1,Río Blanco 1,WRBLAK,Terminal Río Blanco Secc. A,1.000000013351432e-10,5.933650792933065e-11,1.0490000247955322,constv,1,1,0
+sym,G3RINCON,Rincón,WRINCK,Terminal Rincón,1.000000013351432e-10,6.00007751816456e-11,1.0,constv,1,1,0
+sym,G3RJCRUZ,Rosa Julia De La Cruz,WRJCRK,Terminal Rosa Julia De La Cruz,1.000000013351432e-10,3.2868412852549156e-11,1.0,constq,1,1,0
+sym,G3ESALTO,El Salto,WESALK,Terminal El Salto,1.000000013351432e-10,4.843220963168804e-11,1.0,constq,1,1,0
+sym,G4LVEGA1,La Vega Grupo 1,,R2,18.42799949645996,1.4306477308273315,1.0,constq,3,0,0
+sym,G4LVEGA2,La Vega Grupo 2,,L2,6.478000164031982,0.0,1.0499999523162842,constv,2,0,0
+sym,G3AVARG1,Aniana Vargas 1,WAVA1K,Terminal Aniana Vargas,1.000000013351432e-10,3.2868412852549156e-11,1.0,constq,1,1,0
+sym,G3AVARG2,Aniana Vargas 2,WAVA1K,Terminal Aniana Vargas,0.10000000149011612,0.0328684076666832,1.0,constq,1,0,0
+sym,G3JIMENO,Jimenoa,WJIMEK,Terminal Jimenoa,5.820000171661377,0.0,1.0,constv,1,0,0
+sym,G3HATILL,Hatillo 1,WHATIK,Terminal Hatillo 1,7.760000228881836,2.5505905151367188,1.0,constv,1,0,0
+sym,G3HATIL2,Hatillo 2,,2,1.000000013351432e-10,6.00007751816456e-11,1.0,constq,1,1,0
+sym,G3BDEREC,Brazo Derecho,WBDERK,Terminal Brazo Derecho,1.000000013351432e-10,4.843220963168804e-11,1.0,constv,1,1,0
+genstat,G3MPSOLA,Monte Plata Solar,,5,0.0,0.0,1.0499999523162842,constv,1,1,0
+genstat,G7EMAR31,SA 1 EDM3,WEM31K,Terminal EDM3 TG1,1.000000013351432e-10,0.0,1.0,constq,1,1,0
+genstat,G7EMAR32,SA 2 EDM3,WEM32K,Terminal EDM3 TG2,1.000000013351432e-10,0.0,1.0,constq,1,1,0
+genstat,G3PFMPAL,Mata de Palma Solar,WMPALK,Terminal Mata de Palma,0.0,0.0,1.0,constq,21,1,0
+genstat,G3PFMART,PF Martí,WMARTK,Terminal Martí,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFMARA,PF Maranatha,WMARAK,Terminal Maranatha,0.0,0.0,1.0,constq,2,1,0
+genstat,G4PFCUM4,PF Cumayasa 4,WXCU4K,Terminal Cumayasa 4,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFCUM2,PF Cumayasa 2,WXCU2K,Terminal PF Cumayasa 2,0.0,0.0,1.0,constq,5,1,0
+genstat,G3PFCUM1,PF Cumayasa 1,WXCU1K,Terminal PF Cumayasa 1,0.0,0.0,1.0,constq,9,1,0
+genstat,G3ESOCO,El Soco,WXESOK,Terminal Parque Solar El Soco,0.0,0.0,1.0,constq,11,1,0
+genstat,G3PFCOT1,PF Cotoperí 1,WCSO1K,Terminal PF Cotoperí 1,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFCOT2,PF Cotoperí 2,WCSO2K,Terminal PF Cotoperí 2,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFCOT3,PF Cotoperí 3,WCSO3K,Terminal PF Cotoperí 3,0.0,0.0,1.0,constq,8,1,0
+genstat,G4PFCOA2,PF Coastal G2,WCOA2K,Terminal Coastal 2,0.0,0.0,1.0,constq,6,1,0
+genstat,G4PFCOA1,PF Coastal G1,WCOA1K,Terminal Coastal,0.0,0.0,1.0,constq,7,1,0
+genstat,G3PFSAJO,Parque Fotovoltaico SAJOMA,WXPFSK,Terminal PF SAJOMA,0.0,0.0,1.0,constq,9,1,0
+genstat,G4PFMSO2,Monte Cristi Solar Grupo 2,,R3,0.0,0.0,1.0,constq,12,1,0
+genstat,G4PFMSO1,Monte Cristi Solar Grupo 1,,L3,0.0,0.0,1.0,constq,11,1,0
+genstat,G3PEACLA,Agua Clara,WACLAK,Terminal Agua Clara,0.12399999797344208,0.0,1.0,constq,25,0,0
+genstat,G3PEGUAN,Guanillo,WGNLLK,Terminal Guanillo,0.35679998993873596,0.0,1.0,constq,25,0,0
+genstat,G3PELGUZ,Los Guzmancito,WLGUZK,Terminal Los Guzmancito,0.11059000343084335,0.0,1.0,constq,17,0,0
+genstat,G3PELGU2,Los Guzmancito 2,WLGU2K,Terminal Los Guzmancito 2,0.18614999949932098,0.0,1.0,constq,13,0,0
+genstat,G3PFMATR,Parque Fotovoltaico MATRISOL,WXMATK,Terminal MATRISOL,0.0,0.0,1.0,constq,11,1,0
+genstat,G3PSESPE,PS Esperanza,WXPS1K,Terminal 1 Parque Solar Esperanza,0.0,0.0,1.0,constq,18,1,0
+genstat,,SBX_20260708_161425_e01931_PV,,1,0.0,0.0,1.0,constq,1,1,0
+genstat,,BESS,,1,2.5,0.0,1.0,constq,1,0,0
+genstat,G3SCANOA,Solar Canoa,WSCANK,Terminal Canoa Solar,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFLUCI,PF Lucila,WXLUCK,Terminal Lucila,0.0,0.0,1.0,constq,2,1,0
+genstat,G3LCOCO2,Los Cocos 2,,R2,0.02346000075340271,3.7975775302179215e-11,1.0,constq,26,0,0
+genstat,G3QCABRE,Quilvio Cabrera,,L3,0.06599999964237213,5.007656442290731e-11,1.0,constq,5,0,0
+genstat,G3JCOCO1,Juancho Los Cocos 1,,L4,0.010379999876022339,7.080901143208251e-11,1.0,constq,26,0,0
+genstat,G3PELARI,Larimar,,L2,0.17399999499320984,3.7975775302179215e-11,1.0,constq,15,0,0
+genstat,G3PELAR2,Larimar 2,,R3,0.11714000254869461,3.7975775302179215e-11,1.0,constq,14,0,0
+genstat,G3PFLNEG,Parque Fotovoltaico Los Negros,WMRI2K,Terminal Monte Río 2,0.0,0.0,1.0,constq,3,1,0
+genstat,G3PFBAYA,Bayasol,WBAYAK,Terminal Bayasol,0.0,0.0,1.0,constq,13,1,0
+genstat,G4PSGIR1,Girasol Grupo 1,,L2,0.0,0.0,1.0,constq,12,1,0
+genstat,G4PSGIR2,Girasol Grupo 2,,R1,0.0,0.0,1.0,constq,16,1,0
+genstat,G3SANTAS,Santanasol,WSANTK,Terminal Santanasol,0.0,0.0,1.0,constq,15,1,0
+genstat,G3PFCALA,PF Calabaza 1,WXCA1K,Terminal PF Calabaza 1,0.0,0.0,1.0,constq,17,1,0
+genstat,G3PEMAT2,PE Matafongo 2,WMTFNK,Terminal Matafongo,0.07244999706745148,0.0,1.0,constq,3,0,0
+genstat,G3PEMATA,PE Matafongo,WMTFNK,Terminal Matafongo,0.027799999341368675,0.0,1.0,constq,17,0,0
+genstat,G3PFPER1,PF Peravia I,WPES1K,Terminal Peravia Solar 1,0.0,0.0,1.0,constq,12,1,0
+genstat,G3PFPER2,PF Peravia II,WPES2K,Terminal Peravia Solar 2,0.0,0.0,1.0,constq,12,1,0
+genstat,G6PEMINA,SA PE Los Mina,WXSALMK,Terminal SA PE Los Mina,1.000000013351432e-10,0.0,1.0,constq,1,0,0
+genstat,G6AANDRE,Sistema Almacenamiento AES Andrés,WXBAAK,Terminal BESS AES Andrés,1.000000013351432e-10,0.0,1.0,constq,1,0,0
+genstat,G3PFWCA2,PF Washington Capital 2,WXWC2K,Terminal Washington Capital Solar Park 2,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFWCA3,PF Washington Capital 3,WXWC3K,Terminal Washington Capital Solar Park 3,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFVICT,PF La Victoria,WLVICK,Terminal La Victoria,0.0,0.0,1.0,constq,8,1,0
+genstat,G3PFMIRA,Mirasol,WMIRAK,Terminal Mirasol,0.0,0.0,1.0,constq,17,1,0

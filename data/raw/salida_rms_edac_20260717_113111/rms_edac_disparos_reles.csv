@@ -1,0 +1,15 @@
+﻿t_s,objeto,mensaje
+1.0,Expansión 345 kV\Punta Catalina\Terminal Punta Catalina 2\Cub_1\G3PCATA2-Q1.StaSwitch,Circuit-Breaker Action: 'Open' - 'All phases'.
+3.202,SUR 69 kV\3190\WSJUAF(2)\WBSJUAF(2)\SAN JUAN.ElmRelay,Relay is tripping. 'EDS 1 Logic' signal is sent to the connected breaker(s).
+3.202,SUR 69 kV\3220\1\Cub_1\BARAHONA.ElmRelay,Relay is tripping. 'EDS 1 Logic' signal is sent to the connected breaker(s).
+3.222,CENTRAL 69 kV\1150\R2\Cub_1\KILOMETRO 10.5 B.ElmRelay,Relay is tripping. 'EDS 1 Logic' signal is sent to the connected breaker(s).
+3.222,CENTRAL 138 kV\1220\WEMBAE(3)\WBEMBAE\EMBAJADOR.ElmRelay,Relay is tripping. 'EDS 1 Logic' signal is sent to the connected breaker(s).
+3.222,CENTRAL 138 kV\1801\L3\Cub_1\UASD 138.ElmRelay,Relay is tripping. 'EDS 1 Logic' signal is sent to the connected breaker(s).
+3.232,CENTRAL 138 kV\Villa Duarte\1540\E2\Cub_1\VILLA DUARTE 138.ElmRelay,Relay is tripping. 'EDE 1 Logic' signal is sent to the connected breaker(s).
+3.242,Expansión 345 kV\PVDC\2475\L2\Cub_1\PVDC MINA.ElmRelay,Relay is tripping. 'UNR 1 Logic' signal is sent to the connected breaker(s).
+3.242,NORTE 138 kV\ZF Santiago\2740\E4\Cub_1\ZF SANTIAGO.ElmRelay,Relay is tripping. 'EDN 1 Logic' signal is sent to the connected breaker(s).
+3.242,NORTE 138 kV\Canabacoa\2400\L4\Cub_2\CANABACOA.ElmRelay,Relay is tripping. 'EDN 1 Logic' signal is sent to the connected breaker(s).
+3.252,NORTE 69 kV\2370\5\Cub_1\PUERTO PLATA.ElmRelay,Relay is tripping. 'EDN 1 Logic' signal is sent to the connected breaker(s).
+3.252,ESTE 138 kV\4560\3\Cub_1\HIGUEY 138.ElmRelay,Relay is tripping. 'EDE 1 Logic' signal is sent to the connected breaker(s).
+3.252,ESTE 138 kV\La Romana\4520\3\Cub_1\LA ROMANA 138.ElmRelay,Relay is tripping. 'EDE 1 Logic' signal is sent to the connected breaker(s).
+3.252,ESTE 138 kV\San Pedro\4010\2\Cub_1\SAN PEDRO DE MACORIS.ElmRelay,Relay is tripping. 'EDE 1 Logic' signal is sent to the connected breaker(s).

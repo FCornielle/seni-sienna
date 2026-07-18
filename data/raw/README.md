@@ -33,3 +33,25 @@ Todo lo que esté en esta carpeta (excepto este README) está excluido por `.git
 
 Estado actual: `salida_PDD_30_09_2025/`, `processed/`, `buses_with_coords.csv`
 y el workbook MODOM ya están copiados.
+
+---
+
+## Excepción 2026-07-17 — extracción hecha en la VM (transferencia vía repo)
+
+Por decisión del dueño del repo, las tres carpetas de la sesión de extracción
+en la VM con DIgSILENT **sí se commitearon** (añadidas con `git add -f`) para
+sacarlas de la VM. Son:
+
+| Carpeta | Contenido | Lo usa |
+|---|---|---|
+| `salida_bloqueI_edac_20260717_111009/` | **Bloque I**: `escenario_P20_{cargas,generacion,taps}.csv`, `comldf_opciones.json` + **EDAC**: `edac_detalle.csv`, `edac_aguas_abajo.csv`, `edac_mw_por_escenario.csv` (P01–P24), `escenarios_demanda.csv` | Fase 2 (cerrar meta 0.005 pu) y v2 dinámica (sobredeslastre) |
+| `salida_rms_edac_20260717_113111/` | RMS pérdida PC2 con protecciones activas: `rms_edac_series.csv` (f barras, speeds, P cargas EDAC), `rms_edac_disparos_reles.csv` (13 relés etapa 1 a t≈3.2 s), `rms_edac_output.txt` | Fase 5 / validación EDAC en PSID |
+| `salida_oarray_20260717_231716/` | `dsl_tablas.csv`: 79 tablas IntMat (FRT eólicos, límites de corriente, governor MAN) | Fase 5 (afinar WECC genéricos) |
+
+**En la PC principal**: un `git pull` deja las carpetas ya en su lugar
+(`data/raw/`). Hallazgos y guía de lectura: `validation/extraccion_vm_20260717.md`.
+
+**Después de transferir** (opcional, recomendado): sacarlas del versionado para
+volver a la regla general — `git rm -r --cached data/raw/salida_bloqueI_edac_20260717_111009 data/raw/salida_rms_edac_20260717_113111 data/raw/salida_oarray_20260717_231716`
+y commitear; los archivos quedan en disco. (Nota: seguirán en el historial de
+git salvo reescritura del historial.)
