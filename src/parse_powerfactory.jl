@@ -16,6 +16,93 @@
 # interruptores, porque el objetivo es reproducir el flujo de PowerFactory
 # (referencia_loadflow.csv del escenario P20), que excluye lo fuera de servicio.
 
+# ------------------- controladores de estación (ElmStactrl) ------------------
+
+# Especificación del control secundario de tensión: cada controlador define un
+# nodo piloto con consigna y las barras PV de las máquinas que lo regulan. La
+# emulación fiel se hace ITERANDO el flujo (script 02): las máquinas siguen PV
+# en sus terminales y sus consignas se ajustan hasta clavar el nodo piloto —
+# así el reactivo fluye desde los terminales reales, no desde el piloto.
+function _station_control_spec(stactrl_csv, forname_to_node, in_main,
+                               bus_of_node, gens_by_node, maquinas)
+    df = _read_csv(dirname(stactrl_csv), basename(stactrl_csv))
+    fn2node = Dict{String,String}()
+    for (node, ms) in maquinas, m in ms
+        isempty(m.for_name) || (fn2node[m.for_name] = node)
+    end
+    spec = NamedTuple[]
+    for row in eachrow(df)
+        _num(row.outserv, 0.0) == 1.0 && continue
+        _num(row.i_ctrl, 99.0) == 0.0 || continue     # solo control de tensión
+        pilot = get(forname_to_node, uppercase(_s(row.barra_ctrl_for)), "")
+        (isempty(pilot) || !in_main(pilot)) && continue
+        vset = _num(row.usetp_pu, 1.0)
+        (0.9 <= vset <= 1.1) || continue
+        nodes = unique(filter(!isempty,
+            [get(fn2node, _s(fn), "") for fn in split(_s(row.generadores_for), ";")]))
+        nodes = [n for n in nodes if in_main(n) && haskey(gens_by_node, n)]
+        isempty(nodes) && continue
+        push!(spec, (nombre = _s(row.stactrl_loc_name),
+                     pilot_bus = get_name(bus_of_node[pilot]),
+                     vset = vset,
+                     member_buses = [get_name(get_bus(gens_by_node[n])) for n in nodes]))
+    end
+    return spec
+end
+
+# --------------------- punto de operación exacto (Bloque I) ------------------
+
+# Sobrescribe en los DataFrames del export el estado del escenario extraído en
+# la VM: cargas por `ruta`; generación por `for_name` (respaldo `loc_name`);
+# taps por `ruta`. Así el flujo AC se compara contra la referencia PF del MISMO
+# punto de operación (P20), no el del escenario con que se tomó el export.
+function _apply_op_point!(cargas, gsinc, gest, trafos, op_dir)
+    op_c = _read_csv(op_dir, "escenario_P20_cargas.csv")
+    por_ruta = Dict(_s(r.ruta) => r for r in eachrow(op_c))
+    n = 0
+    for row in eachrow(cargas)
+        r = get(por_ruta, _s(row.ruta), nothing)
+        r === nothing && continue
+        row.P_MW = _num(r.P_MW, 0.0)
+        row.Q_Mvar = _num(r.Q_Mvar, 0.0)
+        row.outserv = _num(r.outserv, 0.0)
+        n += 1
+    end
+    op_g = _read_csv(op_dir, "escenario_P20_generacion.csv")
+    por_for = Dict{String,Any}(); por_loc = Dict{String,Any}()
+    for r in eachrow(op_g)
+        fn = _s(r.for_name)
+        isempty(fn) || (por_for[string(r.clase, "|", fn)] = r)
+        por_loc[string(r.clase, "|", _s(r.loc_name))] = r
+    end
+    ng = 0
+    for (df, clase) in ((gsinc, "sym"), (gest, "genstat"))
+        for row in eachrow(df)
+            r = get(por_for, string(clase, "|", _s(row.for_name)),
+                get(por_loc, string(clase, "|", _s(row.loc_name)), nothing))
+            r === nothing && continue
+            row.P_desp_MW = _num(r.P_desp_MW, 0.0)
+            row.Q_desp_Mvar = _num(r.Q_desp_Mvar, 0.0)
+            row.U_consigna_pu = _num(r.U_consigna_pu, 1.0)
+            row.num_unidades = _num(r.num_unidades, 1.0)
+            row.outserv = _num(r.outserv, 0.0)
+            clase == "sym" && (row.ref_slack = _num(r.ref_slack, 0.0))
+            ng += 1
+        end
+    end
+    op_t = _read_csv(op_dir, "escenario_P20_taps.csv")
+    por_ruta_t = Dict(_s(r.ruta) => r for r in eachrow(op_t))
+    nt = 0
+    for row in eachrow(trafos)
+        r = get(por_ruta_t, _s(row.ruta), nothing)
+        r === nothing && continue
+        row.tap_actual = _num(r.tap_actual, 0.0)
+        row.outserv = _num(r.outserv, 0.0)
+        nt += 1
+    end
+    @info "Punto de operación aplicado (Bloque I)" cargas = n generadores = ng taps = nt
+end
+
 "Union-find sobre strings."
 mutable struct _UF
     parent::Dict{String,String}
@@ -48,6 +135,10 @@ cruzar resultados con la referencia de PowerFactory y con las 717 barras MODOM.
 function build_seni_physical_system(
     raw_dir::AbstractString;
     export_name::AbstractString = "salida_PDD_30_09_2025",
+    op_dir::Union{Nothing,AbstractString} = nothing,  # Bloque I: punto de operación exacto
+    stactrl_csv::Union{Nothing,AbstractString} = joinpath(
+        raw_dir, "salida_dinamica_20260714", "salida_dinamica_20260714_203429",
+        "stactrl.csv"),                               # controladores de estación (remota)
 )
     d = joinpath(raw_dir, export_name)
     barras = _read_csv(d, "barras.csv")
@@ -60,6 +151,7 @@ function build_seni_physical_system(
     gest = _read_csv(d, "generadores_est.csv")
     shunts = _read_csv(d, "shunts.csv")
     inter = _read_csv(d, "interruptores.csv")
+    op_dir !== nothing && _apply_op_point!(cargas, gsinc, gest, trafos, op_dir)
 
     # ---- 1. fusión de terminales -------------------------------------------
     uf = _UF()
@@ -279,11 +371,13 @@ function build_seni_physical_system(
         smva = typ !== nothing ? _num(typ.S_nom_MVA, 0.0) * nu :
                max(_num(row.P_max_MW, 0.0), 1.0) * nu / 0.85
         a = get!(agg, node, Dict(:p => 0.0, :vm => vm, :pmax => -1.0,
-                                 :qmin => 0.0, :qmax => 0.0, :smva => 0.0))
+                                 :qmin => 0.0, :qmax => 0.0, :smva => 0.0,
+                                 :qdesp => 0.0))
         a[:p] += p
         a[:qmin] += min(qmin, 0.0)
         a[:qmax] += max(qmax, 0.0)
         a[:smva] += max(smva, 0.0)
+        a[:qdesp] += _num(row.Q_desp_Mvar, 0.0) * nu
         p > a[:pmax] && (a[:pmax] = p; a[:vm] = vm)
         push!(get!(maquinas, node, NamedTuple[]),
               (for_name = _s(row.for_name), loc_name = _s(row.loc_name),
@@ -291,6 +385,7 @@ function build_seni_physical_system(
     end
     slack_in_main = in_main(slack_node)
     stats["gens"] = 0
+    gens_by_node = Dict{String,ThermalStandard}()
     for (node, a) in agg
         bus = bus_of_node[node]
         is_slack = slack_in_main && node == slack_node
@@ -311,6 +406,7 @@ function build_seni_physical_system(
             base_power = MODOM_SBASE, time_limits = nothing,
             prime_mover_type = PrimeMovers.OT, fuel = ThermalFuels.OTHER)
         add_component!(sys, gen)
+        gens_by_node[node] = gen
         # identidad de las máquinas físicas del nodo + MVA total (capa dinámica)
         ext = get_ext(gen)
         ext["maquinas"] = get(maquinas, node, NamedTuple[])
@@ -322,6 +418,15 @@ function build_seni_physical_system(
         isempty(pvs) && error("Sin barras PV para asignar slack")
         set_bustype!(argmax(get_base_voltage, pvs), ACBusTypes.REF)
     end
+
+    # controladores de estación → especificación para el control secundario
+    # iterativo del script 02 (no muta el System)
+    stactrl_spec = NamedTuple[]
+    if stactrl_csv !== nothing && isfile(stactrl_csv)
+        stactrl_spec = _station_control_spec(stactrl_csv, forname_to_node, in_main,
+                                             bus_of_node, gens_by_node, maquinas)
+    end
+    stats["stactrl"] = length(stactrl_spec)
 
     # estáticos como inyección PQ fija
     stats["estaticos"] = 0
@@ -350,7 +455,8 @@ function build_seni_physical_system(
     println("  Líneas: ", stats["lineas"], "  Trafos: ", stats["trafos"],
             "  (trafos sin tipo: ", n_traf_sin_tipo, ")")
     println("  Cargas: ", stats["cargas"], "  Shunts: ", stats["shunts"],
-            "  Gen sinc (nodos): ", stats["gens"], "  Estáticos: ", stats["estaticos"])
+            "  Gen sinc (nodos): ", stats["gens"], "  Estáticos: ", stats["estaticos"],
+            "  Ctrl. estación: ", stats["stactrl"])
     println("  Slack: ", slack_in_main ? node_name[slack_node] : "respaldo (mayor kV)")
-    return sys, forname_to_bus
+    return sys, forname_to_bus, stactrl_spec
 end
