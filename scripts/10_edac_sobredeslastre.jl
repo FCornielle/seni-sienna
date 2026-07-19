@@ -87,7 +87,11 @@ println("Cargas mapeadas: ", length(aperturas), " (sin mapear: ", length(no_map)
 # ---- simulaciones -------------------------------------------------------------
 function correr(perturbaciones)
     s = first(build_seni_physical_system(raw_dir))
-    attach_dynamic_models!(s, raw_dir)
+    attach_dynamic_models!(s, raw_dir; avr_mode = :sexs, gov_mode = :tipico)
+    # CRÍTICO: los callbacks de perturbación de PSID usan getters de PSY →
+    # el System debe quedar en DEVICE_BASE o los deltas quedan 100× (bug
+    # que produjo los 81 Hz de la primera corrida, corregido)
+    set_units_base_system!(s, "DEVICE_BASE")
     perts = PowerSimulationsDynamics.Perturbation[]
     for p in perturbaciones
         if p.tipo == :gen

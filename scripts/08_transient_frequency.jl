@@ -34,7 +34,7 @@ end
 
 sys = nothing; objetivo = nothing; p_trip = 0.0; sim = nothing
 modo_usado = (:ninguno, :ninguno)
-for (am, gm) in ((:sexs, :tipico), (:sexs, :sin_hygov), (:sexs, :fixed), (:fixed, :fixed))
+for (am, gm) in ((:dsl, :dsl), (:sexs, :tipico), (:sexs, :sin_hygov), (:fixed, :fixed))
     global sys, objetivo, p_trip, sim, modo_usado
     s, o, p, st, sm = _run_trip(am, gm)
     println("avr = ", am, ", gov = ", gm, " → ", st)

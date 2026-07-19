@@ -14,24 +14,28 @@ relés en sus tiempos observados (t≈3.20–3.25 s), como `LoadTrip` en PSID.
 Mapeo de datos: 13/13 etapas → cargas de Sienna (por loc_name); MW de nuestras
 cargas P20 = 501.6 MW vs 494.9 MW de la tabla de la VM ✓ (consistencia 1.4%).
 
+> **CORRECCIÓN (2026-07-19)**: la primera corrida de este estudio tenía un bug
+> de unidades (los callbacks de PSID leen getters de PSY → el System debe estar
+> en `DEVICE_BASE`; en `NATURAL_UNITS` los deltas quedaban ~100× y producían
+> 81 Hz artificiales). Números válidos abajo (corrida corregida, script 11);
+> la lectura cualitativa se mantiene, con magnitudes ahora físicas.
+
 | Métrica | Sim A (sin EDAC) | Sim B (con EDAC) |
 |---|---|---|
 | MW deslastrados | 0 | **501.6** (PVDC solo: 185) |
 | Nadir COI | 59.463 Hz | 59.463 Hz (el disparo llega justo en el nadir) |
-| Cruce 60.5 Hz | — | t = 3.32 s (+0.1 s tras abrir) |
-| **Cruce 61.5 Hz** (disparo típico de generación) | — | **t = 3.42 s** |
-| Cruce 62.0 Hz | — | t = 3.48 s |
+| Pico de sobrefrecuencia | 60.0 | **60.44 Hz** (t ≈ 5.5 s) |
+| f final (30 s) | 59.80 Hz | **60.08 Hz** (queda POR ENCIMA de nominal) |
 
-**Conclusiones:**
+**Conclusiones (corregidas):**
 1. **Ratio de sobredeslastre = 501.6/360 = 1.39×** con solo los 13 relés que
    alcanzan a disparar; el escalón 1 completo (36 etapas activas) abriría
    **1,158 MW = 3.2×** la pérdida.
-2. El exceso de deslastre convierte un evento manejable (Sim A se recupera sola
-   a 59.8 Hz con reserva primaria) en una **emergencia de sobrefrecuencia**: en
-   0.2 s cruza 61.5 Hz, donde las protecciones de sobrefrecuencia dispararían
-   generación → riesgo de cascada. (El tramo t>3.5 s de Sim B no es físicamente
-   creíble: el modelo v1 no incluye esos disparos de generación — acotado en la
-   figura `figuras/f6_edac_sobredeslastre.png`.)
+2. Un evento que se recupera solo con la reserva primaria (Sim A: 59.80 Hz)
+   se convierte en **sobrefrecuencia sostenida** (pico 60.44, asentamiento en
+   60.08 Hz) que obliga a redespacho de emergencia — con 502 MW de usuarios sin
+   servicio innecesariamente. Figura: `figuras/f7_deslastre_selectivo.png`
+   (incluye el contrafactual selectivo).
 3. El diseño del escalón 1 concentra 185 MW en un solo alimentador (Demanda
    PVDC, con las 6 etapas activas) — el mayor contribuyente individual al
    sobredeslastre.

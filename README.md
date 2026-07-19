@@ -45,5 +45,9 @@ julia scripts/01_build_system.jl
 - [x] Fase 4 — Contingencias N-1 (659 evaluadas, LODF + AC en críticas) y cuasi-dinámico 24h (24/24 convergen)
 - [x] Fase 5 — Dinámica v1 en PSID: pequeña señal (estable; 22 modos ζ<10% vs 26 en PF) y respuesta de frecuencia (nadir 59.463 Hz vs 59.285 PF, pérdida de Punta Catalina 2)
 - [x] Fase 6 — Veredictos del Código de Conexión (`src/verdicts.jl`), reporte consolidado con figuras (`validation/REPORTE_SENI_SIENNA.md`) y gaps documentados (cortocircuito/protecciones → flujo híbrido)
+- [x] Barrido 1 — Fase 2 cerrada: |ΔV| medio **0.006 pu** con punto P20 exacto + controladores de estación + límites Q (`validation/fase2_flujo_ac.md`)
+- [x] Barridos 2–3 — Sobredeslastre EDAC cuantificado (1.39×; escalón 1 completo 3.2×) y costos de arranque (neutro) (`validation/barrido2_3_edac_arranques.md`)
+- [x] v2 dinámica — parámetros DSL reales (23 governors + 32 AVR reales; nadir 59.432 vs 59.285 PF) y **estudio de deslastre selectivo**: 30% por alimentador logra mejor recuperación con 3.3× menos carga interrumpida (`validation/v2_dinamica_selectivo.md`, figura f7)
+- [ ] **Hito siguiente: ejecutable + dashboard** (estilo modom-pypsa): corridas ED/UC/N-1/QDS/dinámica desde una UI, sysimage precompilada (arranque en segundos), feed OC integrado (`docs/OC_DROPBOX_FEED.md`) y empaquetado distribuible
 
 > ⚠️ Los datos del modelo (exports PowerFactory, tablas MODOM, datos OC) son confidenciales y **no** se versionan en este repositorio.

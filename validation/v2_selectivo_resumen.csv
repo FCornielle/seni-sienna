@@ -1,0 +1,4 @@
+caso,mw_deslastrados,nadir_hz,f_max_hz,f_final_hz,t_valida_s
+A: sin EDAC,0.0,59.463,60.0,59.804,30.0
+B: EDAC actual (circuitos completos),501.6,59.463,60.442,60.077,30.0
+C: selectivo dimensionado,150.5,59.463,60.0,59.888,30.0
