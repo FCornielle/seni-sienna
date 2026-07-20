@@ -33,6 +33,22 @@ Para un bundle relocatable instalable en una máquina **sin Julia** se usaría
 - Empaquetar `dist/` + `data/` + `dashboard/` en un instalador (Inno Setup),
   igual que el `.exe` de modom-pypsa (PyInstaller allí).
 
+## Frontend: React-compatible sin build (Preact + htm)
+
+El panel es una SPA en `dashboard/spa/` con arquitectura de componentes
+(React-compatible vía **Preact + htm**), mapa **Leaflet** y ecuaciones **KaTeX**.
+
+**Por qué no Vite/Next.js con `npm install`**: la red corporativa bloquea
+`registry.npmjs.org` y los CDN de paquetes (jsdelivr, unpkg, cdnjs) — un build
+con Vite no es posible en este entorno. Solución: stack **vendorizado localmente**
+en `dashboard/spa/vendor/` (preact, htm, leaflet, katex, todos descargados una vez
+desde el único CDN alcanzable, JSPM) y cargado con un **import map** — sin build,
+sin `node_modules`, sin CDN en runtime. Único requisito de red en runtime: los
+tiles de OpenStreetMap para el basemap del mapa (inherente a cualquier mapa).
+
+Si en el futuro se dispone de una red con npm, se puede migrar a un build Vite
+estándar; la arquitectura de componentes ya está lista para ello.
+
 ## Datos (nunca se empaquetan)
 
 `data/raw/` y `data/sys/` son confidenciales y quedan fuera de git y de

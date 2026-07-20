@@ -167,6 +167,58 @@ end
     return (ok = true,)
 end
 
+# ---- Mapa (barras georreferenciadas + capa de resultados) --------------------
+function _coords()
+    path = joinpath(ROOT, "data", "raw", "buses_with_coords.csv")
+    isfile(path) || return DataFrame()
+    df = CSV.read(path, DataFrame)
+    df[.!ismissing.(df.lat) .& .!ismissing.(df.lon), :]
+end
+
+@get "/api/mapa" function (req)
+    capa = get(queryparams(req), "capa", "kv")
+    df = _coords()
+    nrow(df) == 0 && return (barras = [], con_dato = 0)
+
+    # capa vpu: tensión del flujo de la Fase 2 (por for_name)
+    vmap = Dict{String,Float64}()
+    f2 = joinpath(VAL, "fase2_delta_v.csv")
+    if capa == "vpu" && isfile(f2)
+        d2 = CSV.read(f2, DataFrame)
+        for r in eachrow(d2); vmap[String(r.for_name)] = Float64(r.v_sienna); end
+    end
+    # capa edac: MW deslastrables por barra (etapas activas del EDAC, por W-code)
+    edmap = Dict{String,Float64}()
+    ed_csv = joinpath(ROOT, "data", "raw", "seni_extraccion_vm_20260717",
+                      "salida_bloqueI_edac_20260717_111009", "edac_detalle.csv")
+    if capa == "edac" && isfile(ed_csv)
+        d = CSV.read(ed_csv, DataFrame)
+        for r in eachrow(d)
+            (!ismissing(r.activa_efectiva) && r.activa_efectiva == 1) || continue
+            # W-code de la barra: terminal_for_name, o `terminal` sin sufijo "(N)"
+            bf = ismissing(r.terminal_for_name) ? "" : String(r.terminal_for_name)
+            isempty(bf) && !ismissing(r.terminal) &&
+                (bf = replace(String(r.terminal), r"\(\d+\)" => ""))
+            mw = ismissing(r.MW_deslastrados) ? 0.0 : Float64(r.MW_deslastrados)
+            startswith(bf, "W") || continue
+            edmap[bf] = get(edmap, bf, 0.0) + mw
+        end
+    end
+
+    fl(x, d) = (x === missing || x === nothing) ? d : Float64(x)
+    con = Ref(0)
+    barras = map(eachrow(df)) do r
+        id = String(r.bus_id_modom)
+        v = get(vmap, id, nothing);  v !== nothing && (con[] += 1)
+        ed = get(edmap, id, 0.0);    capa == "edac" && ed > 0 && (con[] += 1)
+        capa == "kv" && (con[] += 1)
+        (id = id, nombre = ismissing(r.bus_name) ? id : String(r.bus_name),
+         kv = fl(r.v_nom_kv, 0.0), lat = fl(r.lat, 0.0), lon = fl(r.lon, 0.0),
+         vpu = v, edac_mw = ed)
+    end
+    return (barras = barras, con_dato = con[])
+end
+
 # ---- Feed OC (procedencia de datos) ------------------------------------------
 @get "/api/feed_oc" function ()
     raw = joinpath(ROOT, "data", "raw")
@@ -183,8 +235,30 @@ end
     ], recurso = "https://www.dropbox.com/sh/sel2bzf89wc3dyu (OC — Programación del SENI)")
 end
 
+# SPA Preact+htm en dashboard/spa (no-build; stack vendorizado localmente).
+const SPA = joinpath(ROOT, "dashboard", "spa")
+const _MIME = Dict(".js" => "application/javascript; charset=utf-8", ".css" => "text/css; charset=utf-8",
+    ".html" => "text/html; charset=utf-8", ".png" => "image/png", ".svg" => "image/svg+xml",
+    ".json" => "application/json", ".woff" => "font/woff", ".woff2" => "font/woff2",
+    ".map" => "application/json", ".ico" => "image/x-icon")
+_mime(f) = get(_MIME, lowercase(splitext(f)[2]), "application/octet-stream")
+
+# sirve dashboard/spa (app.js, styles.css, index.html) y dashboard/spa/vendor
+@get "/spa/{file}" function (req, file::String)
+    f = joinpath(SPA, basename(file))
+    isfile(f) || return HTTP.Response(404)
+    return HTTP.Response(200, ["Content-Type" => _mime(f)]; body = read(f))
+end
+@get "/spa/vendor/{file}" function (req, file::String)
+    f = joinpath(SPA, "vendor", basename(file))
+    isfile(f) || return HTTP.Response(404)
+    return HTTP.Response(200, ["Content-Type" => _mime(f)]; body = read(f))
+end
+
 @get "/" function ()
-    html = read(joinpath(ROOT, "dashboard", "index.html"), String)
+    spa = joinpath(SPA, "index.html")
+    html = isfile(spa) ? read(spa, String) :
+           read(joinpath(ROOT, "dashboard", "index.html"), String)
     return HTTP.Response(200, ["Content-Type" => "text/html; charset=utf-8"]; body = html)
 end
 

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SENI·Sienna</title>
+  <link rel="stylesheet" href="/spa/vendor/leaflet.css" />
+  <link rel="stylesheet" href="/spa/styles.css" />
+  <!-- Stack vendorizado localmente (Preact + htm + Leaflet + KaTeX); sin CDN en
+       runtime. npm bloqueado por la red corporativa → SPA no-build con import map. -->
+  <script type="importmap">
+  {
+    "imports": {
+      "preact": "/spa/vendor/preact.js",
+      "preact/hooks": "/spa/vendor/preact-hooks.js",
+      "htm": "/spa/vendor/htm.js",
+      "htm/preact": "/spa/vendor/htm-preact.js",
+      "leaflet": "/spa/vendor/leaflet.js",
+      "katex": "/spa/vendor/katex.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/spa/app.js"></script>
+</body>
+</html>

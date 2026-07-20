@@ -30,13 +30,20 @@ julia scripts/01_build_system.jl
 .\SENI-Sienna.bat          # → http://localhost:8155
 ```
 
-Panel web estilo modom-pypsa con 5 pestañas:
-- **Corridas**: lanza cualquier corrida (01–11) con un clic, con estado y log en vivo
+SPA React-compatible (Preact + htm, sin build) servida por Oxygen, 7 pestañas:
+- **Mapa**: las 678 barras georreferenciadas sobre Leaflet, con capas de nivel de
+  tensión, tensión del flujo AC (pu) y deslastre EDAC
+- **Corridas**: lanza cualquier corrida (01–11) con un clic, estado y log en vivo
 - **Escenario** (*Scenario Studio*): perillas de demanda, reserva y unidades fuera
-  de servicio → corre un UC alternativo y muestra el delta vs la línea base
+  de servicio → UC alternativo con delta vs la línea base
 - **Resultados**: galería de figuras + tablas de `validation/`
 - **Reporte**: reporte consolidado renderizado
+- **Metodología**: ecuaciones MODOM (KaTeX) ↔ implementación Sienna + criterios
 - **Datos**: procedencia de cada insumo (feed del OC)
+
+El frontend (`dashboard/spa/`) usa un stack vendorizado localmente
+(Preact/htm/Leaflet/KaTeX en `spa/vendor/`) porque la red bloquea npm; no requiere
+`npm install` ni build. Ver `docs/EJECUTABLE.md`.
 
 Para arranque en segundos, compilar una vez la sysimage:
 

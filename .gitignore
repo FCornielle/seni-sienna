@@ -14,6 +14,10 @@ results/
 data/logs/
 sysimage/
 
+# Frontend React: dependencias (dashboard/dist SÍ se versiona para el .bat)
+frontend/node_modules/
+frontend/.vite/
+
 # Scenario Studio: perillas y resultados de corridas del usuario
 data/scenario_overrides.json
 validation/scenario_baseline.json
