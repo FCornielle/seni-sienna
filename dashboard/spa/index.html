@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SENI·Sienna</title>
   <link rel="stylesheet" href="/spa/vendor/leaflet.css" />
+  <link rel="stylesheet" href="/spa/vendor/katex.css" />
   <link rel="stylesheet" href="/spa/styles.css" />
-  <!-- Stack vendorizado localmente (Preact + htm + Leaflet + KaTeX); sin CDN en
-       runtime. npm bloqueado por la red corporativa → SPA no-build con import map. -->
+  <!-- Plotly como global (UMD) para los gráficos interactivos por hora -->
+  <script src="/spa/vendor/plotly.js"></script>
+  <!-- Stack vendorizado localmente (Preact + htm + Leaflet + KaTeX + Plotly); sin
+       CDN en runtime. npm bloqueado por la red corporativa → SPA no-build con import map. -->
   <script type="importmap">
   {
     "imports": {

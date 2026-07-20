@@ -77,6 +77,21 @@ select,input[type=text]{ padding:7px 10px; border:1px solid var(--line); border-
 .capsel label{ font-size:13px; cursor:pointer; }
 .leaflet-tooltip{ font-size:12px; }
 
+/* ---- charts / operación ---- */
+.cardhd{ display:flex; align-items:baseline; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
+.cardhd h3{ margin:0; font-size:14.5px; }
+.cardhd .sub{ color:var(--muted); font-size:12px; }
+.cols2{ display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+@media(max-width:1150px){ .cols2{ grid-template-columns:1fr; } }
+.vacio{ color:var(--muted); font-size:13px; padding:28px 12px; text-align:center;
+  background:#fafbfc; border:1px dashed var(--line); border-radius:10px; }
+.kpis{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:12px; margin-bottom:14px; }
+.kpi{ background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:13px 16px; box-shadow:var(--shadow); }
+.kpi .v{ font-size:21px; font-weight:650; color:var(--ink); letter-spacing:-.3px; }
+.kpi .l{ font-size:12px; color:var(--muted); margin-top:2px; }
+.escgrid{ display:grid; grid-template-columns:360px 1fr; gap:20px; }
+@media(max-width:900px){ .escgrid{ grid-template-columns:1fr; } }
+
 /* ---- metodología ---- */
 .metod{ display:grid; grid-template-columns:230px 1fr; gap:24px; }
 .toc{ position:sticky; top:78px; height:fit-content; font-size:12.5px; align-self:start; }

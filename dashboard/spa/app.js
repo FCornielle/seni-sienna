@@ -12,10 +12,31 @@ const api = {
   tabla: (n) => j(`/api/tabla/${encodeURIComponent(n)}`), doc: (n) => j(`/api/doc/${encodeURIComponent(n)}`),
   generadores: () => j('/api/generadores'), escenario: () => j('/api/escenario'),
   correrEscenario: (b) => j('/api/escenario', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) }),
-  feedOc: () => j('/api/feed_oc'), mapa: (c) => j(`/api/mapa?capa=${c || 'kv'}`),
+  feedOc: () => j('/api/feed_oc'), mapa: (c) => j(`/api/mapa?capa=${c || 'kv'}`), red: () => j('/api/red'),
+  serie: (t) => j(`/api/serie/${t}`), kpis: () => j('/api/kpis'),
 }
 const fig = (n) => `/figuras/${n}`
-const K = (tex) => katex.renderToString(tex, { displayMode: true, output: 'mathml', throwOnError: false })
+const K = (tex) => { try { return katex.renderToString(tex, { displayMode: true, output: 'html', throwOnError: false }) } catch (e) { return '<code>' + tex + '</code>' } }
+const COL = { term: '#94a3b8', hidro: '#2563eb', renov: '#22c55e', ink: '#0f172a', acc: '#2563eb', bad: '#e74c3c', warn: '#f59e0b', line: '#e6e8ec', mut: '#64748b' }
+
+// ------------------------------------------------------------ Plot (Plotly) --
+const BASE_LAYOUT = {
+  margin: { l: 50, r: 18, t: 30, b: 42 }, font: { family: 'system-ui,Segoe UI,sans-serif', size: 12, color: COL.ink },
+  paper_bgcolor: 'white', plot_bgcolor: 'white', legend: { orientation: 'h', y: -0.18, font: { size: 11 } },
+  xaxis: { gridcolor: '#eef1f5', zeroline: false }, yaxis: { gridcolor: '#eef1f5', zeroline: false },
+}
+function Plot({ data, layout, height = 340 }) {
+  const el = useRef(null)
+  useEffect(() => {
+    if (!el.current || !window.Plotly) return
+    const lay = { ...BASE_LAYOUT, ...layout, height,
+      xaxis: { ...BASE_LAYOUT.xaxis, ...(layout?.xaxis || {}) }, yaxis: { ...BASE_LAYOUT.yaxis, ...(layout?.yaxis || {}) } }
+    window.Plotly.react(el.current, data || [], lay, { displayModeBar: false, responsive: true })
+  }, [data, layout, height])
+  useEffect(() => () => { el.current && window.Plotly && window.Plotly.purge(el.current) }, [])
+  return html`<div ref=${el} style=${{ width: '100%', height: height + 'px' }}></div>`
+}
+const card = (titulo, sub, cuerpo) => html`<div class="card"><div class="cardhd"><h3>${titulo}</h3>${sub && html`<span class="sub">${sub}</span>`}</div>${cuerpo}</div>`
 
 // -------------------------------------------------------------- markdown ----
 function renderMd(s) {
@@ -39,48 +60,147 @@ function renderMd(s) {
   if (t) out.push('</table>'); return out.join('\n')
 }
 
+// ------------------------------------------------------------- Operación ----
+function MixHorario({ height = 340 }) {
+  const [d, setD] = useState(null); useEffect(() => { api.serie('despacho_tec').then(setD).catch(() => {}) }, [])
+  if (!d || !d.horas?.length) return html`<div class="vacio">Ejecuta <b>Despacho ED</b> para ver el mix horario.</div>`
+  const area = (y, n, c) => ({ x: d.horas, y, name: n, stackgroup: 'g', mode: 'none', fillcolor: c, hovertemplate: `${n}: %{y:.0f} MW<extra></extra>` })
+  const data = [area(d.termica, 'Térmica', COL.term), area(d.hidro, 'Hidro', COL.hidro), area(d.renovable, 'Renovable', COL.renov),
+    { x: d.horas, y: d.demanda, name: 'Demanda', mode: 'lines', line: { color: COL.ink, dash: 'dot', width: 2 }, hovertemplate: 'Demanda: %{y:.0f} MW<extra></extra>' }]
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'MW' } }} />`
+}
+function CommitmentHeatmap({ height = 420 }) {
+  const [d, setD] = useState(null); useEffect(() => { api.serie('commitment').then(setD).catch(() => {}) }, [])
+  if (!d || !d.unidades?.length) return html`<div class="vacio">Ejecuta <b>UC MILP</b> para ver el commitment.</div>`
+  const data = [{ z: d.matriz, x: d.horas, y: d.unidades, type: 'heatmap', xgap: 1, ygap: 1,
+    colorscale: [[0, '#eef1f5'], [1, COL.acc]], showscale: false, hovertemplate: 'u %{y}<br/>h %{x}: %{z}<extra></extra>' }]
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { automargin: true, tickfont: { size: 9 } } }} />`
+}
+function Kpis() {
+  const [k, setK] = useState([]); useEffect(() => { api.kpis().then((r) => setK(r.kpis || [])).catch(() => {}) }, [])
+  return html`<div class="kpis">${k.map((x) => html`<div class="kpi" key=${x.k}><div class="v">${x.v}</div><div class="l">${x.k}</div></div>`)}</div>`
+}
+function Operacion() {
+  return html`
+    <${Kpis} />
+    <div class="cols2">
+      ${card('Mix de generación por hora', 'despacho ED — térmica · hidro · renovable vs demanda', html`<${MixHorario} />`)}
+      ${card('Compromiso de unidades (commitment)', 'UC MILP — encendido/apagado por unidad y hora', html`<${CommitmentHeatmap} />`)}
+    </div>`
+}
+
+// ------------------------------------------------------------- Despacho -----
+function DespachoUnidad({ height = 360 }) {
+  const [d, setD] = useState(null); useEffect(() => { api.serie('despacho_unidad').then(setD).catch(() => {}) }, [])
+  if (!d || !d.unidades?.length) return html`<div class="vacio">Ejecuta <b>Despacho ED</b>.</div>`
+  const data = d.unidades.map((u, i) => ({ x: d.horas, y: d.series[i], name: u, mode: 'lines', line: { width: 1.6 } }))
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'MW' } }} />`
+}
+function EnvolventeTension({ height = 340 }) {
+  const [d, setD] = useState(null); useEffect(() => { api.serie('tension').then(setD).catch(() => {}) }, [])
+  if (!d || !d.horas?.length) return html`<div class="vacio">Ejecuta <b>Cuasi-dinámico 24h</b>.</div>`
+  const band = (y, c) => ({ x: d.horas, y: Array(d.horas.length).fill(y), mode: 'lines', line: { color: COL.bad, dash: 'dash', width: 1 }, showlegend: false, hoverinfo: 'skip' })
+  const data = [
+    { x: d.horas, y: d.v_max, name: 'V máx', mode: 'lines', line: { color: COL.hidro, width: 2 } },
+    { x: d.horas, y: d.v_min, name: 'V mín', mode: 'lines', line: { color: COL.bad, width: 2 } },
+    band(1.05), band(0.95)]
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'Tensión (pu)' } }} />`
+}
+function Despacho() {
+  return html`
+    ${card('Despacho por unidad (top-10) por hora', 'LP de despacho económico — MW por unidad térmica', html`<${DespachoUnidad} />`)}
+    <div class="cols2" style="margin-top:13px">
+      ${card('Mix por tecnología', 'estructura horaria de la generación', html`<${MixHorario} height=${320} />`)}
+      ${card('Envolvente de tensión 24h', 'cuasi-dinámico — banda 0.95–1.05 pu', html`<${EnvolventeTension} height=${320} />`)}
+    </div>`
+}
+
+// ------------------------------------------------------------- Dinámica -----
+function Frecuencia({ height = 360 }) {
+  const [d, setD] = useState(null); useEffect(() => { api.serie('frecuencia').then(setD).catch(() => {}) }, [])
+  if (!d || !d.series || !Object.keys(d.series).length) return html`<div class="vacio">Ejecuta <b>Deslastre selectivo</b> o <b>EDAC</b>.</div>`
+  const et = { sin: ['Sin EDAC', COL.mut], edac: ['EDAC actual', COL.bad], sel: ['Selectivo', COL.acc] }
+  const data = Object.entries(d.series).map(([k, pts]) => ({ x: pts.map((p) => p[0]), y: pts.map((p) => p[1]),
+    name: et[k]?.[0] || k, mode: 'lines', line: { color: et[k]?.[1], width: 2 } }))
+  data.push({ x: [0, 30], y: [59.2, 59.2], mode: 'lines', name: 'Criterio 59.2 Hz', line: { color: COL.warn, dash: 'dash', width: 1 } })
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Tiempo (s)', range: [0, 12] }, yaxis: { title: 'Frecuencia (Hz)' } }} />`
+}
+function PequenaSenal({ height = 340 }) {
+  const [d, setD] = useState(null); useEffect(() => { api.serie('pequena').then(setD).catch(() => {}) }, [])
+  if (!d || !d.modos?.length) return html`<div class="vacio">Ejecuta <b>Pequeña señal</b>.</div>`
+  const crit = d.modos.filter((m) => m.z < 10), ok = d.modos.filter((m) => m.z >= 10)
+  const pts = (a, c, n) => ({ x: a.map((m) => m.f), y: a.map((m) => m.z), mode: 'markers', name: n, marker: { color: c, size: 7, opacity: 0.8 } })
+  const data = [pts(ok, COL.hidro, 'ζ ≥ 10%'), pts(crit, COL.bad, 'ζ < 10%'),
+    { x: [0.1, 3], y: [10, 10], mode: 'lines', name: 'umbral 10%', line: { color: COL.warn, dash: 'dash', width: 1 } }]
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Frecuencia del modo (Hz)' }, yaxis: { title: 'Amortiguamiento ζ (%)' } }} />`
+}
+function N1Ranking({ height = 360 }) {
+  const [d, setD] = useState(null); useEffect(() => { api.serie('n1').then(setD).catch(() => {}) }, [])
+  if (!d || !d.items?.length) return html`<div class="vacio">Ejecuta <b>Contingencias N-1</b>.</div>`
+  const it = [...d.items].reverse()
+  const data = [{ x: it.map((i) => i.n), y: it.map((i) => i.c), type: 'bar', orientation: 'h', marker: { color: COL.acc } }]
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Sobrecargas nuevas (DC)' }, yaxis: { automargin: true, tickfont: { size: 10 } } }} />`
+}
+function Dinamica() {
+  return html`
+    ${card('Respuesta de frecuencia — pérdida de Punta Catalina 2 (360 MW)', 'sin EDAC vs EDAC actual (502 MW) vs selectivo (150 MW)', html`<${Frecuencia} />`)}
+    <div class="cols2" style="margin-top:13px">
+      ${card('Pequeña señal — modos electromecánicos', 'amortiguamiento vs frecuencia (0.1–3 Hz)', html`<${PequenaSenal} />`)}
+      ${card('Contingencias N-1 críticas', 'sobrecargas nuevas por contingencia', html`<${N1Ranking} />`)}
+    </div>`
+}
+
 // ----------------------------------------------------------------- Mapa -----
-// Colores de nivel de tensión (estilo Feasibility-Study)
 const nivelColor = (kv) => kv >= 230 ? '#e74c3c' : kv >= 138 ? '#2e86ff' : kv >= 69 ? '#2ecc71' : '#8aa0b4'
-// Heatmap de tensión pu: azul (bajo) → blanco (~1.0) → naranja → rojo (alto)
 function heatV(v) {
   if (v == null) return '#5a6b7d'
-  const lo = 0.93, hi = 1.07, mid = 1.0
+  const lo = 0.93, mid = 1.0, hi = 1.07
   const lerp = (a, b, t) => a.map((x, i) => Math.round(x + (b[i] - x) * t))
   const hex = (c) => '#' + c.map((x) => Math.max(0, Math.min(255, x)).toString(16).padStart(2, '0')).join('')
   const azul = [46, 134, 255], blanco = [240, 240, 240], naranja = [243, 156, 18], rojo = [231, 76, 60]
-  if (v <= mid) { const t = Math.pow(Math.max(0, (v - lo) / (mid - lo)), 1.6); return hex(lerp(azul, blanco, t)) }
+  if (v <= mid) return hex(lerp(azul, blanco, Math.pow(Math.max(0, (v - lo) / (mid - lo)), 1.6)))
   const t = Math.min(1, (v - mid) / (hi - mid)); return hex(t < 0.6 ? lerp(blanco, naranja, t / 0.6) : lerp(naranja, rojo, (t - 0.6) / 0.4))
 }
 const CAPAS = [['kv', 'Nivel de tensión'], ['vpu', 'Tensión del flujo (pu)'], ['edac', 'Deslastre EDAC']]
 const LEY = {
   kv: [['#e74c3c', '≥ 230 kV'], ['#2e86ff', '138 kV'], ['#2ecc71', '69 kV'], ['#8aa0b4', 'otros']],
   vpu: [['#2e86ff', '≤ 0.95 pu'], ['#f0f0f0', '≈ 1.00 pu'], ['#f39c12', '1.04 pu'], ['#e74c3c', '≥ 1.07 pu'], ['#5a6b7d', 'sin dato']],
-  edac: [['#a06bff', 'alimentador EDAC'], ['#3a4f63', 'sin deslastre']],
+  edac: [['#a06bff', 'alimentador EDAC'], ['#33506b', 'sin deslastre']],
 }
-
 function Mapa() {
-  const [capa, setCapa] = useState('kv'); const [datos, setDatos] = useState(null); const [err, setErr] = useState(null)
-  const el = useRef(null), map = useRef(null), lg = useRef(null)
+  const [capa, setCapa] = useState('kv'); const [datos, setDatos] = useState(null); const [verLineas, setVerLineas] = useState(true)
+  const el = useRef(null), map = useRef(null), lg = useRef(null), lgLine = useRef(null), red = useRef(null)
   useEffect(() => {
-    const m = L.map(el.current, { preferCanvas: true }).setView([18.75, -70.25], 8)
+    const m = L.map(el.current, { preferCanvas: true }).setView([18.9, -70.5], 8)
     L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
       { attribution: '© OpenStreetMap © CARTO', maxZoom: 19, subdomains: 'abcd' }).addTo(m)
-    map.current = m; lg.current = L.layerGroup().addTo(m); return () => m.remove()
+    map.current = m; lgLine.current = L.layerGroup().addTo(m); lg.current = L.layerGroup().addTo(m)
+    api.red().then((r) => { red.current = r.segmentos; dibujaLineas() }).catch(() => {})
+    return () => m.remove()
   }, [])
-  useEffect(() => { setErr(null); api.mapa(capa).then(setDatos).catch((e) => setErr(String(e))) }, [capa])
+  const dibujaLineas = () => {
+    if (!lgLine.current) return; lgLine.current.clearLayers()
+    if (!verLineas || !red.current) return
+    for (const s of red.current) {
+      const c = s.tipo === 'transformer' ? '#8aa0b4' : nivelColor(s.kv)
+      L.polyline([s.from, s.to], { color: c, weight: s.kv >= 230 ? 2 : s.kv >= 138 ? 1.4 : 0.9, opacity: 0.55 })
+        .bindTooltip(`${s.nombre} · ${s.kv} kV`).addTo(lgLine.current)
+    }
+  }
+  useEffect(() => { dibujaLineas() }, [verLineas])
+  useEffect(() => { api.mapa(capa).then(setDatos).catch(() => {}) }, [capa])
   useEffect(() => {
     if (!lg.current || !datos) return
     lg.current.clearLayers()
     for (const b of datos.barras) {
-      let col, rad = b.kv >= 230 ? 6.5 : b.kv >= 138 ? 5 : 3.8, borde = 'rgba(255,255,255,.35)'
+      let col, rad = b.kv >= 230 ? 6 : b.kv >= 138 ? 4.5 : 3.4
       if (capa === 'vpu') { col = heatV(b.vpu); if (b.vpu != null) rad += 0.6 }
-      else if (capa === 'edac') { col = b.edac_mw > 0 ? '#a06bff' : '#3a4f63'; rad = b.edac_mw > 0 ? 6 + Math.min(b.edac_mw / 20, 12) : 2.6 }
+      else if (capa === 'edac') { col = b.edac_mw > 0 ? '#a06bff' : '#33506b'; rad = b.edac_mw > 0 ? 6 + Math.min(b.edac_mw / 20, 12) : 2.4 }
       else col = nivelColor(b.kv)
-      let tip = `<b>${b.nombre}</b> (${b.id})<br>${b.kv} kV`
-      if (capa === 'vpu' && b.vpu != null) tip += `<br>V = ${b.vpu.toFixed(3)} pu`
-      if (capa === 'edac' && b.edac_mw > 0) tip += `<br>EDAC: ${b.edac_mw.toFixed(1)} MW`
-      L.circleMarker([b.lat, b.lon], { radius: rad, color: borde, fillColor: col, fillOpacity: 0.9, weight: 1 })
+      let tip = `<b>${b.nombre}</b> (${b.id})<br/>${b.kv} kV`
+      if (capa === 'vpu' && b.vpu != null) tip += `<br/>V = ${b.vpu.toFixed(3)} pu`
+      if (capa === 'edac' && b.edac_mw > 0) tip += `<br/>EDAC: ${b.edac_mw.toFixed(1)} MW`
+      L.circleMarker([b.lat, b.lon], { radius: rad, color: 'rgba(255,255,255,.4)', fillColor: col, fillOpacity: 0.92, weight: 0.8 })
         .bindTooltip(tip).addTo(lg.current)
     }
   }, [datos, capa])
@@ -90,10 +210,11 @@ function Mapa() {
         <div class="capsel"><h4>Capa</h4>
           ${CAPAS.map(([id, l]) => html`<label key=${id}><input type="radio" checked=${capa === id} onChange=${() => setCapa(id)} /> ${l}</label>`)}
         </div>
+        <label style="display:flex;gap:7px;font-size:13px;margin-bottom:12px;cursor:pointer">
+          <input type="checkbox" checked=${verLineas} onChange=${(e) => setVerLineas(e.target.checked)} /> Líneas de transmisión</label>
         <h4>Leyenda</h4>
         ${LEY[capa].map(([c, l]) => html`<div class="li" key=${l}><span class="dot" style=${{ background: c }}></span> ${l}</div>`)}
-        <div style="margin-top:14px;font-size:12px;color:var(--muted)">${datos?.barras.length ?? 0} barras · ${datos?.con_dato ?? 0} con dato</div>
-        ${err && html`<div style="color:var(--bad);font-size:12px;margin-top:8px">${err}</div>`}
+        <div style="margin-top:14px;font-size:12px;color:var(--muted)">${datos?.barras.length ?? 0} barras · ${red.current?.length ?? 0} ramas</div>
       </div>
       <div id="map" ref=${el}></div>
     </div>`
@@ -132,7 +253,7 @@ function Escenario() {
     const iv = setInterval(async () => { const cs = await api.corridas(); const e = cs.find((c) => c.id === 'escenario'); refrescar(); if (e && e.estado !== 'corriendo') { clearInterval(iv); setRun(false) } }, 3000)
   }
   return html`
-    <div style="display:grid;grid-template-columns:360px 1fr;gap:20px">
+    <div class="escgrid">
       <div class="card"><h3>Perillas del escenario</h3><div class="d">Corre un UC alternativo; se compara contra la línea base.</div>
         <div style="margin-top:12px"><label style="font-size:13px">Demanda × <b>${ds.toFixed(2)}</b></label>
           <input type="range" min="0.7" max="1.3" step="0.01" value=${ds} style="width:100%" onInput=${(e) => setDs(+e.target.value)} /></div>
@@ -155,20 +276,6 @@ function Escenario() {
     </div>`
 }
 
-// ------------------------------------------------------------ Resultados ----
-function Resultados() {
-  const [res, setRes] = useState(null); const [csv, setCsv] = useState(''); const [tab, setTab] = useState(null)
-  useEffect(() => { api.resultados().then((r) => { setRes(r); if (r.tablas?.length) setCsv(r.tablas[0]) }) }, [])
-  useEffect(() => { if (csv) api.tabla(csv).then(setTab) }, [csv])
-  return html`
-    <div class="sec">Figuras</div>
-    <div class="figs">${res?.figuras.map((f) => html`<figure key=${f}><img src=${fig(f)} /><figcaption style="color:var(--muted);font-size:12px;padding:4px 2px">${f}</figcaption></figure>`)}</div>
-    <div class="sec">Tablas de validación</div>
-    <select value=${csv} onChange=${(e) => setCsv(e.target.value)}>${res?.tablas.map((t) => html`<option key=${t}>${t}</option>`)}</select>
-    <div class="scroll" style="margin-top:10px">${tab && html`<table><thead><tr>${tab.columnas.map((c) => html`<th key=${c}>${c}</th>`)}</tr></thead>
-        <tbody>${tab.filas.map((f, i) => html`<tr key=${i}>${f.map((v, k) => html`<td key=${k}>${v}</td>`)}</tr>`)}</tbody></table>`}</div>`
-}
-
 // --------------------------------------------------------------- Reporte ----
 function Reporte() {
   const [docs, setDocs] = useState([]); const [sel, setSel] = useState(''); const [h, setH] = useState('')
@@ -188,8 +295,6 @@ function Datos() {
 }
 
 // ---------------------------------------------------------- Metodología ----
-// Las 37 ecuaciones del MODOM (transcripción V16, idénticas a modom-pypsa) con
-// el abordaje de Sienna al lado de cada una. cob: si | par | no
 const S = String.raw
 const EQS = [
   { n: 1, grp: 'Función objetivo', titulo: 'Costo total de operación', ref: '§6.1', cob: 'par',
@@ -202,10 +307,10 @@ const EQS = [
   { n: 3, grp: '7.1 · Compromiso', titulo: 'Estados mutuamente excluyentes', ref: '§7.1.1', cob: 'par',
     tex: S`v_{n,g}^{ACC}+u_{n,g}^{ARR}\mathbf 1_{TARR_g\ge1}+u_{n,g}^{PAR}\mathbf 1_{TPAR_g\ge1}+v_{n,g}^{RFA}=1`,
     dom: 'ACC acoplada · ARR arrancando · PAR parando · RFA reserva fría.',
-    sienna: 'ThermalStandardUnitCommitment: variable binaria on/off. Los 4 estados MODOM (ACC/ARR/PAR/RFA) se colapsan a encendido/apagado + start/stop de PSI.' },
+    sienna: 'ThermalStandardUnitCommitment: variable binaria on/off. Los 4 estados MODOM se colapsan a encendido/apagado + start/stop de PSI.' },
   { n: 4, grp: '', titulo: 'Transiciones de estado prohibidas', ref: '§7.1.2', cob: 'par',
     tex: S`u_{n-1,g}^{PAR}+v_{n,g}^{ACC}\le1,\quad u_{n-1,g}^{ARR}+u_{n,g}^{PAR}\le1,\quad v_{n-1,g}^{RFA}+v_{n,g}^{ACC}\le1,\ \dots`,
-    sienna: 'Manejadas implícitamente por las variables StartVariable/StopVariable de PSI (una unidad no arranca y para en el mismo paso).' },
+    sienna: 'Implícitas en las variables StartVariable/StopVariable de PSI (una unidad no arranca y para en el mismo paso).' },
   { n: 5, grp: '7.2 · Potencias variables', titulo: 'Potencia máxima variable', ref: '§7.2.1', cob: 'par',
     tex: S`PG_{n,g}^{MAX}=v_{n,g}^{ACC}PMX_{n,g}+\tfrac{PMN_{n,g}}{TARR_g}\!\!\sum_{t\in\mathcal T_{ARR}}\!\!(n^*+TARR_g-t^*)u_{t,g}^{ARR}+\dots`,
     sienna: 'La rampa de arranque de PSI aproxima la trayectoria; PSI no modela el techo PMX variable durante el arranque/parada.' },
@@ -320,43 +425,46 @@ const EqRow = ({ e }) => {
 }
 function Metodologia() {
   const n = (c) => EQS.filter((e) => e.cob === c).length
-  return html`
-    <p style="color:var(--muted);max-width:900px">Las <b>37 ecuaciones</b> del MODOM (modelo oficial del OC: GAMS + DIgSILENT, transcripción V16), numeradas tal como aparecen en el documento, con <b>el abordaje de Sienna al lado de cada una</b>. Cobertura:
+  return html`<div>
+    <p style="color:var(--muted);max-width:920px">Las <b>37 ecuaciones</b> del MODOM (modelo oficial del OC: GAMS + DIgSILENT, transcripción V16), numeradas tal como aparecen en el documento, con <b>el abordaje de Sienna al lado de cada una</b>. Cobertura:
       <span class="pill si">Implementada ${n('si')}</span> <span class="pill par">Parcial ${n('par')}</span> <span class="pill no">No / gap ${n('no')}</span></p>
     ${EQS.map((e) => html`<${EqRow} e=${e} key=${e.n} />`)}
     <div class="card" style="margin-top:20px;max-width:1000px">
       <h3>Cómo se incorpora al software</h3>
       <p style="font-size:12.5px;line-height:1.7">
-        <b>1 · Ingesta</b> del export PowerFactory + tablas MODOM → capa canónica (<code>src/parse_powerfactory.jl</code>, <code>build_modom_system.jl</code>).<br>
-        <b>2 · System PSY</b>: 717 barras (despacho) / 718 nodos (físico), generadores, reservas y flowgates.<br>
-        <b>3 · Escenario</b>: las perillas del usuario se aplican como <i>overrides</i> antes de resolver (<code>_apply_overrides!</code>).<br>
-        <b>4 · Optimización</b> (PowerSimulations + HiGHS): <code>EconomicDispatch</code> / <code>ThermalStandardUnitCommitment</code> con reservas y flowgates.<br>
-        <b>5 · Verificación AC</b> (<code>PowerFlows.jl</code>) sobre el System físico — el paso que el OC hace en DIgSILENT.<br>
+        <b>1 · Ingesta</b> del export PowerFactory + tablas MODOM → capa canónica (<code>src/parse_powerfactory.jl</code>, <code>build_modom_system.jl</code>).<br/>
+        <b>2 · System PSY</b>: 717 barras (despacho) / 718 nodos (físico), generadores, reservas y flowgates.<br/>
+        <b>3 · Escenario</b>: las perillas del usuario se aplican como <i>overrides</i> antes de resolver.<br/>
+        <b>4 · Optimización</b> (PowerSimulations + HiGHS): <code>EconomicDispatch</code> / <code>ThermalStandardUnitCommitment</code> con reservas y flowgates.<br/>
+        <b>5 · Verificación AC</b> (<code>PowerFlows.jl</code>) sobre el System físico — el paso que el OC hace en DIgSILENT.<br/>
         <b>6 · Dinámica</b> (<code>PowerSimulationsDynamics.jl</code>): pequeña señal y frecuencia con los modelos DSL reales.
       </p>
-    </div>`
+    </div>
+  </div>`
 }
 
 // ------------------------------------------------------------------ App -----
 const IC = (p) => html`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" dangerouslySetInnerHTML=${{ __html: p }}></svg>`
 const TABS = [
+  ['operacion', 'Operación', Operacion, '<path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/>'],
   ['mapa', 'Mapa', Mapa, '<path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2-6-2Z"/><path d="M9 3v16M15 5v16"/>'],
-  ['corridas', 'Corridas', Corridas, '<path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>'],
+  ['despacho', 'Despacho', Despacho, '<path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>'],
+  ['dinamica', 'Dinámica', Dinamica, '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'],
   ['escenario', 'Escenario', Escenario, '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.81 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15H4.5a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 6 9.4l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 11 4.6V4.5a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 18 6l.06-.06a2 2 0 1 1 2.83 2.83L20.83 9A1.65 1.65 0 0 0 21 11h-.09Z"/>'],
-  ['resultados', 'Resultados', Resultados, '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>'],
-  ['reporte', 'Reporte', Reporte, '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/>'],
   ['metodologia', 'Metodología', Metodologia, '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>'],
+  ['corridas', 'Corridas', Corridas, '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>'],
+  ['reporte', 'Reporte', Reporte, '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/>'],
   ['datos', 'Datos', Datos, '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>'],
 ]
 function App() {
-  const [tab, setTab] = useState('mapa')
+  const [tab, setTab] = useState('operacion')
   const cur = TABS.find((t) => t[0] === tab); const Actual = cur[2]
   return html`
     <div class="layout">
       <aside class="side">
         <div class="brand"><div class="logo">⚡</div><div><b>SENI·Sienna</b><small>NREL · República Dominicana</small></div></div>
         <nav class="nav">${TABS.map(([id, l, , p]) => html`<button key=${id} class=${tab === id ? 'act' : ''} onClick=${() => setTab(id)}>${IC(p)}${l}</button>`)}</nav>
-        <div class="sidefoot">Recreación del SENI en Sienna — operación, despacho y dinámica.</div>
+        <div class="sidefoot">Recreación del SENI en Sienna — operación, despacho y dinámica por hora.</div>
       </aside>
       <div class="content">
         <div class="top"><h2>${cur[1]}</h2><span class="sub">Sistema Eléctrico Nacional Interconectado</span></div>

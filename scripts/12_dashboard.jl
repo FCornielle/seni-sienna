@@ -235,6 +235,95 @@ end
     ], recurso = "https://www.dropbox.com/sh/sel2bzf89wc3dyu (OC — Programación del SENI)")
 end
 
+# ---- Red de transmisión (segmentos línea para el mapa) -----------------------
+@get "/api/red" function ()
+    df = _coords()
+    nrow(df) == 0 && return (segmentos = [],)
+    coord = Dict(String(r.bus_id_modom) => (Float64(r.lat), Float64(r.lon)) for r in eachrow(df))
+    kv = Dict(String(r.bus_id_modom) => (ismissing(r.v_nom_kv) ? 0.0 : Float64(r.v_nom_kv)) for r in eachrow(df))
+    brf = joinpath(ROOT, "data", "raw", "processed", "branches", "branches.csv")
+    isfile(brf) || return (segmentos = [],)
+    br = CSV.read(brf, DataFrame)
+    segs = NamedTuple[]
+    for r in eachrow(br)
+        fb, tb = String(r.from_bus), String(r.to_bus)
+        (haskey(coord, fb) && haskey(coord, tb) && fb != tb) || continue
+        v = max(get(kv, fb, 0.0), get(kv, tb, 0.0))
+        push!(segs, (from = [coord[fb]...], to = [coord[tb]...], kv = v,
+                     tipo = String(r.branch_type), nombre = String(r.branch_id)))
+    end
+    return (segmentos = segs,)
+end
+
+# ---- Series horarias / resultados para gráficos interactivos -----------------
+_valcsv(n) = (p = joinpath(VAL, n); isfile(p) ? CSV.read(p, DataFrame) : nothing)
+_asbool(x) = x === true || x == 1 || (x isa AbstractString && lowercase(x) == "true")
+
+@get "/api/serie/{tipo}" function (req, tipo::String)
+    if tipo == "despacho_tec"
+        d = _valcsv("despacho_tec_hora.csv"); d === nothing && return (horas = [],)
+        return (horas = d.hora, termica = d.termica, hidro = d.hidro,
+                renovable = d.renovable, demanda = d.demanda)
+    elseif tipo == "commitment"
+        d = _valcsv("fase3b_uc_comparison.csv"); d === nothing && return (unidades = [],)
+        horas = sort(unique(Int.(d.hora)))
+        units = String[]; on = Dict{String,Vector{Int}}()
+        for r in eachrow(d)
+            g = String(r.gen); v = _asbool(r.sienna_on) ? 1 : 0
+            haskey(on, g) || (push!(units, g); on[g] = zeros(Int, length(horas)))
+            on[g][Int(r.hora)] = v
+        end
+        act = [u for u in units if sum(on[u]) > 0]           # solo con algún ON
+        sort!(act; by = u -> -sum(on[u]))
+        return (unidades = act, horas = horas, matriz = [on[u] for u in act])
+    elseif tipo == "tension"
+        d = _valcsv("fase4_qds_resumen.csv"); d === nothing && return (horas = [],)
+        return (horas = d.hora, v_min = d.v_min, v_max = d.v_max, fuera = d.fuera_banda)
+    elseif tipo == "frecuencia"
+        out = Dict{String,Any}(); etq = ("sin" => "Sin EDAC", "edac" => "EDAC actual", "sel" => "Selectivo")
+        for (k, _) in etq
+            d = _valcsv("v2_selectivo_serie_$k.csv")
+            d !== nothing && (out[k] = [[d.t_s[i], d.f_hz[i]] for i in 1:nrow(d)])
+        end
+        return (series = out,)
+    elseif tipo == "pequena"
+        d = _valcsv("fase5_small_signal_sienna.csv"); d === nothing && return (modos = [],)
+        em = d[(d.frecuencia_hz .> 0.1) .& (d.frecuencia_hz .< 3.0), :]
+        return (modos = [(f = em.frecuencia_hz[i], z = em.amortiguamiento_pct[i]) for i in 1:nrow(em)],)
+    elseif tipo == "n1"
+        d = _valcsv("fase4_n1_screening.csv"); d === nothing && return (items = [],)
+        d = sort(d, :sobrecargas_nuevas, rev = true)[1:min(12, nrow(d)), :]
+        return (items = [(c = String(d.contingencia[i]), n = d.sobrecargas_nuevas[i],
+                          kv = d.kv[i]) for i in 1:nrow(d)],)
+    elseif tipo == "despacho_unidad"
+        d = _valcsv("fase3_dispatch_comparison.csv"); d === nothing && return (unidades = [],)
+        tot = Dict{String,Float64}()
+        for r in eachrow(d); tot[String(r.gen)] = get(tot, String(r.gen), 0.0) + r.sienna; end
+        top = sort(collect(keys(tot)); by = g -> -tot[g])[1:min(10, length(tot))]
+        horas = sort(unique(Int.(d.hora)))
+        mw = Dict(g => zeros(Float64, length(horas)) for g in top)
+        for r in eachrow(d); haskey(mw, String(r.gen)) && (mw[String(r.gen)][Int(r.hora)] = r.sienna); end
+        return (unidades = top, horas = horas, series = [mw[g] for g in top])
+    end
+    return HTTP.Response(404, "serie desconocida")
+end
+
+# ---- KPIs para la vista de operación -----------------------------------------
+@get "/api/kpis" function ()
+    k = Pair{String,Any}[]
+    d = _valcsv("despacho_tec_hora.csv")
+    if d !== nothing
+        push!(k, "Demanda pico" => string(round(maximum(d.demanda); digits = 0), " MW"))
+        push!(k, "Generación térmica" => string(round(sum(d.termica) / 1000; digits = 1), " GWh/día"))
+        push!(k, "Renovable" => string(round(sum(d.renovable) / 1000; digits = 1), " GWh/día"))
+    end
+    t = _valcsv("fase4_qds_resumen.csv")
+    t !== nothing && push!(k, "Tensión mín 24h" => string(round(minimum(t.v_min); digits = 3), " pu"))
+    f = _valcsv("v2_selectivo_resumen.csv")
+    f !== nothing && push!(k, "Nadir (pérdida PC2)" => string(round(minimum(f.nadir_hz); digits = 3), " Hz"))
+    return (kpis = [(k = p.first, v = p.second) for p in k],)
+end
+
 # SPA Preact+htm en dashboard/spa (no-build; stack vendorizado localmente).
 const SPA = joinpath(ROOT, "dashboard", "spa")
 const _MIME = Dict(".js" => "application/javascript; charset=utf-8", ".css" => "text/css; charset=utf-8",
@@ -251,6 +340,11 @@ _mime(f) = get(_MIME, lowercase(splitext(f)[2]), "application/octet-stream")
 end
 @get "/spa/vendor/{file}" function (req, file::String)
     f = joinpath(SPA, "vendor", basename(file))
+    isfile(f) || return HTTP.Response(404)
+    return HTTP.Response(200, ["Content-Type" => _mime(f)]; body = read(f))
+end
+@get "/spa/vendor/fonts/{file}" function (req, file::String)
+    f = joinpath(SPA, "vendor", "fonts", basename(file))
     isfile(f) || return HTTP.Response(404)
     return HTTP.Response(200, ["Content-Type" => _mime(f)]; body = read(f))
 end

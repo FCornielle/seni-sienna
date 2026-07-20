@@ -154,6 +154,19 @@ end
 println("ENS total: ", round(sum(value.(ens)); digits = 2), " MWh  Dump: ",
         round(sum(value.(dump)); digits = 2), " MWh")
 
+# ---- mix de despacho por tecnología y hora (para el dashboard horario) ---------
+tec_rows = NamedTuple[]
+for t in 1:T
+    term = sum(value(pt[get_name(g), t]) for g in thermals; init = 0.0)
+    hidro = sum(min(get(modom_mw, (get_name(g), t), 0.0), plim(g).max) for g in hydros; init = 0.0)
+    renov = sum(value(pr[get_name(g), t]) for g in renews; init = 0.0)
+    dem = sum(demand[get_name(l)][t] for l in loads; init = 0.0)
+    push!(tec_rows, (hora = t, termica = round(term; digits = 1), hidro = round(hidro; digits = 1),
+                     renovable = round(renov; digits = 1), demanda = round(dem; digits = 1)))
+end
+CSV.write(joinpath(val_dir, "despacho_tec_hora.csv"), DataFrame(tec_rows))
+println("Mix por tecnología×hora → validation/despacho_tec_hora.csv")
+
 # ---- ENS por barra vs ENS de MODOM ---------------------------------------------
 modom_ens = CSV.read(joinpath(raw_dir, "processed", "modom_results",
                               "modom_bus_ens.csv"), DataFrame; header = 1)
