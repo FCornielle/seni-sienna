@@ -59,8 +59,10 @@
 </header>
 <nav>
   <button id="t-corridas" class="act" onclick="tab('corridas')">Corridas</button>
+  <button id="t-escenario" onclick="tab('escenario')">Escenario</button>
   <button id="t-resultados" onclick="tab('resultados')">Resultados</button>
   <button id="t-reporte" onclick="tab('reporte')">Reporte</button>
+  <button id="t-datos" onclick="tab('datos')">Datos</button>
 </nav>
 <main>
   <section id="p-corridas"><div class="grid" id="corridas"></div>
@@ -70,6 +72,47 @@
       <button class="sec" onclick="verLog()">Actualizar</button>
     </div>
     <pre class="log" id="log">(selecciona una corrida)</pre>
+  </section>
+  <section id="p-escenario" style="display:none">
+    <div style="display:grid;grid-template-columns:360px 1fr;gap:20px">
+      <div class="card">
+        <h3>Perillas del escenario</h3>
+        <div class="d">Ajusta y ejecuta un UC alternativo; se compara contra la línea base.</div>
+        <div style="margin-top:12px">
+          <label style="font-size:13px">Demanda ×<b id="dsv">1.00</b></label>
+          <input type="range" id="ds" min="0.7" max="1.3" step="0.01" value="1.0"
+                 style="width:100%" oninput="$('dsv').textContent=(+this.value).toFixed(2)">
+        </div>
+        <div style="margin-top:10px">
+          <label style="font-size:13px">Reserva RPF/RSF: <b id="rpv">3</b>%</label>
+          <input type="range" id="rp" min="0" max="8" step="0.5" value="3"
+                 style="width:100%" oninput="$('rpv').textContent=this.value">
+        </div>
+        <div style="margin-top:10px">
+          <label style="font-size:13px">Unidades fuera de servicio</label>
+          <select id="gendis" multiple size="7" style="width:100%;margin-top:4px"></select>
+          <div class="d" style="min-height:0;margin-top:4px">Ctrl/Cmd para varias.</div>
+        </div>
+        <button class="run" style="margin-top:14px;width:100%" id="btnesc"
+                onclick="ejecutarEscenario()">Ejecutar escenario (UC)</button>
+      </div>
+      <div>
+        <div class="scroll"><table id="esctabla">
+          <tr><td style="color:var(--mut)">Ejecuta un escenario para ver el delta vs base.</td></tr>
+        </table></div>
+        <pre class="log" id="esclog" style="margin-top:12px">(sin corridas de escenario)</pre>
+        <figure style="margin-top:12px"><img id="escfig" style="width:100%;border:1px solid var(--bd);border-radius:8px;display:none"></figure>
+      </div>
+    </div>
+  </section>
+  <section id="p-datos" style="display:none">
+    <div class="card" style="max-width:820px">
+      <h3>Procedencia de los datos</h3>
+      <div class="d">Origen de cada insumo (nada de esto se versiona en git).</div>
+      <div class="scroll" style="margin-top:10px"><table id="feedtabla"></table></div>
+      <p style="margin-top:12px;font-size:13px;color:var(--mut)">
+        Recurso OC: <a id="ocurl" href="#" target="_blank"></a></p>
+    </div>
   </section>
   <section id="p-resultados" style="display:none">
     <h2 class="sec">Figuras</h2><div class="figs" id="figs"></div>
@@ -89,15 +132,65 @@
 <script>
 const $ = id => document.getElementById(id);
 function tab(t){
-  for (const x of ['corridas','resultados','reporte']){
+  for (const x of ['corridas','escenario','resultados','reporte','datos']){
     $('p-'+x).style.display = x===t?'':'none';
     $('t-'+x).classList.toggle('act', x===t);
   }
   if (t==='resultados') cargarResultados();
   if (t==='reporte') cargarDocs();
+  if (t==='escenario') cargarEscenario();
+  if (t==='datos') cargarDatos();
+}
+let genList = [];
+async function cargarEscenario(){
+  if (!genList.length){
+    const r = await (await fetch('/api/generadores')).json();
+    genList = r.generadores;
+    $('gendis').innerHTML = genList.map(g=>
+      `<option value="${g.id}">${g.nombre} (${g.pmax} MW)</option>`).join('');
+  }
+  verEscenario();
+}
+async function verEscenario(){
+  const r = await (await fetch('/api/escenario')).json();
+  if (r.resumen){
+    $('esctabla').innerHTML = '<tr>'+r.resumen.columnas.map(c=>`<th>${c}</th>`).join('')+'</tr>'
+      + r.resumen.filas.map(f=>'<tr>'+f.map(v=>`<td>${v}</td>`).join('')+'</tr>').join('');
+  }
+  const img = $('escfig');
+  fetch('/figuras/f8_scenario_studio.png').then(x=>{
+    if (x.ok){ img.src='/figuras/f8_scenario_studio.png?'+Date.now(); img.style.display=''; }
+  });
+  const l = await (await fetch('/api/log/escenario')).json();
+  $('esclog').textContent = l.texto || '(sin corridas de escenario)';
+  $('esclog').scrollTop = $('esclog').scrollHeight;
+}
+async function ejecutarEscenario(){
+  const dis = [...$('gendis').selectedOptions].map(o=>o.value);
+  const body = { demand_scale:+$('ds').value, reserve_pct:+$('rp').value/100,
+                 gen_disabled:dis, cvp_mult:{} };
+  $('btnesc').disabled = true; $('btnesc').textContent = 'Corriendo…';
+  await fetch('/api/escenario', {method:'POST', headers:{'Content-Type':'application/json'},
+    body: JSON.stringify(body)});
+  const iv = setInterval(async ()=>{
+    const cs = await (await fetch('/api/corridas')).json();
+    const e = cs.find(c=>c.id==='escenario');
+    verEscenario();
+    if (e && e.estado!=='corriendo'){ clearInterval(iv);
+      $('btnesc').disabled=false; $('btnesc').textContent='Ejecutar escenario (UC)'; }
+  }, 3000);
+}
+async function cargarDatos(){
+  const r = await (await fetch('/api/feed_oc')).json();
+  $('feedtabla').innerHTML = '<tr><th>Insumo</th><th>Estado</th><th>Origen</th></tr>'
+    + r.items.map(i=>`<tr><td>${i.nombre}</td>
+      <td style="color:${i.ok?'var(--ok)':'var(--err)'}">${i.ok?'presente':'falta'}</td>
+      <td>${i.origen}</td></tr>`).join('');
+  $('ocurl').href = r.recurso; $('ocurl').textContent = r.recurso;
 }
 async function refrescar(){
-  const cs = await (await fetch('/api/corridas')).json();
+  const todas = await (await fetch('/api/corridas')).json();
+  const cs = todas.filter(c=>c.id!=='escenario');  // el escenario vive en su pestaña
   const sel = $('logsel'); const cur = sel.value;
   sel.innerHTML = cs.map(c=>`<option value="${c.id}">${c.nombre}</option>`).join('');
   if (cur) sel.value = cur;

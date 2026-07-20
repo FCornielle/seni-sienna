@@ -15,6 +15,7 @@ module SeniSienna
 using CSV
 using DataFrames
 using Dates
+using JSON3
 using TimeSeries: TimeArray
 using PowerSystems
 

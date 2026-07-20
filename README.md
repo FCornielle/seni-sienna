@@ -30,9 +30,15 @@ julia scripts/01_build_system.jl
 .\SENI-Sienna.bat          # → http://localhost:8155
 ```
 
-Panel web estilo modom-pypsa: lanza cualquier corrida (01–11) con un clic,
-muestra estado y log en vivo, galería de figuras, tablas de `validation/` y el
-reporte consolidado. Para arranque en segundos, compilar una vez la sysimage:
+Panel web estilo modom-pypsa con 5 pestañas:
+- **Corridas**: lanza cualquier corrida (01–11) con un clic, con estado y log en vivo
+- **Escenario** (*Scenario Studio*): perillas de demanda, reserva y unidades fuera
+  de servicio → corre un UC alternativo y muestra el delta vs la línea base
+- **Resultados**: galería de figuras + tablas de `validation/`
+- **Reporte**: reporte consolidado renderizado
+- **Datos**: procedencia de cada insumo (feed del OC)
+
+Para arranque en segundos, compilar una vez la sysimage:
 
 ```powershell
 julia --project=. scripts/13_build_sysimage.jl   # ~30–60 min, una sola vez

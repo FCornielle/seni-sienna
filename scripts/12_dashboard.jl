@@ -41,6 +41,8 @@ const CORRIDAS = [
      desc = "Aperturas reales de etapa 1 (502 MW) vs pérdida de 360 MW"),
     (id = "selectivo", script = "11_deslastre_selectivo.jl",  nombre = "Deslastre selectivo",
      desc = "EDAC actual vs 30% por alimentador (figura f7)"),
+    (id = "escenario", script = "14_scenario_studio.jl",      nombre = "Scenario Studio (UC)",
+     desc = "UC con perillas de escenario y delta vs línea base"),
 ]
 const POR_ID = Dict(c.id => c for c in CORRIDAS)
 
@@ -131,6 +133,54 @@ end
     path = joinpath(VAL, basename(nombre))
     (isfile(path) && endswith(path, ".md")) || return HTTP.Response(404)
     return (texto = read(path, String),)
+end
+
+# ---- Scenario Studio ----------------------------------------------------------
+const OV_FILE = joinpath(ROOT, "data", "scenario_overrides.json")
+
+@get "/api/generadores" function ()
+    path = joinpath(ROOT, "data", "raw", "processed", "generators", "generators.csv")
+    isfile(path) || return (generadores = [],)
+    df = CSV.read(path, DataFrame)
+    # solo térmicos despachables con capacidad (los que el UC puede apagar)
+    filas = [(id = string(r.generator_id), nombre = string(r.generator_name),
+              pmax = round(Float64(r.effective_pmax_mw); digits = 1))
+             for r in eachrow(df)
+             if string(r.technology_group) in ("1", "3") &&
+                !ismissing(r.effective_pmax_mw) && Float64(r.effective_pmax_mw) > 20]
+    return (generadores = sort(filas; by = f -> -f.pmax),)
+end
+
+@get "/api/escenario" function ()
+    ov = isfile(OV_FILE) ? JSON3.read(read(OV_FILE, String)) : nothing
+    res = joinpath(VAL, "scenario_resumen.csv")
+    resumen = isfile(res) ? (df = CSV.read(res, DataFrame);
+        (columnas = names(df),
+         filas = [[string(df[i, c]) for c in names(df)] for i in 1:nrow(df)])) : nothing
+    return (overrides = ov, resumen = resumen)
+end
+
+@post "/api/escenario" function (req)
+    body = json(req)
+    open(OV_FILE, "w") do io; JSON3.write(io, body); end
+    lanzar("escenario")
+    return (ok = true,)
+end
+
+# ---- Feed OC (procedencia de datos) ------------------------------------------
+@get "/api/feed_oc" function ()
+    raw = joinpath(ROOT, "data", "raw")
+    chk(p) = isdir(joinpath(raw, p)) || isfile(joinpath(raw, p))
+    return (items = [
+        (nombre = "Export PowerFactory (PDD 30-09-2025)", ok = chk("salida_PDD_30_09_2025"),
+         origen = "VM DIgSILENT / OC 5.CASOS DIGSILENT"),
+        (nombre = "Tablas canónicas MODOM", ok = chk("processed"),
+         origen = "workbook MODOM (VEROPE + PDD del OC)"),
+        (nombre = "Extracción dinámica (DSL, EDAC)", ok = chk("salida_dinamica_20260714"),
+         origen = "VM DIgSILENT"),
+        (nombre = "Bloque I + EDAC detalle (P20)", ok = chk("seni_extraccion_vm_20260717"),
+         origen = "VM DIgSILENT"),
+    ], recurso = "https://www.dropbox.com/sh/sel2bzf89wc3dyu (OC — Programación del SENI)")
 end
 
 @get "/" function ()

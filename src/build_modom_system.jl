@@ -54,19 +54,27 @@ function _branches_with_modom_flow(t)::Set{String}
 end
 
 """
-    build_seni_dispatch_system(raw_dir; first_timestamp) -> System
+    build_seni_dispatch_system(raw_dir; first_timestamp, overrides_file) -> System
 
 Construye el System de despacho del SENI (717 barras) desde
 `raw_dir/processed/` y adjunta las series horarias de demanda,
 renovables e hidro. Los flowgates quedan como TransmissionInterface.
+
+`overrides_file` (Scenario Studio): JSON opcional con perillas del escenario
+(demanda, CVP, unidades fuera, % de reserva). Si es `nothing` usa el default
+`raw_dir/../scenario_overrides.json` cuando exista.
 """
 function build_seni_dispatch_system(
     raw_dir::AbstractString;
     first_timestamp::DateTime = DateTime(2026, 6, 11),
+    overrides_file::Union{Nothing,AbstractString} = nothing,
 )
     t = load_modom_tables(joinpath(raw_dir, "processed"))
     n_hours = nrow(t["snapshots"])
     timestamps = range(first_timestamp; step = Hour(1), length = n_hours)
+
+    ov = _load_overrides(raw_dir, overrides_file)
+    reserve_pct = _apply_overrides!(t, ov)
 
     sys = System(MODOM_SBASE)
 
@@ -77,11 +85,60 @@ function build_seni_dispatch_system(
     _add_loads!(sys, t, timestamps, stats)
     _add_flowgates!(sys, t, stats)
     _reconnect_deficient_islands!(sys, t, stats)
-    _add_reserves!(sys, t, timestamps)
+    _add_reserves!(sys, t, timestamps; pct = reserve_pct)
     _set_reference_bus!(sys, t)
 
     _report(sys, t, stats)
     return sys
+end
+
+# ---------------------------------------------- Scenario Studio (overrides) --
+
+# JSON de perillas: {"demand_scale":1.05, "cvp_mult":{"G3PCATA1":1.2},
+#                    "gen_disabled":["G3ITABO1"], "reserve_pct":0.03}
+function _load_overrides(raw_dir, overrides_file)
+    path = overrides_file !== nothing ? overrides_file :
+           joinpath(raw_dir, "..", "scenario_overrides.json")
+    isfile(path) || return nothing
+    try
+        return JSON3.read(read(path, String))
+    catch err
+        @warn "scenario_overrides.json ilegible; se ignora" err
+        return nothing
+    end
+end
+
+"Aplica overrides a las tablas MODOM in situ. Devuelve el % de reserva a usar."
+function _apply_overrides!(t, ov)
+    ov === nothing && return 0.03
+    ds = Float64(get(ov, :demand_scale, 1.0))
+    if ds != 1.0
+        t["loads"].p_set_mw = t["loads"].p_set_mw .* ds
+        @info "Override: demanda escalada" factor = ds
+    end
+    cvpm = get(ov, :cvp_mult, nothing)
+    if cvpm !== nothing && !isempty(cvpm)
+        idx = Dict(String(k) => Float64(v) for (k, v) in pairs(cvpm))
+        n = 0
+        for (i, gid) in enumerate(t["generators"].generator_id)
+            m = get(idx, String(gid), nothing)
+            m === nothing && continue
+            t["generators"].effective_cvp[i] *= m; n += 1
+        end
+        @info "Override: CVP multiplicado" unidades = n
+    end
+    dis = get(ov, :gen_disabled, nothing)
+    if dis !== nothing && !isempty(dis)
+        fuera = Set(String.(dis))
+        n = 0
+        for (i, gid) in enumerate(t["generators"].generator_id)
+            if String(gid) in fuera
+                t["generators"].enabled_flag[i] = 0; n += 1
+            end
+        end
+        @info "Override: unidades fuera de servicio" unidades = n
+    end
+    return Float64(get(ov, :reserve_pct, 0.03))
 end
 
 # ---------------------------------------------------------------- barras ----
@@ -436,7 +493,7 @@ end
 # RPF/RSF como VariableReserve{ReserveUp} con requisito horario = RRPF/RRSF
 # (3%, model_options.csv) de la demanda del sistema. Participan los térmicos
 # con MRPF/MRSF > 0 en gen_params y las hidro.
-function _add_reserves!(sys::System, t, timestamps)
+function _add_reserves!(sys::System, t, timestamps; pct::Float64 = 0.03)
     demanda_h = zeros(length(timestamps))
     for g in groupby(t["loads"], :load_id)
         sorted = sort(g, :time_block_order)
@@ -444,7 +501,7 @@ function _add_reserves!(sys::System, t, timestamps)
     end
     params = Dict(String(r.generator_id) => r for r in eachrow(t["gen_params"]))
     for (nombre, col, tframe) in (("RPF", :MRPF, 30.0), ("RSF", :MRSF, 600.0))
-        req = 0.03 .* demanda_h                     # MW
+        req = pct .* demanda_h                       # MW
         peak = maximum(req)
         contrib = Device[]
         for g in get_components(ThermalStandard, sys)
