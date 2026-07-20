@@ -24,6 +24,20 @@ julia scripts/00_setup_environment.jl
 julia scripts/01_build_system.jl
 ```
 
+## Dashboard (plataforma de corridas)
+
+```powershell
+.\SENI-Sienna.bat          # → http://localhost:8155
+```
+
+Panel web estilo modom-pypsa: lanza cualquier corrida (01–11) con un clic,
+muestra estado y log en vivo, galería de figuras, tablas de `validation/` y el
+reporte consolidado. Para arranque en segundos, compilar una vez la sysimage:
+
+```powershell
+julia --project=. scripts/13_build_sysimage.jl   # ~30–60 min, una sola vez
+```
+
 ## Estructura
 
 | Ruta | Contenido |
