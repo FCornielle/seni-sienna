@@ -261,9 +261,10 @@ _asbool(x) = x === true || x == 1 || (x isa AbstractString && lowercase(x) == "t
 
 @get "/api/serie/{tipo}" function (req, tipo::String)
     if tipo == "despacho_tec"
-        d = _valcsv("despacho_tec_hora.csv"); d === nothing && return (horas = [],)
-        return (horas = d.hora, termica = d.termica, hidro = d.hidro,
-                renovable = d.renovable, demanda = d.demanda)
+        d = _valcsv("despacho_fuel_hora.csv"); d === nothing && return (horas = [],)
+        fuels = ["Carbón", "Fuel Oil / Diesel", "Gas Natural", "Biomasa", "Hidro", "Eólica", "Solar", "Otra"]
+        series = [(nombre = f, mw = d[!, Symbol(f)]) for f in fuels if Symbol(f) in propertynames(d) && sum(d[!, Symbol(f)]) > 0.01]
+        return (horas = d.hora, series = series, demanda = d.demanda)
     elseif tipo == "commitment"
         d = _valcsv("fase3b_uc_comparison.csv"); d === nothing && return (unidades = [],)
         horas = sort(unique(Int.(d.hora)))
@@ -296,14 +297,18 @@ _asbool(x) = x === true || x == 1 || (x isa AbstractString && lowercase(x) == "t
         return (items = [(c = String(d.contingencia[i]), n = d.sobrecargas_nuevas[i],
                           kv = d.kv[i]) for i in 1:nrow(d)],)
     elseif tipo == "despacho_unidad"
-        d = _valcsv("fase3_dispatch_comparison.csv"); d === nothing && return (unidades = [],)
-        tot = Dict{String,Float64}()
-        for r in eachrow(d); tot[String(r.gen)] = get(tot, String(r.gen), 0.0) + r.sienna; end
-        top = sort(collect(keys(tot)); by = g -> -tot[g])[1:min(10, length(tot))]
+        # TODAS las unidades térmicas, etiquetadas por NOMBRE de central
+        d = _valcsv("despacho_unidad_hora.csv"); d === nothing && return (unidades = [],)
         horas = sort(unique(Int.(d.hora)))
-        mw = Dict(g => zeros(Float64, length(horas)) for g in top)
-        for r in eachrow(d); haskey(mw, String(r.gen)) && (mw[String(r.gen)][Int(r.hora)] = r.sienna); end
-        return (unidades = top, horas = horas, series = [mw[g] for g in top])
+        nombre = Dict{String,String}(); tot = Dict{String,Float64}(); mw = Dict{String,Vector{Float64}}()
+        for r in eachrow(d)
+            g = String(r.gen)
+            nombre[g] = String(r.nombre); tot[g] = get(tot, g, 0.0) + r.mw
+            haskey(mw, g) || (mw[g] = zeros(Float64, length(horas)))
+            mw[g][Int(r.hora)] = r.mw
+        end
+        ord = sort([g for g in keys(tot) if tot[g] > 0.01]; by = g -> -tot[g])
+        return (unidades = [nombre[g] for g in ord], horas = horas, series = [mw[g] for g in ord])
     end
     return HTTP.Response(404, "serie desconocida")
 end

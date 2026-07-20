@@ -18,6 +18,9 @@ const api = {
 const fig = (n) => `/figuras/${n}`
 const K = (tex) => { try { return katex.renderToString(tex, { displayMode: true, output: 'html', throwOnError: false }) } catch (e) { return '<code>' + tex + '</code>' } }
 const COL = { term: '#94a3b8', hidro: '#2563eb', renov: '#22c55e', ink: '#0f172a', acc: '#2563eb', bad: '#e74c3c', warn: '#f59e0b', line: '#e6e8ec', mut: '#64748b' }
+// paleta de combustible idéntica a modom-pypsa (dashboard.py FUEL_COLORS)
+const FUEL_COLORS = { 'Solar': '#f4c430', 'Eólica': '#33c9b8', 'Hidro': '#3b9ae1', 'Gas Natural': '#f08a24',
+  'Fuel Oil / Diesel': '#b0683c', 'Carbón': '#6b6f76', 'Biomasa': '#5cb85c', 'Otra': '#9b7fd4' }
 
 // ------------------------------------------------------------ Plot (Plotly) --
 const BASE_LAYOUT = {
@@ -61,13 +64,17 @@ function renderMd(s) {
 }
 
 // ------------------------------------------------------------- Operación ----
+// orden de apilado: base firme abajo (carbón) → variable arriba (solar)
+const FUEL_STACK = ['Carbón', 'Fuel Oil / Diesel', 'Gas Natural', 'Biomasa', 'Hidro', 'Eólica', 'Solar', 'Otra']
 function MixHorario({ height = 340 }) {
   const [d, setD] = useState(null); useEffect(() => { api.serie('despacho_tec').then(setD).catch(() => {}) }, [])
-  if (!d || !d.horas?.length) return html`<div class="vacio">Ejecuta <b>Despacho ED</b> para ver el mix horario.</div>`
-  const area = (y, n, c) => ({ x: d.horas, y, name: n, stackgroup: 'g', mode: 'none', fillcolor: c, hovertemplate: `${n}: %{y:.0f} MW<extra></extra>` })
-  const data = [area(d.termica, 'Térmica', COL.term), area(d.hidro, 'Hidro', COL.hidro), area(d.renovable, 'Renovable', COL.renov),
-    { x: d.horas, y: d.demanda, name: 'Demanda', mode: 'lines', line: { color: COL.ink, dash: 'dot', width: 2 }, hovertemplate: 'Demanda: %{y:.0f} MW<extra></extra>' }]
-  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'MW' } }} />`
+  if (!d || !d.horas?.length || !d.series) return html`<div class="vacio">Ejecuta <b>Despacho ED</b> para ver el mix horario.</div>`
+  const byName = Object.fromEntries(d.series.map((s) => [s.nombre, s.mw]))
+  const orden = FUEL_STACK.filter((f) => byName[f])
+  const data = orden.map((f) => ({ x: d.horas, y: byName[f], name: f, stackgroup: 'g', mode: 'none',
+    fillcolor: FUEL_COLORS[f], hovertemplate: `${f}: %{y:.0f} MW<extra></extra>` }))
+  data.push({ x: d.horas, y: d.demanda, name: 'Demanda', mode: 'lines', line: { color: COL.ink, dash: 'dot', width: 2 }, hovertemplate: 'Demanda: %{y:.0f} MW<extra></extra>' })
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'MW' }, legend: { orientation: 'h', y: -0.22, font: { size: 10.5 } } }} />`
 }
 function CommitmentHeatmap({ height = 420 }) {
   const [d, setD] = useState(null); useEffect(() => { api.serie('commitment').then(setD).catch(() => {}) }, [])
@@ -84,17 +91,18 @@ function Operacion() {
   return html`
     <${Kpis} />
     <div class="cols2">
-      ${card('Mix de generación por hora', 'despacho ED — térmica · hidro · renovable vs demanda', html`<${MixHorario} />`)}
+      ${card('Despacho por tecnología', 'despacho ED — mix por combustible vs demanda (24 h)', html`<${MixHorario} />`)}
       ${card('Compromiso de unidades (commitment)', 'UC MILP — encendido/apagado por unidad y hora', html`<${CommitmentHeatmap} />`)}
     </div>`
 }
 
 // ------------------------------------------------------------- Despacho -----
-function DespachoUnidad({ height = 360 }) {
+function DespachoUnidad({ height = 460 }) {
   const [d, setD] = useState(null); useEffect(() => { api.serie('despacho_unidad').then(setD).catch(() => {}) }, [])
   if (!d || !d.unidades?.length) return html`<div class="vacio">Ejecuta <b>Despacho ED</b>.</div>`
-  const data = d.unidades.map((u, i) => ({ x: d.horas, y: d.series[i], name: u, mode: 'lines', line: { width: 1.6 } }))
-  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'MW' } }} />`
+  const data = d.unidades.map((u, i) => ({ x: d.horas, y: d.series[i], name: u, mode: 'lines', line: { width: 1.4 },
+    hovertemplate: `<b>${u}</b><br>h %{x}: %{y:.0f} MW<extra></extra>` }))
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'MW' }, legend: { orientation: 'h', y: -0.14, font: { size: 9.5 } } }} />`
 }
 function EnvolventeTension({ height = 340 }) {
   const [d, setD] = useState(null); useEffect(() => { api.serie('tension').then(setD).catch(() => {}) }, [])
@@ -108,9 +116,9 @@ function EnvolventeTension({ height = 340 }) {
 }
 function Despacho() {
   return html`
-    ${card('Despacho por unidad (top-10) por hora', 'LP de despacho económico — MW por unidad térmica', html`<${DespachoUnidad} />`)}
+    ${card('Despacho por central (todas) por hora', 'LP de despacho económico — MW por central térmica, por nombre', html`<${DespachoUnidad} />`)}
     <div class="cols2" style="margin-top:13px">
-      ${card('Mix por tecnología', 'estructura horaria de la generación', html`<${MixHorario} height=${320} />`)}
+      ${card('Mix por tecnología', 'estructura horaria por combustible (modom-pypsa)', html`<${MixHorario} height=${320} />`)}
       ${card('Envolvente de tensión 24h', 'cuasi-dinámico — banda 0.95–1.05 pu', html`<${EnvolventeTension} height=${320} />`)}
     </div>`
 }

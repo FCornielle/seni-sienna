@@ -154,18 +154,69 @@ end
 println("ENS total: ", round(sum(value.(ens)); digits = 2), " MWh  Dump: ",
         round(sum(value.(dump)); digits = 2), " MWh")
 
-# ---- mix de despacho por tecnología y hora (para el dashboard horario) ---------
-tec_rows = NamedTuple[]
-for t in 1:T
-    term = sum(value(pt[get_name(g), t]) for g in thermals; init = 0.0)
-    hidro = sum(min(get(modom_mw, (get_name(g), t), 0.0), plim(g).max) for g in hydros; init = 0.0)
-    renov = sum(value(pr[get_name(g), t]) for g in renews; init = 0.0)
-    dem = sum(demand[get_name(l)][t] for l in loads; init = 0.0)
-    push!(tec_rows, (hora = t, termica = round(term; digits = 1), hidro = round(hidro; digits = 1),
-                     renovable = round(renov; digits = 1), demanda = round(dem; digits = 1)))
+# ---- mix de despacho por COMBUSTIBLE y hora (clasificación de modom-pypsa) ------
+# classify_fuel portado de modom-pypsa/dashboard.py: por nombre de central + tech.
+function _norm(s)
+    n = uppercase(replace(string(s), r"[ÁÀÄ]"i => "A", r"[ÉÈË]"i => "E",
+        r"[ÍÌÏ]"i => "I", r"[ÓÒÖ]"i => "O", r"[ÚÙÜ]"i => "U", "Ñ" => "N", "ñ" => "N"))
+    return n
 end
-CSV.write(joinpath(val_dir, "despacho_tec_hora.csv"), DataFrame(tec_rows))
-println("Mix por tecnología×hora → validation/despacho_tec_hora.csv")
+const _CARBON = ("PUNTA CATALINA", "BARAHONA CARBON")
+const _WIND = ("LOS COCOS", "JUANCHO", "QUILVIO", "CABRERA", "GUANILLO", "MATAFONGO",
+    "AGUA CLARA", "GUZMANCITO", "LARIMAR", "PECASA")
+const _GAS = ("ESTRELLA DEL MAR", "SEABOARD", "LOS MINA", "SIBA", "MANZANILLO", "ENERGAS")
+const _FUEL = ("POWERSHIP", "KPS", "SULTANA", "PIMENTEL", "PALAMARA", "LA VEGA", "BERSAL",
+    "HAINA TG", "INCA", "METALDOM", "MONTE RIO", "SAN LORENZO", "PALENQUE",
+    "LOS ORIGENES", "QUISQUEYA", "EDM", "CESPM")
+const _HYDRO = ("JIGUEY", "AGUACATE", "VALDESIA", "TAVERA", "PALOMINO", "MONCION",
+    "RIO BLANCO", "PINALITO", "HATILLO", "LOPEZ ANGOSTURA", "SABANA YEGUA",
+    "SABANETA", "RINCON", "BAIGUAQUE", "ANIANA VARGAS", "DOMINGO RODRIGUEZ",
+    "LAS DAMAS", "LAS BARIAS", "BRAZO DERECHO", "NIZAO", "NAJAYO", "MAGUEYAL",
+    "JIMENOA", "EL SALTO", "CONTRAEMBALSE", "CONTRA EMBALSE", "LOS TOROS", "LOS ANONES")
+
+function classify_fuel(name, tech)
+    n = _norm(name); tg = strip(string(tech))
+    has(ws) = any(w -> occursin(w, n), ws)
+    (occursin("ITABO", n) && !occursin("TG", n)) && return "Carbón"
+    has(_CARBON) && return "Carbón"
+    occursin(r"SOLAR|FOTOVOLT|\bFV\b|\bPV\b", n) && return "Solar"
+    (occursin(r"EOLIC|VIENTO|\bWIND\b", n) || has(_WIND)) && return "Eólica"
+    occursin(r"BIO|INGENIO|BAGAZO", n) && return "Biomasa"
+    (tg in ("2", "3") || has(_HYDRO)) && return "Hidro"
+    (occursin(r"\bGN\b|GAS NATURAL|CICLO COMBINADO|\bCC\b", n) || has(_GAS)) && return "Gas Natural"
+    (occursin(r"\bFO\b|FUEL|VAPOR|DIESEL|MOTOR|GASOIL", n) || has(_FUEL)) && return "Fuel Oil / Diesel"
+    return "Otra"
+end
+
+gens_meta = CSV.read(joinpath(raw_dir, "processed", "generators", "generators.csv"), DataFrame)
+nombre_de = Dict(String(r.generator_id) => String(r.generator_name) for r in eachrow(gens_meta))
+fuel_de = Dict(String(r.generator_id) =>
+               classify_fuel(r.generator_name, r.technology_group) for r in eachrow(gens_meta))
+_fuel(gid) = get(fuel_de, gid, "Otra")
+
+const FUELS = ["Carbón", "Fuel Oil / Diesel", "Gas Natural", "Biomasa", "Hidro", "Eólica", "Solar", "Otra"]
+fuel_rows = NamedTuple[]
+for t in 1:T
+    mw = Dict(f => 0.0 for f in FUELS)
+    for g in thermals; mw[_fuel(get_name(g))] += value(pt[get_name(g), t]); end
+    for g in hydros; mw[_fuel(get_name(g))] += min(get(modom_mw, (get_name(g), t), 0.0), plim(g).max); end
+    for g in renews; mw[_fuel(get_name(g))] += value(pr[get_name(g), t]); end
+    dem = sum(demand[get_name(l)][t] for l in loads; init = 0.0)
+    push!(fuel_rows, (; hora = t, (Symbol(f) => round(mw[f]; digits = 1) for f in FUELS)...,
+                      demanda = round(dem; digits = 1)))
+end
+CSV.write(joinpath(val_dir, "despacho_fuel_hora.csv"), DataFrame(fuel_rows))
+println("Mix por combustible×hora → validation/despacho_fuel_hora.csv")
+
+# despacho térmico por unidad, con NOMBRE de central (para el gráfico por planta)
+und_rows = NamedTuple[]
+for g in thermals, t in 1:T
+    gid = get_name(g); p = value(pt[gid, t])
+    push!(und_rows, (hora = t, gen = gid, nombre = get(nombre_de, gid, gid),
+                     mw = round(p; digits = 1)))
+end
+CSV.write(joinpath(val_dir, "despacho_unidad_hora.csv"), DataFrame(und_rows))
+println("Despacho por unidad (con nombre) → validation/despacho_unidad_hora.csv")
 
 # ---- ENS por barra vs ENS de MODOM ---------------------------------------------
 modom_ens = CSV.read(joinpath(raw_dir, "processed", "modom_results",
