@@ -157,7 +157,19 @@ end
     resumen = isfile(res) ? (df = CSV.read(res, DataFrame);
         (columnas = names(df),
          filas = [[string(df[i, c]) for c in names(df)] for i in 1:nrow(df)])) : nothing
-    return (overrides = ov, resumen = resumen)
+    # curvas horarias base vs escenario (para el gráfico interactivo)
+    rf = joinpath(VAL, "scenario_result.json")
+    bf = joinpath(VAL, "scenario_baseline.json")
+    curva_base = Float64[]; curva_esc = Float64[]
+    if isfile(rf)
+        r = JSON3.read(read(rf, String))
+        curva_base = collect(Float64, r.baseline.curva_termica)
+        curva_esc = collect(Float64, r.escenario.curva_termica)
+    elseif isfile(bf)
+        b = JSON3.read(read(bf, String))
+        curva_base = collect(Float64, b.curva_termica)
+    end
+    return (overrides = ov, resumen = resumen, curva_base = curva_base, curva_esc = curva_esc)
 end
 
 @post "/api/escenario" function (req)

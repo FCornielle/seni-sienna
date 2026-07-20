@@ -250,10 +250,19 @@ function Corridas() {
 }
 
 // ------------------------------------------------------------- Escenario ----
+function CurvaEscenario({ base, esc, height = 380 }) {
+  if (!base?.length) return html`<div class="vacio">Ejecuta un escenario para ver el despacho térmico horario.</div>`
+  const horas = base.map((_, i) => i + 1)
+  const data = [{ x: horas, y: base, name: 'Base', mode: 'lines', line: { color: COL.mut, dash: 'dash', width: 2 } }]
+  if (esc?.length && esc.some((v, i) => Math.abs(v - base[i]) > 0.1))
+    data.push({ x: horas, y: esc, name: 'Escenario', mode: 'lines', line: { color: COL.acc, width: 2.5 } })
+  return html`<${Plot} data=${data} height=${height} layout=${{ xaxis: { title: 'Hora', dtick: 2 }, yaxis: { title: 'Generación térmica (MW)' } }} />`
+}
 function Escenario() {
   const [gens, setGens] = useState([]); const [ds, setDs] = useState(1.0); const [rp, setRp] = useState(3)
   const [dis, setDis] = useState([]); const [resumen, setResumen] = useState(null); const [log, setLog] = useState(''); const [run, setRun] = useState(false)
-  const refrescar = () => { api.escenario().then((r) => setResumen(r.resumen)); api.log('escenario').then((r) => setLog(r.texto || '')) }
+  const [curvaB, setCurvaB] = useState([]); const [curvaE, setCurvaE] = useState([])
+  const refrescar = () => { api.escenario().then((r) => { setResumen(r.resumen); setCurvaB(r.curva_base || []); setCurvaE(r.curva_esc || []) }); api.log('escenario').then((r) => setLog(r.texto || '')) }
   useEffect(() => { api.generadores().then((r) => setGens(r.generadores || [])); refrescar() }, [])
   const toggle = (id) => setDis((d) => d.includes(id) ? d.filter((x) => x !== id) : [...d, id])
   const ejecutar = async () => {
@@ -278,7 +287,8 @@ function Escenario() {
         ${resumen ? html`<div class="scroll"><table><thead><tr>${resumen.columnas.map((c) => html`<th key=${c}>${c}</th>`)}</tr></thead>
             <tbody>${resumen.filas.map((f, i) => html`<tr key=${i}>${f.map((v, k) => html`<td key=${k}>${v}</td>`)}</tr>`)}</tbody></table></div>`
           : html`<div class="card">Ejecuta un escenario para ver el delta vs base.</div>`}
-        <img src=${fig('f8_scenario_studio.png') + '?' + Date.now()} style="width:100%;margin-top:12px;border:1px solid var(--line);border-radius:10px" onError=${(e) => (e.target.style.display = 'none')} />
+        <div class="card" style="margin-top:12px"><div class="cardhd"><h3>Despacho térmico horario</h3><span class="sub">base vs escenario</span></div>
+          <${CurvaEscenario} base=${curvaB} esc=${curvaE} /></div>
         <pre class="log">${log || '(sin corridas de escenario)'}</pre>
       </div>
     </div>`
