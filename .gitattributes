@@ -1,0 +1,2 @@
+# Archivos vendorizados: sin conversión de fin de línea (evita churn/corrupción)
+dashboard/spa/vendor/** -text
