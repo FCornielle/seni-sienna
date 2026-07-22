@@ -71,6 +71,10 @@ set_silent(m)
 @variable(m, pr[g in get_name.(renews), 1:T] >= 0)
 @variable(m, ens[1:nb, 1:T] >= 0)
 @variable(m, dump[1:nb, 1:T] >= 0)
+# gap A · pérdidas: carga extra por barra (0 en la 1ª pasada; se fija a las
+# pérdidas DC computadas y se re-optimiza → lazo de pérdidas, eq. 29-30 MODOM)
+@variable(m, loss_load[1:nb, 1:T] >= 0)
+for b in 1:nb, t in 1:T; set_upper_bound(loss_load[b, t], 0.0); end
 
 # térmicos: commitment fijo de MODOM
 for g in thermals, t in 1:T
@@ -116,6 +120,9 @@ end
 for l in loads, t in 1:T
     add_to_expression!(inj[busnum[get_name(get_bus(l))], t], -demand[get_name(l)][t])
 end
+for b in 1:nb, t in 1:T           # pérdidas como carga extra por barra
+    add_to_expression!(inj[b, t], -loss_load[b, t])
+end
 for (b, t) in Iterators.product(1:nb, 1:T)
     out = AffExpr(0.0)
     for br in branches
@@ -153,6 +160,31 @@ if !has_values(m)
 end
 println("ENS total: ", round(sum(value.(ens)); digits = 2), " MWh  Dump: ",
         round(sum(value.(dump)); digits = 2), " MWh")
+
+# ---- lazo de pérdidas DC (eq. 29-30): P_perd_l = r_l · f_l² ; 50/50 a barras --
+rl(br) = get_r(br)
+costo_sin_perdidas = sum(cvp(g) * value(pt[get_name(g), t]) for g in thermals, t in 1:T)
+for iter in 1:3
+    perd_bus = zeros(nb, T)
+    perd_tot = 0.0
+    for br in branches, t in 1:T
+        f = value(flow[(get_name(br), t)])          # pu
+        p = rl(br) * f^2 * 100.0                     # MW
+        arc = get_arc(br)
+        perd_bus[busnum[get_name(get_from(arc))], t] += p / 2
+        perd_bus[busnum[get_name(get_to(arc))], t] += p / 2
+        perd_tot += p
+    end
+    for b in 1:nb, t in 1:T; set_upper_bound(loss_load[b, t], perd_bus[b, t]);
+                             set_lower_bound(loss_load[b, t], perd_bus[b, t]); end
+    optimize!(m)
+    has_values(m) || (@warn "re-solve de pérdidas sin solución"; break)
+    iter == 3 && println("Pérdidas DC (convergido): ", round(perd_tot; digits = 1),
+                         " MW pico  (", round(100 * perd_tot / sum(sum(demand[get_name(l)]) for l in loads); digits = 2), "% aprox)")
+end
+costo_con_perdidas = sum(cvp(g) * value(pt[get_name(g), t]) for g in thermals, t in 1:T)
+println("Costo variable  sin pérdidas: ", round(costo_sin_perdidas / 1e6; digits = 2),
+        " M\$  →  con pérdidas: ", round(costo_con_perdidas / 1e6; digits = 2), " M\$")
 
 # ---- mix de despacho por COMBUSTIBLE y hora (clasificación de modom-pypsa) ------
 # classify_fuel portado de modom-pypsa/dashboard.py: por nombre de central + tech.
