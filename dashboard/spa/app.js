@@ -13,7 +13,7 @@ const api = {
   generadores: () => j('/api/generadores'), escenario: () => j('/api/escenario'),
   correrEscenario: (b) => j('/api/escenario', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) }),
   feedOc: () => j('/api/feed_oc'), mapa: (c) => j(`/api/mapa?capa=${c || 'kv'}`), red: () => j('/api/red'),
-  serie: (t) => j(`/api/serie/${t}`), kpis: () => j('/api/kpis'),
+  serie: (t) => j(`/api/serie/${t}`), kpis: () => j('/api/kpis'), mapaHora: () => j('/api/mapa_hora'),
 }
 const fig = (n) => `/figuras/${n}`
 const K = (tex) => { try { return katex.renderToString(tex, { displayMode: true, output: 'html', throwOnError: false }) } catch (e) { return '<code>' + tex + '</code>' } }
@@ -169,14 +169,16 @@ function heatV(v) {
   if (v <= mid) return hex(lerp(azul, blanco, Math.pow(Math.max(0, (v - lo) / (mid - lo)), 1.6)))
   const t = Math.min(1, (v - mid) / (hi - mid)); return hex(t < 0.6 ? lerp(blanco, naranja, t / 0.6) : lerp(naranja, rojo, (t - 0.6) / 0.4))
 }
-const CAPAS = [['kv', 'Nivel de tensión'], ['vpu', 'Tensión del flujo (pu)'], ['edac', 'Deslastre EDAC']]
+const CAPAS = [['kv', 'Nivel de tensión'], ['vpu', 'Tensión del flujo (pu)'], ['vhora', 'Tensión por hora (24h)'], ['edac', 'Deslastre EDAC']]
+const LEY_V = [['#2e86ff', '≤ 0.95 pu'], ['#f0f0f0', '≈ 1.00 pu'], ['#f39c12', '1.04 pu'], ['#e74c3c', '≥ 1.07 pu'], ['#5a6b7d', 'sin dato']]
 const LEY = {
   kv: [['#e74c3c', '≥ 230 kV'], ['#2e86ff', '138 kV'], ['#2ecc71', '69 kV'], ['#8aa0b4', 'otros']],
-  vpu: [['#2e86ff', '≤ 0.95 pu'], ['#f0f0f0', '≈ 1.00 pu'], ['#f39c12', '1.04 pu'], ['#e74c3c', '≥ 1.07 pu'], ['#5a6b7d', 'sin dato']],
+  vpu: LEY_V, vhora: LEY_V,
   edac: [['#a06bff', 'alimentador EDAC'], ['#33506b', 'sin deslastre']],
 }
 function Mapa() {
   const [capa, setCapa] = useState('kv'); const [datos, setDatos] = useState(null); const [verLineas, setVerLineas] = useState(true)
+  const [hora, setHora] = useState(20); const [vhora, setVhora] = useState(null)
   const el = useRef(null), map = useRef(null), lg = useRef(null), lgLine = useRef(null), red = useRef(null)
   useEffect(() => {
     const m = L.map(el.current, { preferCanvas: true }).setView([18.9, -70.5], 8)
@@ -196,22 +198,27 @@ function Mapa() {
     }
   }
   useEffect(() => { dibujaLineas() }, [verLineas])
-  useEffect(() => { api.mapa(capa).then(setDatos).catch(() => {}) }, [capa])
+  useEffect(() => { api.mapa(capa === 'vhora' ? 'kv' : capa).then(setDatos).catch(() => {}) }, [capa])
+  useEffect(() => { if (capa === 'vhora' && !vhora) api.mapaHora().then(setVhora).catch(() => {}) }, [capa])
   useEffect(() => {
     if (!lg.current || !datos) return
+    const vh = capa === 'vhora' && vhora ? vhora.por_barra : null
     lg.current.clearLayers()
     for (const b of datos.barras) {
       let col, rad = b.kv >= 230 ? 6 : b.kv >= 138 ? 4.5 : 3.4
+      const vha = vh ? (vh[b.id] || [])[hora - 1] : null
       if (capa === 'vpu') { col = heatV(b.vpu); if (b.vpu != null) rad += 0.6 }
+      else if (capa === 'vhora') { col = heatV(vha); if (vha != null) rad += 0.6 }
       else if (capa === 'edac') { col = b.edac_mw > 0 ? '#a06bff' : '#33506b'; rad = b.edac_mw > 0 ? 6 + Math.min(b.edac_mw / 20, 12) : 2.4 }
       else col = nivelColor(b.kv)
       let tip = `<b>${b.nombre}</b> (${b.id})<br/>${b.kv} kV`
       if (capa === 'vpu' && b.vpu != null) tip += `<br/>V = ${b.vpu.toFixed(3)} pu`
+      if (capa === 'vhora' && vha != null) tip += `<br/>h${hora}: V = ${vha.toFixed(3)} pu`
       if (capa === 'edac' && b.edac_mw > 0) tip += `<br/>EDAC: ${b.edac_mw.toFixed(1)} MW`
       L.circleMarker([b.lat, b.lon], { radius: rad, color: 'rgba(255,255,255,.4)', fillColor: col, fillOpacity: 0.92, weight: 0.8 })
         .bindTooltip(tip).addTo(lg.current)
     }
-  }, [datos, capa])
+  }, [datos, capa, hora, vhora])
   return html`
     <div class="mapwrap">
       <div class="legend">
@@ -220,6 +227,10 @@ function Mapa() {
         </div>
         <label style="display:flex;gap:7px;font-size:13px;margin-bottom:12px;cursor:pointer">
           <input type="checkbox" checked=${verLineas} onChange=${(e) => setVerLineas(e.target.checked)} /> Líneas de transmisión</label>
+        ${capa === 'vhora' && html`<div style="margin-bottom:12px">
+          <h4>Hora: ${hora}:00</h4>
+          <input type="range" min="1" max="24" step="1" value=${hora} style="width:100%" onInput=${(e) => setHora(+e.target.value)} />
+          <div style="font-size:11.5px;color:var(--muted)">arrastra para ver la tensión hora a hora (cuasi-dinámico)</div></div>`}
         <h4>Leyenda</h4>
         ${LEY[capa].map(([c, l]) => html`<div class="li" key=${l}><span class="dot" style=${{ background: c }}></span> ${l}</div>`)}
         <div style="margin-top:14px;font-size:12px;color:var(--muted)">${datos?.barras.length ?? 0} barras · ${red.current?.length ?? 0} ramas</div>

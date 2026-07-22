@@ -14,8 +14,10 @@ using SeniSienna
 val_dir = joinpath(@__DIR__, "..", "validation")
 raw_dir = joinpath(@__DIR__, "..", "data", "raw")
 
-sys, _ = build_seni_physical_system(raw_dir)
+sys, forname_to_bus = build_seni_physical_system(raw_dir)
 set_units_base_system!(sys, "NATURAL_UNITS")
+# barra (número) → for_name (W-code, mapeable a coordenadas del mapa)
+forn_of_name = Dict(v => k for (k, v) in forname_to_bus)
 
 # perfil horario del sistema (suma de la demanda canónica MODOM)
 lt = CSV.read(joinpath(raw_dir, "processed", "loads_time_series",
@@ -51,6 +53,7 @@ for h in 1:24
         continue
     end
     vres = r["bus_results"]
+    name_of_num = Dict(get_number(b) => get_name(b) for b in get_components(ACBus, sys))
     kvmap = Dict(get_number(b) => get_base_voltage(b) for b in get_components(ACBus, sys))
     alta = vres[[kvmap[n] >= 69.0 for n in vres.bus_number], :]
     push!(resumen, (hora = h, convergio = true,
@@ -58,7 +61,9 @@ for h in 1:24
                     v_max = round(maximum(alta.Vm); digits = 4),
                     fuera_banda = count((alta.Vm .< 0.95) .| (alta.Vm .> 1.05))))
     for rr in eachrow(alta)
-        push!(vrows, (hora = h, bus = rr.bus_number, v_pu = rr.Vm))
+        fn = get(forn_of_name, get(name_of_num, rr.bus_number, ""), "")
+        isempty(fn) && continue                       # solo barras mapeables al mapa
+        push!(vrows, (hora = h, for_name = fn, v_pu = round(rr.Vm; digits = 4)))
     end
 end
 

@@ -325,6 +325,20 @@ _asbool(x) = x === true || x == 1 || (x isa AbstractString && lowercase(x) == "t
     return HTTP.Response(404, "serie desconocida")
 end
 
+# ---- Tensión por barra × hora (para animar el mapa) --------------------------
+@get "/api/mapa_hora" function ()
+    d = _valcsv("fase4_qds_tensiones.csv")
+    (d === nothing || !(:for_name in propertynames(d))) && return (horas = [], por_barra = Dict())
+    horas = sort(unique(Int.(d.hora)))
+    por = Dict{String,Vector{Union{Nothing,Float64}}}()
+    for r in eachrow(d)
+        fn = String(r.for_name)
+        haskey(por, fn) || (por[fn] = Vector{Union{Nothing,Float64}}(nothing, length(horas)))
+        por[fn][Int(r.hora)] = Float64(r.v_pu)
+    end
+    return (horas = horas, por_barra = por)
+end
+
 # ---- KPIs para la vista de operación -----------------------------------------
 @get "/api/kpis" function ()
     k = Pair{String,Any}[]

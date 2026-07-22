@@ -11,7 +11,8 @@ almacenados aquí para abordarlos después de cerrar A.
 | v2 dinámica: inversores WECC | `DynamicInverter` (REGC/REEC/REPC) para PV/eólica/BESS | pendiente (esfuerzo focalizado) |
 | v2 dinámica: GGOV1 real | Modelo custom en Julia (PSID 0.15 no inicializa GeneralGovModel) | pendiente (esfuerzo focalizado) |
 | NAMX (nº máx arranques) | Σ start ≤ NAMX como extra_functionality de PSI | pendiente (custom PSI; NAMX sí está en gen_params) |
-| Empaquetado + UX | `create_app`, animación horaria del mapa, selector P01–P24 | pendiente |
+| Animación horaria del mapa | slider de hora en capa "vhora" (tensión por barra×hora del QDS) | ✅ 575 barras × 24 h |
+| Empaquetado + selector P01–P24 | `create_app` (exe) y selector de escenario | pendiente (P01–P24 necesita datos → B) |
 
 > **Nota de pérdidas**: el efectivo ~9% es algo mayor al físico (~5-6%) porque
 > absorbe también el uplift OPLM de MODOM y el efecto de costo marginal; por eso
