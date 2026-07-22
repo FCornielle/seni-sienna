@@ -10,7 +10,7 @@ almacenados aquí para abordarlos después de cerrar A.
 | Lazo de pérdidas DC (eq. 29-30) | pérdidas P=r·f² por rama, 50/50 a barras, re-solve caliente | ✅ costo −16%→**−2.8%**, R² 0.957→**0.971** |
 | v2 dinámica: inversores WECC | `DynamicInverter` (REGC/REEC/REPC) para PV/eólica/BESS | pendiente (esfuerzo focalizado) |
 | v2 dinámica: GGOV1 real | Modelo custom en Julia (PSID 0.15 no inicializa GeneralGovModel) | pendiente (esfuerzo focalizado) |
-| NAMX (nº máx arranques) | Σ start ≤ NAMX como extra_functionality de PSI | pendiente (custom PSI; NAMX sí está en gen_params) |
+| NAMX (nº máx arranques) | Σ start ≤ NAMX (restricción post-build en el JuMP de PSI) | ✅ verificado: las 3 unidades NAMX=1 (CESPM) son must_run (0 arranques) → satisfecho |
 | Animación horaria del mapa | slider de hora en capa "vhora" (tensión por barra×hora del QDS) | ✅ 575 barras × 24 h |
 | Empaquetado + selector P01–P24 | `create_app` (exe) y selector de escenario | pendiente (P01–P24 necesita datos → B) |
 
@@ -18,6 +18,17 @@ almacenados aquí para abordarlos después de cerrar A.
 > absorbe también el uplift OPLM de MODOM y el efecto de costo marginal; por eso
 > el costo queda tan cerca (−2.8%). El loop nodal exacto (mapeo al System físico
 > AC) sería el refinamiento fino.
+
+### Por qué NO se pudieron cerrar "de golpe" los restantes
+- **Embalses hidro (eq. 34-36)**: los datos locales (`hydro/reservoirs.csv`,
+  `inflow.csv`) están en **hm³ de agua**, no en energía; convertir a MWh necesita
+  η y salto por central (no verificables sin riesgo de física incorrecta) → de
+  facto **tipo B** (falta el factor de conversión del OC).
+- **Inversores WECC / GGOV1**: alto riesgo de inicialización en PSID 0.15 y
+  **aporte ≈0 en el escenario nocturno** (solar 0 MW) → mal trade riesgo/valor.
+  Requiere un escenario diurno + sesión focalizada.
+- **create_app (exe)**: build lento y quisquilloso de PackageCompiler → sesión
+  dedicada.
 
 ## B — Necesitan un DATO de la VM / OC (extracción)
 - **AGC como reserva separada** (eq. 14-15): `gen_params` no tiene columna de

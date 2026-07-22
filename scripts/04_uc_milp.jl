@@ -7,8 +7,9 @@
 
 using Pkg; Pkg.activate(joinpath(@__DIR__, ".."))
 using PowerSystems, PowerSimulations, HydroPowerSimulations, HiGHS
-using CSV, DataFrames, Statistics, Dates, Logging
+using CSV, DataFrames, Statistics, Dates, Logging, JuMP
 using SeniSienna
+const PSI = PowerSimulations
 
 raw_dir = joinpath(@__DIR__, "..", "data", "raw")
 val_dir = joinpath(@__DIR__, "..", "validation")
@@ -60,6 +61,28 @@ problem = DecisionModel(template, sys;
 
 out_dir = mktempdir()
 build!(problem; console_level = Logging.Warn, output_dir = out_dir)
+
+# ---- gap A · NAMX (nº máx de arranques/día, eq. 24) --------------------------
+# Post-build: Σ_t start[g,t] ≤ NAMX[g]. Defensivo (API interna de PSI).
+gp = CSV.read(joinpath(raw_dir, "processed", "commitment", "gen_params.csv"), DataFrame)
+namx = Dict(String(r.generator_id) => Int(r.NAMX)
+            for r in eachrow(gp) if !ismissing(r.NAMX) && r.NAMX >= 1)
+try
+    oc = PSI.get_optimization_container(problem)
+    startv = PSI.get_variable(oc, PSI.StartVariable(), ThermalStandard)
+    jm = PSI.get_jump_model(oc)
+    nombres = axes(startv, 1); tiempos = axes(startv, 2)
+    n_namx = 0
+    for (gid, nx) in namx
+        gid in nombres || continue     # must_run no tienen StartVariable
+        JuMP.@constraint(jm, sum(startv[gid, t] for t in tiempos) <= nx)
+        n_namx += 1
+    end
+    println("NAMX aplicado a $n_namx unidades (Σ arranques ≤ NAMX)")
+catch e
+    @warn "NAMX no aplicado (API PSI cambió)" exception = e
+end
+
 solve!(problem)
 
 res = OptimizationProblemResults(problem)
