@@ -72,3 +72,30 @@ Conclusiones (definitivas):
 tenemos o lo replicamos (pérdidas SOLVE 2, reservas 3%, CVP). Los dos únicos
 faltantes (`C^ARR`, `η_h` hidro) **no están en ningún archivo publicado** del
 Dropbox del OC — son insumos certificados que habría que pedir directamente.
+
+## Búsqueda en fuentes externas (OC / SIE / EGEHID)
+
+### Costo de arranque `C^ARR`
+- **Metodología pública**: la **Norma Técnica de Coordinación y Operación**
+  (SIE) rige la declaración; el generador lo declara al OC "desde construcción
+  hasta 24 h tras entrada en operación".
+- **Valores por unidad**: NO se publican en un dataset abierto; son declaración
+  interna al OC (entran en el programa semanal RPSO). → seguir como **tipo B**;
+  la vía es solicitarlos al OC o extraer el `C^ARR` del propio MODOM en la VM.
+
+### η hidro (agua→MWh) — **hay fuente pública**
+- **datos.gob.do → EGEHID** (Portal de Datos Abiertos RD) publica:
+  - **Niveles medios mensuales por embalse** (2024-2026)
+  - **Horas de operación por central** (2017-2021)
+  - Producción/generación hidroeléctrica
+- **egehid.gob.do → "Histórico de Generación Hidroeléctrica"**.
+- **Cómo derivar η_h**: con generación (MWh) y extracción/nivel de embalse (hm³)
+  por central del portal → η_h ≈ MWh / hm³. Alternativa física: η_h = g·H·η_turb
+  con el **salto H** por central (Tavera, Jigüey, Pinalito 50 MW, etc.).
+- ⚠️ El portal `datos.gob.do` respondió **geo-bloqueado** desde aquí (HTTP 473);
+  **desde RD Fernando sí puede descargarlo**. Ese es el paso para desbloquear
+  los embalses sin la VM.
+
+Fuentes: [OC Programación del SENI](https://www.oc.do/Informes/Operaci%C3%B3n-del-SENI/Programaci%C3%B3n-del-SENI) ·
+[EGEHID datos.gob.do](https://datos.gob.do/es/organization/empresa-de-generacion-hidroelectrica-dominicana-egehid) ·
+[EGEHID histórico generación](https://egehid.gob.do/historico-de-generacion-hidroelectrica/)
