@@ -45,5 +45,10 @@ almacenados aquí para abordarlos después de cerrar A.
 - **Coordinación de protecciones/relés**: fuera de alcance.
 
 ## D — Validación (necesitan referencia)
-- Comparación cuantitativa vs despacho real del OC (PDD `Despacho en OM`, varios días).
+- **Comparación cuantitativa vs despacho real del OC** → ✅ **cerrado** vía la API
+  del OC (`scripts/15_validacion_oc.jl`, pestaña "Validación OC"). Post-despacho
+  real de la fecha del modelo (30-09-2025): energía total OC 81.4 vs Sienna 82.4
+  GWh (+1.3%); térmica/solar/hidro dentro de ±10%. Diferencias explicadas:
+  eólica (perfil canónico ≠ clima real del día) y fuel-oil vs gas (despacho
+  dual-fuel). Extensible a más días cambiando el argumento de fecha.
 - Match modo-por-modo de pequeña señal vs PowerFactory (más escenarios).
