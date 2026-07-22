@@ -14,6 +14,7 @@ const api = {
   correrEscenario: (b) => j('/api/escenario', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b) }),
   feedOc: () => j('/api/feed_oc'), mapa: (c) => j(`/api/mapa?capa=${c || 'kv'}`), red: () => j('/api/red'),
   serie: (t) => j(`/api/serie/${t}`), kpis: () => j('/api/kpis'), mapaHora: () => j('/api/mapa_hora'),
+  validacionOc: () => j('/api/validacion_oc'),
 }
 const fig = (n) => `/figuras/${n}`
 const K = (tex) => { try { return katex.renderToString(tex, { displayMode: true, output: 'html', throwOnError: false }) } catch (e) { return '<code>' + tex + '</code>' } }
@@ -474,19 +475,68 @@ function Metodologia() {
 
 // ------------------------------------------------------------------ App -----
 const IC = (p) => html`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" dangerouslySetInnerHTML=${{ __html: p }}></svg>`
+// ------------------------------------------------------------ Validación OC --
+function OcArea({ hora, titulo, height = 300 }) {
+  const orden = FUEL_STACK.filter((f) => hora[f])
+  const data = orden.map((f) => ({ x: [...Array(24).keys()].map((i) => i + 1), y: hora[f], name: f,
+    stackgroup: 'g', mode: 'none', fillcolor: FUEL_COLORS[f], hovertemplate: `${f}: %{y:.0f} MW<extra></extra>` }))
+  return html`<div><div class="sub" style="text-align:center;margin-bottom:4px">${titulo}</div>
+    <${Plot} data=${data} height=${height} layout=${{ margin: { l: 46, r: 10, t: 8, b: 30 }, xaxis: { dtick: 3 }, yaxis: { title: 'MW' } }} /></div>`
+}
+function ValidacionOc() {
+  const [d, setD] = useState(null); const [err, setErr] = useState(false)
+  useEffect(() => { api.validacionOc().then(setD).catch(() => setErr(true)) }, [])
+  if (err) return html`<div class="vacio">No se pudo consultar la API del OC.</div>`
+  if (!d) return html`<div class="vacio">Cargando validación…</div>`
+  if (d.disponible === false) return html`<div class="vacio">Ejecuta <b>Validación vs OC (API)</b> en Corridas para generar la comparación.</div>`
+  const kpi = (k, v, c) => html`<div class="kpi"><div class="v" style=${c ? { color: c } : {}}>${v}</div><div class="l">${k}</div></div>`
+  const dcol = (p) => Math.abs(p) < 12 ? COL.renov : Math.abs(p) < 40 ? COL.warn : COL.bad
+  const gx = d.grupo.map((g) => g.grupo)
+  const barra = [
+    { x: gx, y: d.grupo.map((g) => g.oc_GWh), name: 'OC (real)', type: 'bar', marker: { color: '#2563eb' } },
+    { x: gx, y: d.grupo.map((g) => g.sienna_GWh), name: 'Sienna', type: 'bar', marker: { color: '#f08a24' } },
+  ]
+  return html`
+    <div class="grid">
+      ${card('Validación contra el despacho real del OC', `${d.fecha} · ${d.fuente}`, html`
+        <div class="kpis">
+          ${kpi('Energía OC', d.oc_GWh + ' GWh')}
+          ${kpi('Energía Sienna', d.sienna_GWh + ' GWh')}
+          ${kpi('Δ total', (d.delta_total_pct > 0 ? '+' : '') + d.delta_total_pct + ' %', dcol(d.delta_total_pct))}
+          ${kpi('R² horario', d.r2_horario)}
+          ${kpi('Centrales OC', d.n_centrales)}
+        </div>
+        <p class="sub" style="margin-top:8px">Post-despacho del OC (misma fecha del modelo PDD) agregado por combustible y comparado con el despacho ED de Sienna. El corte por grupo coincide con los subtotales que publica el OC.</p>`)}
+      ${card('Energía por grupo — OC vs Sienna', 'GWh/día', html`
+        <${Plot} data=${barra} height=${320} layout=${{ barmode: 'group', yaxis: { title: 'GWh' } }} />`)}
+      ${card('Mix horario — OC real vs Sienna', 'MW por hora', html`
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <${OcArea} hora=${d.oc_hora} titulo="OC (real)" />
+          <${OcArea} hora=${d.sienna_hora} titulo="Sienna" />
+        </div>`)}
+      ${card('Detalle por combustible', 'GWh/día · Δ = Sienna − OC', html`
+        <table><tr><th>Combustible</th><th>OC</th><th>Sienna</th><th>Δ %</th></tr>
+        ${d.fuel.map((f) => html`<tr><td>${f.combustible}</td><td>${f.oc_GWh}</td><td>${f.sienna_GWh}</td>
+          <td style=${{ color: dcol(f.delta_pct), fontWeight: 600 }}>${(f.delta_pct > 0 ? '+' : '') + f.delta_pct}</td></tr>`)}
+        </table>
+        <p class="sub" style="margin-top:8px">Eólica y fuel-oil se apartan porque el modelo usa perfiles renovables canónicos (no el clima del día) y prioriza gas sobre fuel-oil dual. Térmica/solar/hidro y la energía total coinciden dentro de ±10 %.</p>`)}
+    </div>`
+}
+
 const TABS = [
   ['operacion', 'Operación', Operacion, '<path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/>'],
   ['mapa', 'Mapa', Mapa, '<path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2-6-2Z"/><path d="M9 3v16M15 5v16"/>'],
   ['despacho', 'Despacho', Despacho, '<path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/>'],
   ['dinamica', 'Dinámica', Dinamica, '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'],
   ['escenario', 'Escenario', Escenario, '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.81 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15H4.5a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 6 9.4l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 11 4.6V4.5a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 18 6l.06-.06a2 2 0 1 1 2.83 2.83L20.83 9A1.65 1.65 0 0 0 21 11h-.09Z"/>'],
+  ['valoc', 'Validación OC', ValidacionOc, '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'],
   ['metodologia', 'Metodología', Metodologia, '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>'],
   ['corridas', 'Corridas', Corridas, '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>'],
   ['reporte', 'Reporte', Reporte, '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/>'],
   ['datos', 'Datos', Datos, '<ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/>'],
 ]
 function App() {
-  const [tab, setTab] = useState('operacion')
+  const [tab, setTab] = useState(location.hash.slice(1) || 'operacion')
   const cur = TABS.find((t) => t[0] === tab); const Actual = cur[2]
   return html`
     <div class="layout">

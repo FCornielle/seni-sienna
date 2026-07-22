@@ -43,6 +43,8 @@ const CORRIDAS = [
      desc = "EDAC actual vs 30% por alimentador (figura f7)"),
     (id = "escenario", script = "14_scenario_studio.jl",      nombre = "Scenario Studio (UC)",
      desc = "UC con perillas de escenario y delta vs línea base"),
+    (id = "valoc",     script = "15_validacion_oc.jl",         nombre = "Validación vs OC (API)",
+     desc = "Despacho real del OC (apps.oc.org.do) vs Sienna, mismo día del modelo"),
 ]
 const POR_ID = Dict(c.id => c for c in CORRIDAS)
 
@@ -353,6 +355,13 @@ end
     f = _valcsv("v2_selectivo_resumen.csv")
     f !== nothing && push!(k, "Nadir (pérdida PC2)" => string(round(minimum(f.nadir_hz); digits = 3), " Hz"))
     return (kpis = [(k = p.first, v = p.second) for p in k],)
+end
+
+# ---- Validación vs despacho real del OC (pestaña) ----------------------------
+@get "/api/validacion_oc" function ()
+    p = joinpath(VAL, "oc_validacion.json")
+    isfile(p) || return (disponible = false,)
+    return JSON3.read(read(p, String))
 end
 
 # SPA Preact+htm en dashboard/spa (no-build; stack vendorizado localmente).
