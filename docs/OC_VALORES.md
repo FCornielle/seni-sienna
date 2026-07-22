@@ -99,3 +99,20 @@ Dropbox del OC — son insumos certificados que habría que pedir directamente.
 Fuentes: [OC Programación del SENI](https://www.oc.do/Informes/Operaci%C3%B3n-del-SENI/Programaci%C3%B3n-del-SENI) ·
 [EGEHID datos.gob.do](https://datos.gob.do/es/organization/empresa-de-generacion-hidroelectrica-dominicana-egehid) ·
 [EGEHID histórico generación](https://egehid.gob.do/historico-de-generacion-hidroelectrica/)
+
+## API del OC (`apps.oc.org.do/wsOCWebsiteChart/Service.asmx`) — **alcanzable**
+Descubierta vía el repo `FCornielle/oc_cmg`. A diferencia de `datos.gob.do`
+(geo-bloqueado), esta API **responde desde aquí** (probado: HTTP 200) y tiene
+**59 métodos JSON** (param `Fecha=YYYY-MM-DD`, algunos `Filtro`).
+
+- **NO tiene** embalse/producible/arranque → η hidro y `C^ARR` siguen bloqueados.
+- **SÍ desbloquea la VALIDACIÓN (tipo D)** contra el despacho/precios REALES del OC:
+  - `GetCentralMarginalPonderadaJSon` — CMG por central×hora ✅ (probado, devuelve datos)
+  - `GetPostDespachoJSon` — despacho real por central×hora
+  - `GetProgramaOperativoJSon` / `GetPredespachoJSon` / `GetRedespachoJSon` — programa del OC
+  - `GetGeneracionProducidadTecnologiaJSon` — generación real por tecnología (mix)
+  - `GetMargenesRPFPonderadoJSon` / `GetReservaFriaJSon` / `GetReservaCalienteJSon` — reservas
+  - `GetDisponibilidadDeclaradaJSon` — disponibilidad declarada por unidad
+
+→ Con esto se puede comparar **cuantitativamente** el despacho y los precios de
+Sienna contra los del OC (cierra el gap D), tirando los datos directamente.
