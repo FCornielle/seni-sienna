@@ -1,0 +1,26 @@
+{
+  "proyecto": "PDD 30-09-2025",
+  "escenario": "P20",
+  "study_case": "BASE",
+  "fecha": "2026-07-17T11:11:22.468190",
+  "conteos": {
+    "ElmLod": 442,
+    "ElmSym": 108,
+    "ElmGenstat": 49,
+    "ElmTr2": 181,
+    "ElmTr3": 3,
+    "ElmLne": 769,
+    "ElmTerm": 5177,
+    "ElmRelay": 1423
+  },
+  "archivos": [
+    "comldf_opciones.json",
+    "edac_aguas_abajo.csv",
+    "edac_detalle.csv",
+    "edac_mw_por_escenario.csv",
+    "escenario_P20_cargas.csv",
+    "escenario_P20_generacion.csv",
+    "escenario_P20_taps.csv",
+    "escenarios_demanda.csv"
+  ]
+}

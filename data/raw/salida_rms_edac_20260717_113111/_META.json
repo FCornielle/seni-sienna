@@ -1,0 +1,12 @@
+{
+  "proyecto": "PDD 30-09-2025",
+  "escenario": "P20",
+  "evento": "pérdida Punta Catalina 2 (360.0 MW) a t=1 s",
+  "tstop_s": 30.0,
+  "paso_s": 0.01,
+  "study_case_sandbox": "SBX_RMSEDAC_20260717_113111",
+  "n_cargas_edac_monitoreadas": 40,
+  "n_deslastradas": 0,
+  "MW_deslastrados": 0,
+  "fecha": "2026-07-17T11:32:40.298543"
+}
