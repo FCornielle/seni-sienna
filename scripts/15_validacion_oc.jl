@@ -9,7 +9,7 @@
 # compara el mix horario y la energía por tecnología OC vs Sienna.
 
 using Pkg; Pkg.activate(joinpath(@__DIR__, ".."))
-using HTTP, JSON3, CSV, DataFrames, Statistics
+using HTTP, JSON3, CSV, DataFrames, Statistics, Dates
 
 val_dir = joinpath(@__DIR__, "..", "validation")
 fecha = length(ARGS) >= 1 ? ARGS[1] : "2025-09-30"
@@ -39,24 +39,28 @@ function fuel(nombre, grupo)
 end
 const FUELS = ["Carbón", "Fuel Oil / Diesel", "Gas Natural", "Biomasa", "Hidro", "Eólica", "Solar", "Otra"]
 
-# ---- tira el post-despacho real del OC ----------------------------------------
-println("Consultando OC: post-despacho de $fecha …")
-r = HTTP.get(OC * fecha; readtimeout = 40, retries = 2)
-data = JSON3.read(String(r.body)).GetPostDespacho
-println("Centrales del OC: ", length(data))
-
-oc_mix = Dict(f => zeros(Float64, 24) for f in FUELS)
-oc_por_central = Dict{String,Vector{Float64}}()
-n_plantas = 0
-for row in data
-    grupo = String(get(row, :GRUPO, ""))
-    occursin("TOTAL", _norm(grupo)) && continue   # filas de resumen del OC, no centrales
-    f = fuel(get(row, :CENTRAL, ""), grupo)
-    hs = [Float64(get(row, Symbol("H$h"), 0.0)) for h in 1:24]
-    oc_mix[f] .+= hs
-    oc_por_central[_norm(get(row, :CENTRAL, ""))] = hs
-    global n_plantas += 1
+# ---- tira el post-despacho real del OC (por fecha) ----------------------------
+# Devuelve (mix por combustible 24h, dict central→24h, nº de centrales reales).
+# Excluye las filas de resumen del OC (GRUPO=Totales).
+function traer_oc(fecha)
+    r = HTTP.get(OC * fecha; readtimeout = 40, retries = 2)
+    data = JSON3.read(String(r.body)).GetPostDespacho
+    mix = Dict(f => zeros(Float64, 24) for f in FUELS)
+    porc = Dict{String,Vector{Float64}}(); n = 0
+    for row in data
+        grupo = String(get(row, :GRUPO, ""))
+        occursin("TOTAL", _norm(grupo)) && continue
+        f = fuel(get(row, :CENTRAL, ""), grupo)
+        hs = [Float64(get(row, Symbol("H$h"), 0.0)) for h in 1:24]
+        mix[f] .+= hs
+        porc[_norm(get(row, :CENTRAL, ""))] = hs
+        n += 1
+    end
+    return mix, porc, n
 end
+
+println("Consultando OC: post-despacho de $fecha …")
+oc_mix, oc_por_central, n_plantas = traer_oc(fecha)
 println("Centrales reales (sin subtotales): ", n_plantas)
 
 # ---- Sienna: mix por combustible (despacho ED) --------------------------------
@@ -144,6 +148,48 @@ open(joinpath(val_dir, "oc_validacion_resumen.txt"), "w") do io
     println(io, "Validación OC $fecha | R2 total=$r2 | OC=$(sum(oc_tot)/1000)GWh Sienna=$(sum(si_tot)/1000)GWh")
 end
 
+# ---- barrido multi-día: representatividad del día canónico -------------------
+# Sienna está fijo en el punto del modelo (PDD 30-09-2025). El barrido mide, para
+# una ventana de días reales del OC, la energía total y el R²(central) contra ese
+# despacho fijo → cuán representativo es el día canónico y la variabilidad diaria.
+si_GWh = sum(sum(si_mix[f]) for f in FUELS) / 1000
+si_keys = Set(keys(si_central))
+function metricas_dia(dstr)
+    mix, porc, _ = traer_oc(dstr)
+    oc_g = sum(sum(mix[f]) for f in FUELS) / 1000
+    ov = Float64[]; sv = Float64[]
+    ks = intersect(keys(porc), si_keys)
+    for k in ks; append!(ov, porc[k]); append!(sv, si_central[k]); end
+    r2c = length(ov) > 1 ? (let ssr = sum((ov .- sv) .^ 2), sst = sum((ov .- mean(ov)) .^ 2)
+        sst > 0 ? 1 - ssr / sst : NaN end) : NaN
+    return (fecha = dstr, oc_GWh = round(oc_g; digits = 2),
+            delta_pct = round(100 * (si_GWh - oc_g) / oc_g; digits = 1),
+            r2_central = round(r2c; digits = 3), n = length(ks))
+end
+
+n_dias = 14
+d0 = Date(fecha)
+dias = string.(d0 - Day(n_dias - 1) : Day(1) : d0)
+println("\n── Barrido multi-día ($(dias[1]) → $(dias[end])) ──")
+serie_rows = NamedTuple[]
+for ds in dias
+    try
+        m = metricas_dia(ds); push!(serie_rows, m)
+        println("  $ds  OC=$(m.oc_GWh) GWh  Δ=$(m.delta_pct)%  R²central=$(m.r2_central)  (n=$(m.n))")
+    catch e
+        @warn "día omitido" fecha = ds exception = e
+    end
+end
+serie_df = DataFrame(serie_rows)
+CSV.write(joinpath(val_dir, "oc_validacion_serie.csv"), serie_df)
+if nrow(serie_df) > 0
+    r2v = collect(skipmissing(serie_df.r2_central)); r2v = filter(!isnan, r2v)
+    dv = filter(!isnan, serie_df.delta_pct)
+    println("  Resumen ventana: R²central media=", round(mean(r2v); digits = 3),
+            " [", round(minimum(r2v); digits = 3), ", ", round(maximum(r2v); digits = 3),
+            "]  ·  |Δ energía| media=", round(mean(abs.(dv)); digits = 1), "%")
+end
+
 # JSON para el dashboard (pestaña "Validación OC")
 resumen = Dict(
     "fecha" => fecha, "fuente" => "OC · GetPostDespachoJSon (apps.oc.org.do)",
@@ -159,7 +205,8 @@ resumen = Dict(
     "grupo" => [Dict(pairs(r)...) for r in eachrow(cmp_coarse)],
     "fuel" => [Dict(pairs(r)...) for r in eachrow(cmp)],
     "oc_hora" => Dict(f => round.(oc_mix[f]; digits = 1) for f in FUELS if sum(oc_mix[f]) > 1),
-    "sienna_hora" => Dict(f => round.(si_mix[f]; digits = 1) for f in FUELS if sum(si_mix[f]) > 1))
+    "sienna_hora" => Dict(f => round.(si_mix[f]; digits = 1) for f in FUELS if sum(si_mix[f]) > 1),
+    "serie" => [Dict(pairs(r)...) for r in eachrow(serie_df)])
 open(joinpath(val_dir, "oc_validacion.json"), "w") do io
     JSON3.pretty(io, resumen)
 end

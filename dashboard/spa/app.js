@@ -531,6 +531,21 @@ function ValidacionOc() {
           <td style=${{ color: dcol(100 * c.delta_GWh / (c.oc_GWh || 1)), fontWeight: 600 }}>${(c.delta_GWh > 0 ? '+' : '') + c.delta_GWh}</td></tr>`)}
         </table>
         <p class="sub" style="margin-top:8px">Mayores diferencias por unidad. Los pares como <b>Quisqueya 2 FO ↔ GN</b> (misma planta, MWh casi iguales, modo de combustible opuesto) confirman que el despacho es correcto y la diferencia está en el combustible declarado.</p>`)}
+      ${d.serie && d.serie.length > 1 && (() => {
+        const fx = d.serie.map((s) => s.fecha.slice(5))
+        const r2avg = (d.serie.reduce((a, s) => a + (s.r2_central || 0), 0) / d.serie.length).toFixed(3)
+        const data = [
+          { x: fx, y: d.serie.map((s) => s.oc_GWh), name: 'OC energía', type: 'bar', marker: { color: '#c7d7ef' }, yaxis: 'y2', hovertemplate: 'OC %{y:.1f} GWh<extra></extra>' },
+          { x: fx, y: d.serie.map((s) => s.r2_central), name: 'R² central', mode: 'lines+markers', line: { color: '#2563eb', width: 2 }, marker: { size: 6 }, hovertemplate: 'R² %{y:.3f}<extra></extra>' },
+        ]
+        return card('Barrido multi-día — representatividad del día canónico', `R²(central) medio ${r2avg} · 14 días`, html`
+          <${Plot} data=${data} height=${330} layout=${{
+            margin: { l: 46, r: 46, t: 10, b: 40 },
+            yaxis: { title: 'R² central', range: [0, 1], side: 'left' },
+            yaxis2: { title: 'GWh', overlaying: 'y', side: 'right', showgrid: false, rangemode: 'tozero' },
+            xaxis: { tickangle: -45 } }} />
+          <p class="sub" style="margin-top:8px">Sienna está fijo en el punto 30-09-2025; cada barra es un día real del OC. El R²(central) se mantiene ~0.70–0.80 en días laborables; los días de menor energía (fin de semana) bajan por la diferencia de demanda, no del modelo.</p>`)
+      })()}
     </div>`
 }
 

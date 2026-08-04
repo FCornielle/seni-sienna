@@ -125,6 +125,10 @@ el del OC (cierra el gap D), tirando los datos directamente.
   modo de combustible opuesto (**Quisqueya 2 FO↔GN**, MWh casi iguales) → el
   despacho es correcto; difiere el combustible declarado (dual-fuel).
 - **Eólica** se aparta (perfil canónico ≠ clima real del día de bajo viento).
+- **Barrido multi-día** (14 días, 17→30-09-2025) contra el despacho fijo de
+  Sienna: R²(central) medio **0.727** [0.442, 0.803], estable ~0.70–0.80 en días
+  laborables; los días de menor energía (fin de semana, 26–28) bajan por la
+  diferencia de demanda (mi día canónico es martes), no por el modelo.
 
 > **CMG/precios NO validados**: el endpoint `GetCentralMarginalPonderadaJSon`
 > devuelve "DESABASTECIMIENTO" plano (10096 RD$/MWh) en 13 de 24 horas —
