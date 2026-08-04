@@ -203,7 +203,7 @@ end
     end
     # capa edac: MW deslastrables por barra (etapas activas del EDAC, por W-code)
     edmap = Dict{String,Float64}()
-    ed_csv = joinpath(ROOT, "data", "raw", "seni_extraccion_vm_20260717",
+    ed_csv = joinpath(ROOT, "data", "raw",
                       "salida_bloqueI_edac_20260717_111009", "edac_detalle.csv")
     if capa == "edac" && isfile(ed_csv)
         d = CSV.read(ed_csv, DataFrame)
@@ -244,7 +244,7 @@ end
          origen = "workbook MODOM (VEROPE + PDD del OC)"),
         (nombre = "Extracción dinámica (DSL, EDAC)", ok = chk("salida_dinamica_20260714"),
          origen = "VM DIgSILENT"),
-        (nombre = "Bloque I + EDAC detalle (P20)", ok = chk("seni_extraccion_vm_20260717"),
+        (nombre = "Bloque I + EDAC detalle (P20)", ok = chk("salida_bloqueI_edac_20260717_111009"),
          origen = "VM DIgSILENT"),
     ], recurso = "https://www.dropbox.com/sh/sel2bzf89wc3dyu (OC — Programación del SENI)")
 end

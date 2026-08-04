@@ -20,10 +20,8 @@ using SeniSienna
 
 raw_dir = joinpath(@__DIR__, "..", "data", "raw")
 val_dir = joinpath(@__DIR__, "..", "validation")
-edac_dir = joinpath(raw_dir, "seni_extraccion_vm_20260717",
-                    "salida_bloqueI_edac_20260717_111009")
-rms_dir = joinpath(raw_dir, "seni_extraccion_vm_20260717",
-                   "salida_rms_edac_20260717_113111")
+edac_dir = joinpath(raw_dir, "salida_bloqueI_edac_20260717_111009")
+rms_dir = joinpath(raw_dir, "salida_rms_edac_20260717_113111")
 
 # ---- relés disparados en la referencia y sus tiempos --------------------------
 disparos = CSV.read(joinpath(rms_dir, "rms_edac_disparos_reles.csv"), DataFrame)

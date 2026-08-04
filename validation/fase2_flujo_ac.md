@@ -43,3 +43,12 @@ Vista/La Romana/Guaymate −0.04) y cola dispersa ≈0.01. Hipótesis, en orden:
 físico con `op_dir` (Bloque I), aplica el control secundario iterativo
 (`solve_with_controls!`) y compara contra `referencia_loadflow.csv` por
 `for_name` (detalle en `fase2_delta_v.csv`).
+
+**Datos ya versionados** (merge de `vm-extraccion-20260717`): el Bloque I vive en
+`data/raw/salida_bloqueI_edac_20260717_111009/`. Re-ejecutado 2026-08-04 desde esa
+ruta: **|ΔV| medio 0.00605 pu, máx 0.05503** (reproduce exacto). El residuo del
+radial Este (Higüey −0.055, Bení/Chavón/La Romana/Guaymate −0.04) **no** es Tr3
+(los 3 ElmTr3 son EDM3/San Felipe/Metropolitano, ninguno en el Este) ni tap (La
+Romana tap 13, SPM tap 9, ambos ElmTr2 aplicados) → queda como **hipótesis 1**:
+estado de **shunts/SVC conmutables** (`iopt_asht=1`), no extraído por la VM →
+próxima extracción (`paso_actual` de ElmShnt + consigna SVC en P20).

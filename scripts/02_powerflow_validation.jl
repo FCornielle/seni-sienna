@@ -11,8 +11,7 @@ raw_dir = joinpath(@__DIR__, "..", "data", "raw")
 val_dir = joinpath(@__DIR__, "..", "validation")
 # Bloque I: punto de operación P20 exacto extraído en la VM (mismo escenario
 # que referencia_loadflow.csv)
-op_dir = joinpath(raw_dir, "seni_extraccion_vm_20260717",
-                  "salida_bloqueI_edac_20260717_111009")
+op_dir = joinpath(raw_dir, "salida_bloqueI_edac_20260717_111009")
 
 sys, forname_to_bus, stactrl_spec = build_seni_physical_system(raw_dir; op_dir)
 to_json(sys, joinpath(@__DIR__, "..", "data", "sys", "seni_fisico.json"); force = true)
