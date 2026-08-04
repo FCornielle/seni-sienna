@@ -37,7 +37,10 @@ almacenados aquí para abordarlos después de cerrar A.
 - **Shunts/SVC por escenario**: `paso_actual` de ElmShnt + consigna SVC en P20 → cierra el residuo 0.04 pu del radial Este (Fase 2).
 - **Costos de arranque C^ARR**: no están en el workbook; buscar en otra declaración del OC o estimar por combustible de arranque.
 - **oarray_* FRT de plantas solares**: la API de PF no las lee → copiar a mano desde la GUI.
-- **Embalses (RENDH, aportes, niveles)**: del **PSD semanal** del Dropbox del OC.
+- ~~**Embalses (RENDH, aportes, niveles)**~~ → ✅ **RESUELTO** con el código GAMS
+  del MODOM (zip `MODOM DIARIO - 422`): RENDH=1 (agua ya en MWh), presupuesto
+  diario = DAT_NFIN (línea 743). Modelo de embalse implementado en `scripts/03`
+  (`HYDRO_BUDGET=1`). C^ARR también confirmado (CVP×PMN×TARR, ya implementado).
 - **Puntos de operación P01–P24**: para validar despacho hora a hora y R² por escenario.
 
 ## C — Sienna NO puede (otra herramienta)

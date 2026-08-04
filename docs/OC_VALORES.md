@@ -117,6 +117,32 @@ Descubierta vía el repo `FCornielle/oc_cmg`. A diferencia de `datos.gob.do`
 → Con esto se puede comparar **cuantitativamente** el despacho de Sienna contra
 el del OC (cierra el gap D), tirando los datos directamente.
 
+## Embalses / η hidro — RESUELTO con el código GAMS del MODOM
+
+El zip `MODOM DIARIO - 422` trae el **código fuente GAMS** del modelo del OC
+(`MODOM_NV_70PD(OPLM).gms`) + el workbook V422. Eso cierra el gap de embalses:
+
+- **`RENDH = 1` para todas las hidro** (`e_datgen`). En el balance de embalse
+  (`PG·(1/RENDHID)`), eso significa que los niveles/aportes del MODOM **ya están
+  en energía-equivalente (MWh), no en hm³** → la conversión agua↔MWh es identidad.
+  El "gap de η" era un mal-entendido de unidades.
+- **Presupuesto de energía diario** = `DAT_NFIN(EMBALSE,'48')` (= `final_level.csv`).
+  GAMS línea 743: `SUM((N,HD), PG·HID_EMB) =L= DAT_NFIN` → la generación hidro
+  diaria de cada embalse **no puede exceder ese tope**. Verificado: toda central
+  cumple `gen_MODOM ≤ DAT_NFIN` (Tavera 359≤384, Jigüey 395≤423…).
+- **Cascada aguas abajo** (`REST_AGUAS_ABAJO`) y **VALOR_AGUA** (dual del balance)
+  gobiernan la coordinación *semanal* del agua.
+
+Implementado en `scripts/03` (flag `HYDRO_BUDGET=1`): la hidro pasa de fija a
+optimizarse bajo `Σ_t PG ≤ DAT_NFIN` por embalse. Resultado: Sienna 3168 MWh vs
+MODOM 2982 (ambos ≤ presupuesto 3243). Sienna llena el presupuesto porque, en un
+**día aislado**, le falta el VALOR_AGUA semanal que hace al OC conservar agua →
+diferencia esperada, no error. Detalle en `validation/hidro_presupuesto.csv`.
+
+> **Costo de arranque C^ARR**: el GAMS confirma que **no es un costo declarado** —
+> el arranque se modela como combustible durante `TARR` horas (CVP×PMN×TARR), que
+> es justo lo que ya hace `build_modom_system.jl`. Gap cerrado por confirmación.
+
 ### Validación implementada (`scripts/15_validacion_oc.jl`, fecha del modelo 30-09-2025)
 - **Energía total**: OC 81.4 vs Sienna 82.4 GWh (+1.3%). Por grupo (= subtotales
   publicados por el OC): térmica −8.2%, solar +9.8%, hidro +6.5%.

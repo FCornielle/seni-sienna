@@ -56,6 +56,18 @@ branches = [br for br in branches if get_available(br)]
 cvp(g) = get_proportional_term(get_value_curve(get_variable(get_operation_cost(g))))
 plim(g) = get_active_power_limits(g)  # MW (NATURAL_UNITS)
 
+# ---- embalses · presupuesto de energía hidro (MODOM eq. balance, línea 743) --
+# En el MODOM RENDHID=1 → niveles/aportes ya están en energía (MWh), no en hm³.
+# El tope diario de cada embalse es DAT_NFIN (= final_level.csv): Σ_t PG ≤ tope.
+# HYDRO_BUDGET=1 → hidro se optimiza en el tiempo bajo ese presupuesto (embalse
+# real); por defecto (0) la hidro queda fija al despacho MODOM (reproducción).
+const HYDRO_BUDGET = get(ENV, "HYDRO_BUDGET", "0") == "1"
+_hydro_dir = joinpath(raw_dir, "processed", "hydro")
+gen2res = Dict(String(r.generator_id) => String(r.reservoir_id)
+               for r in eachrow(CSV.read(joinpath(_hydro_dir, "gen_reservoir.csv"), DataFrame)))
+res_budget = Dict(String(r.reservoir_id) => Float64(r.nivel_fin_24)
+                  for r in eachrow(CSV.read(joinpath(_hydro_dir, "final_level.csv"), DataFrame)))
+
 # series en MW
 mwseries(c) = values(get_time_series_array(SingleTimeSeries, c, "max_active_power"))
 demand = Dict(get_name(l) => mwseries(l) for l in loads)
@@ -69,6 +81,10 @@ set_silent(m)
 @variable(m, -2π <= θ[1:nb, 1:T] <= 2π)  # acotado: mata rayos en islas
 @variable(m, pt[g in get_name.(thermals), 1:T] >= 0)
 @variable(m, pr[g in get_name.(renews), 1:T] >= 0)
+@variable(m, ph[g in get_name.(hydros), 1:T] >= 0)   # hidro (embalse)
+for g in hydros, t in 1:T
+    set_upper_bound(ph[get_name(g), t], HYDRO_BUDGET ? plim(g).max : 0.0)
+end
 @variable(m, ens[1:nb, 1:T] >= 0)
 @variable(m, dump[1:nb, 1:T] >= 0)
 # gap A · pérdidas: carga extra por barra (0 en la 1ª pasada; se fija a las
@@ -113,9 +129,26 @@ end
 for g in renews, t in 1:T
     add_to_expression!(inj[busnum[get_name(get_bus(g))], t], pr[get_name(g), t])
 end
-for g in hydros, t in 1:T  # hidro fija = despacho MODOM (decisión de agua, no de costo)
-    p = min(get(modom_mw, (get_name(g), t), 0.0), plim(g).max)
-    add_to_expression!(inj[busnum[get_name(get_bus(g))], t], p)
+if HYDRO_BUDGET
+    # hidro optimizable con presupuesto de energía por embalse (Σ_t PG ≤ DAT_NFIN)
+    for g in hydros, t in 1:T
+        add_to_expression!(inj[busnum[get_name(get_bus(g))], t], ph[get_name(g), t])
+    end
+    res_units = Dict{String,Vector{String}}()
+    for g in hydros
+        rid = get(gen2res, get_name(g), "")
+        haskey(res_budget, rid) && push!(get!(res_units, rid, String[]), get_name(g))
+    end
+    for (rid, us) in res_units
+        @constraint(m, sum(ph[u, t] for u in us, t in 1:T) <= res_budget[rid])
+    end
+    println("Embalses: presupuesto de energía activo en $(length(res_units)) embalses, ",
+            "tope total ", round(sum(values(res_budget)); digits = 0), " MWh")
+else
+    for g in hydros, t in 1:T  # hidro fija = despacho MODOM (decisión de agua, no de costo)
+        p = min(get(modom_mw, (get_name(g), t), 0.0), plim(g).max)
+        add_to_expression!(inj[busnum[get_name(get_bus(g))], t], p)
+    end
 end
 for l in loads, t in 1:T
     add_to_expression!(inj[busnum[get_name(get_bus(l))], t], -demand[get_name(l)][t])
@@ -231,7 +264,8 @@ fuel_rows = NamedTuple[]
 for t in 1:T
     mw = Dict(f => 0.0 for f in FUELS)
     for g in thermals; mw[_fuel(get_name(g))] += value(pt[get_name(g), t]); end
-    for g in hydros; mw[_fuel(get_name(g))] += min(get(modom_mw, (get_name(g), t), 0.0), plim(g).max); end
+    for g in hydros; mw[_fuel(get_name(g))] += HYDRO_BUDGET ? value(ph[get_name(g), t]) :
+                     min(get(modom_mw, (get_name(g), t), 0.0), plim(g).max); end
     for g in renews; mw[_fuel(get_name(g))] += value(pr[get_name(g), t]); end
     dem = sum(demand[get_name(l)][t] for l in loads; init = 0.0)
     push!(fuel_rows, (; hora = t, (Symbol(f) => round(mw[f]; digits = 1) for f in FUELS)...,
@@ -239,6 +273,28 @@ for t in 1:T
 end
 CSV.write(joinpath(val_dir, "despacho_fuel_hora.csv"), DataFrame(fuel_rows))
 println("Mix por combustible×hora → validation/despacho_fuel_hora.csv")
+
+# ---- embalses: presupuesto de energía vs uso (solo modo HYDRO_BUDGET) --------
+if HYDRO_BUDGET
+    res_rows = NamedTuple[]
+    for (rid, budget) in sort(collect(res_budget); by = first)
+        us = [get_name(g) for g in hydros if get(gen2res, get_name(g), "") == rid]
+        isempty(us) && continue
+        si = sum(value(ph[u, t]) for u in us, t in 1:T)
+        mo = sum(get(modom_mw, (u, t), 0.0) for u in us, t in 1:T)
+        (budget < 1 && si < 1 && mo < 1) && continue
+        push!(res_rows, (embalse = rid, presupuesto_MWh = round(budget; digits = 0),
+                         sienna_MWh = round(si; digits = 0), modom_MWh = round(mo; digits = 0),
+                         uso_pct = round(100 * si / max(budget, 1e-6); digits = 0)))
+    end
+    rdf = DataFrame(res_rows)
+    CSV.write(joinpath(val_dir, "hidro_presupuesto.csv"), rdf)
+    println("\n── Embalses: presupuesto de energía (MODOM RENDHID=1, eq. línea 743) ──")
+    show(rdf; allrows = true, allcols = true)
+    println("\n  Hidro total — Sienna: ", round(sum(rdf.sienna_MWh); digits = 0),
+            " MWh · MODOM: ", round(sum(rdf.modom_MWh); digits = 0),
+            " · presupuesto: ", round(sum(rdf.presupuesto_MWh); digits = 0), " MWh")
+end
 
 # despacho térmico por unidad, con NOMBRE de central (para el gráfico por planta)
 und_rows = NamedTuple[]
