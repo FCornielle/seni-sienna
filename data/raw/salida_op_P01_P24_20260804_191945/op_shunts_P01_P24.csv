@@ -1,0 +1,721 @@
+﻿escenario,for_name,loc_name,shtype,ncapa,ncapx,qcapn_Mvar_paso,outserv
+P01,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P01,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P01,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P01,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P01,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P01,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P01,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P01,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P01,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P01,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P01,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P01,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P01,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P01,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P01,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P01,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P01,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P01,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P01,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P01,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P01,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P01,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P01,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P01,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P01,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P01,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P01,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P01,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P01,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P01,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P02,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P02,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P02,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P02,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P02,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P02,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P02,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P02,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P02,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P02,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P02,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P02,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P02,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P02,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P02,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P02,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P02,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P02,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P02,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P02,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P02,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P02,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P02,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P02,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P02,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P02,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P02,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P02,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P02,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P02,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P03,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P03,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P03,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P03,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P03,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P03,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P03,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P03,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P03,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P03,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P03,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P03,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P03,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P03,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P03,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P03,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P03,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P03,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P03,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P03,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P03,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P03,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P03,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P03,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P03,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P03,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P03,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P03,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P03,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P03,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P04,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P04,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P04,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P04,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P04,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P04,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P04,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P04,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P04,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P04,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P04,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P04,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P04,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P04,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P04,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P04,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P04,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P04,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P04,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P04,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P04,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P04,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P04,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P04,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P04,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P04,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P04,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P04,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P04,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P04,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P05,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P05,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P05,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P05,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P05,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P05,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P05,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P05,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P05,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P05,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P05,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P05,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P05,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P05,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P05,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P05,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P05,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P05,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P05,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P05,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P05,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P05,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P05,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P05,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P05,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P05,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P05,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P05,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P05,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P05,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P06,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P06,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P06,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P06,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P06,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P06,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P06,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P06,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P06,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P06,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P06,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P06,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P06,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P06,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P06,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P06,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P06,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P06,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P06,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P06,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P06,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P06,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P06,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P06,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P06,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P06,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P06,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P06,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P06,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P06,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P07,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P07,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P07,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P07,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P07,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P07,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P07,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P07,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P07,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P07,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P07,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P07,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P07,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P07,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P07,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P07,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P07,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P07,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P07,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P07,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P07,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P07,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P07,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P07,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P07,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P07,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P07,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P07,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P07,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P07,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P08,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P08,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P08,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P08,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P08,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P08,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P08,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P08,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P08,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P08,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P08,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P08,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P08,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P08,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P08,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P08,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P08,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P08,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P08,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P08,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P08,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P08,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P08,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P08,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P08,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P08,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P08,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P08,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P08,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P08,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P09,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P09,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P09,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P09,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P09,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P09,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P09,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P09,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P09,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P09,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P09,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P09,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P09,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P09,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P09,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P09,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P09,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P09,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P09,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P09,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P09,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P09,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P09,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P09,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P09,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P09,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P09,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P09,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P09,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P09,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P10,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P10,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P10,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P10,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P10,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P10,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P10,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P10,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P10,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P10,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P10,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P10,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P10,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P10,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P10,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P10,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P10,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P10,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P10,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P10,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P10,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P10,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P10,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P10,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P10,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P10,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P10,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P10,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P10,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P10,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P11,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P11,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P11,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P11,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P11,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P11,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P11,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P11,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P11,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P11,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P11,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P11,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P11,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P11,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P11,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P11,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P11,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P11,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P11,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P11,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P11,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P11,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P11,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P11,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P11,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P11,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P11,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P11,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P11,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P11,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P12,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P12,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P12,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P12,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P12,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P12,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P12,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P12,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P12,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P12,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P12,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P12,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P12,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P12,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P12,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P12,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P12,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P12,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P12,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P12,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P12,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P12,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P12,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P12,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P12,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P12,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P12,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P12,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P12,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P12,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P13,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P13,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P13,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P13,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P13,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P13,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P13,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P13,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P13,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P13,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P13,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P13,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P13,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P13,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P13,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P13,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P13,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P13,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P13,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P13,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P13,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P13,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P13,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P13,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P13,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P13,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P13,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P13,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P13,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P13,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P14,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P14,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P14,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P14,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P14,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P14,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P14,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P14,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P14,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P14,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P14,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P14,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P14,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P14,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P14,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P14,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P14,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P14,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P14,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P14,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P14,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P14,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P14,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P14,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P14,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P14,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P14,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P14,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P14,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P14,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P15,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P15,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P15,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P15,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P15,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P15,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P15,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P15,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P15,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P15,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P15,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P15,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P15,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P15,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P15,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P15,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P15,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P15,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P15,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P15,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P15,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P15,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P15,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P15,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P15,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P15,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P15,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P15,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P15,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P15,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P16,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P16,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P16,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P16,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P16,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P16,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P16,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P16,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P16,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P16,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P16,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P16,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P16,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P16,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P16,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P16,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P16,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P16,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P16,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P16,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P16,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P16,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P16,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P16,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P16,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P16,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P16,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P16,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P16,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P16,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P17,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P17,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P17,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P17,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P17,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P17,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P17,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P17,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P17,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P17,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P17,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P17,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P17,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P17,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P17,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P17,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P17,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P17,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P17,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P17,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P17,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P17,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P17,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P17,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P17,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P17,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P17,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P17,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P17,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P17,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P18,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P18,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P18,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P18,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P18,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P18,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P18,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P18,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P18,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P18,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P18,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P18,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P18,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P18,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P18,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P18,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P18,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P18,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P18,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P18,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P18,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P18,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P18,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P18,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P18,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P18,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P18,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P18,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P18,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P18,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P19,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P19,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P19,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P19,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P19,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P19,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P19,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P19,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P19,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P19,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P19,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P19,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P19,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P19,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P19,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P19,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P19,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P19,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P19,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P19,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P19,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P19,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P19,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P19,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P19,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P19,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P19,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P19,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P19,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P19,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P20,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P20,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P20,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P20,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P20,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P20,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P20,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P20,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P20,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P20,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P20,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P20,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P20,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P20,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P20,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P20,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P20,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P20,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P20,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P20,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P20,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P20,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P20,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P20,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P20,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P20,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P20,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P20,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P20,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P20,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P21,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P21,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P21,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P21,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P21,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P21,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P21,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P21,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P21,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P21,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P21,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P21,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P21,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P21,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P21,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P21,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P21,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P21,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P21,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P21,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P21,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P21,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P21,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P21,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P21,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P21,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P21,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P21,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P21,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P21,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P22,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P22,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P22,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P22,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P22,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P22,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P22,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P22,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P22,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P22,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P22,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P22,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P22,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P22,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P22,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P22,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P22,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P22,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P22,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P22,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P22,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P22,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P22,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P22,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P22,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P22,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P22,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P22,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P22,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P22,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P23,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P23,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P23,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P23,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P23,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P23,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P23,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P23,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P23,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P23,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P23,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P23,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P23,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P23,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P23,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P23,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P23,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P23,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P23,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P23,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P23,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P23,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P23,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P23,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P23,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P23,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P23,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P23,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P23,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P23,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0
+P24,ZLRMAF-C1,69 kV Capacitor La Romana Pueblo,2,1,1,15.600000381469727,0
+P24,ZHIGUF-C1,69 kV Capacitor Higüey,2,1,1,17.0,0
+P24,ZSRAFF-C1,69 kV Capacitor Madre Vieja(San Rafael),2,1,1,20.0,0
+P24,ZPVD1K-C1,34.5 kV Capacitor 1 PVDC,2,1,3,10.0,0
+P24,ZPVD2K-C1,34.5 kV Capacitor 2 PVDC,2,1,3,10.0,0
+P24,ZSPMAF-C1,69 kV Capacitor SPM,2,1,1,20.0,0
+P24,ZZSANF-C2,69 kV Capacitor 2 ZF Santiago,2,1,1,20.0,0
+P24,ZZSANF-C1,69 kV Capacitor 1 ZF Santiago,2,1,1,9.600000381469727,0
+P24,ZCANBF-C2,69 kV Capacitor 2 Canabacoa,2,1,1,20.0,0
+P24,ZCANBF-C1,69 kV Capacitor 1 Canabacoa,2,1,1,15.600000381469727,0
+P24,ZPPL2F-C1,69 kV Capacitor Puerto Plata 2,2,1,1,40.0,0
+P24,ZFALCK-C1,34.5 kV Capacitor 1 FALCONDO,4,1,1,21.88921356201172,1
+P24,ZFALCK-C2,34.5 kV Capacitor 2 FALCONDO,4,1,1,14.364055633544922,1
+P24,ZACLAK-C1,34.5 kV Capacitor Agua Clara,2,1,6,1.0,1
+P24,WGNLLK-SF,34.5 kV Capacitor Guanillo,2,8,8,0.9599999189376831,0
+P24,ZCOCOF-C1,69 kV Capacitor Cruce de Ocoa,2,1,1,20.0,0
+P24,WDUVEF-C1,69 kV Duvergé C1,2,1,1,11.399999618530273,0
+P24,ZHAIBF-C1,69 kV Capacitor Haina,2,1,1,40.0,0
+P24,ZMTFNK-C1,34.5 kV Capacitor 1 Matafongo,2,1,1,5.0,1
+P24,ZMTFNK-C2,34.5 kV Capacitor 2 Matafongo,2,1,1,10.0,1
+P24,ZGIRAK-C1,34.5 kV Capacitor Girasol,2,1,3,10.0,0
+P24,ZAHONF-C1,69 kV Capacitor Arroyo Hondo,2,1,1,20.0,0
+P24,ZHNVAF-C1,69 kV Capacitor Herrera Nueva,2,1,1,20.0,0
+P24,ZHNS1F-C1,69 kV Capacitor Hainamosa,2,1,1,40.0,0
+P24,ZPIMEF-C1,69 kV Capacitor Pimentel,2,1,1,9.739999771118164,0
+P24,ZABANF-C1,69 kV Capacitor Abanico Per,2,1,1,10.0,0
+P24,ZPAYIF-C1,69 kV Capacitor Payita,2,1,1,10.0,0
+P24,ZCONSF-C1,69 kV Capacitor Constanza,2,1,1,11.420000076293945,0
+P24,WSOSDF-C1,69 kV Sosúa 2 C1,2,1,1,20.0,0
+P24,WLVPEF-C1,69 kV La Vega PER C1,2,1,1,20.0,0

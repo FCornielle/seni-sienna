@@ -1,0 +1,26 @@
+{
+  "proyecto": "PDD 30-09-2025",
+  "escenario": "P20",
+  "study_case": "BASE",
+  "fecha": "2026-08-04T19:29:13.170134",
+  "comldf_err": 0,
+  "conteos": {
+    "shunts": 30,
+    "svc": 2,
+    "stactrl": 15,
+    "generadores": 157,
+    "puntos_curva": 50,
+    "barras": 5150
+  },
+  "sumas": {
+    "Q_shunts_actual_Mvar": -443.815
+  },
+  "archivos": [
+    "escenario_P20_qcap.csv",
+    "escenario_P20_shunts.csv",
+    "escenario_P20_stactrl.csv",
+    "escenario_P20_svc.csv",
+    "escenario_P20_tensiones_flujo.csv",
+    "qcap_curvas.csv"
+  ]
+}

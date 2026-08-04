@@ -1,0 +1,1322 @@
+﻿maquina_for_name,maquina_loc_name,gov_modelo,gov_dsl,param,valor
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,K,8.0
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,T4,1.0
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,T5,0.1
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,T6,0.2
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,TD,0.01
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,Droop,0.056
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,TE,0.5
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,T1,0.2
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,T2,0.3
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,T3,0.5
+G4PALAM3,Palamara Grupo 3,gov_DEGOV1,gov_Palamara 3,Droop_Control,1.0
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,K,8.0
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,T4,1.0
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,T5,0.1
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,T6,0.2
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,TD,0.01
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,Droop,0.06
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,TE,0.5
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,T1,0.2
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,T2,0.3
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,T3,0.5
+G4PALAM2,Palamara Grupo 2,gov_DEGOV1,gov_Palamara 2,Droop_Control,1.0
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,K,8.0
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,T4,1.0
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,T5,0.1
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,T6,0.2
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,TD,0.01
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,Droop,0.0593
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,TE,0.5
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,T1,0.2
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,T2,0.3
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,T3,0.5
+G4PALAM1,Palamara Grupo 1,gov_DEGOV1,gov_Palamara 1,Droop_Control,1.0
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,K,8.0
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,T4,1.0
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,T5,0.1
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,T6,0.2
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,TD,0.01
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,Droop,0.0581
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,TE,0.5
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,T1,0.2
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,T2,0.3
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,T3,0.5
+G4IKM22,INCA km 22 Grupo 1,gov_DEGOV1,gov_INCA km 22 G1,Droop_Control,1.0
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,K,8.0
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,T4,1.0
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,T5,0.1
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,T6,0.2
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,TD,0.01
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,Droop,0.0581
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,TE,0.5
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,T1,0.2
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,T2,0.3
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,T3,0.5
+G5IKM22,INCA km 22 Grupo 2,gov_DEGOV1,gov_INCA km 22 G2,Droop_Control,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Trate,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,R,0.05
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Rselect,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,db,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tpelec,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Kpgov,3.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Kigov,1.2
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Kdgov,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tdgov,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tact,0.3
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Kturb,1.3
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Wfnl,0.22
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tc,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tb,0.1
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,flag,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Teng,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tsa,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tsb,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Tfload,0.3
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Kpload,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Kiload,3.3
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Ldref,1.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Dm,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Kimw,0.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Aset,99.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Ka,10.0
+G5EMA3G1,EDM3 TG1,gov_IEEE_GGOV1,gov_EDM3 GT1,Ta,0.1
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Trate,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,R,0.05
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Rselect,1.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,db,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tpelec,1.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Kpgov,3.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Kigov,1.2
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Kdgov,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tdgov,1.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tact,0.3
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Kturb,1.3
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Wfnl,0.22
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tc,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tb,0.1
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,flag,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Teng,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tsa,1.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tsb,1.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Tfload,0.3
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Kpload,1.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Kiload,3.3
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Ldref,1.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Dm,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Kimw,0.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Aset,99.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Ka,10.0
+G5EMA3G2,EDM3 TG2,gov_IEEE_GGOV1,gov_EDM3 TG2,Ta,0.1
+G5EMAR3V,EDM3 TV,gov_IEEE_TGOV1,gov_EDM3 ST,Trate,0.0
+G5EMAR3V,EDM3 TV,gov_IEEE_TGOV1,gov_EDM3 ST,R,0.05
+G5EMAR3V,EDM3 TV,gov_IEEE_TGOV1,gov_EDM3 ST,T1,0.5
+G5EMAR3V,EDM3 TV,gov_IEEE_TGOV1,gov_EDM3 ST,T2,1.0
+G5EMAR3V,EDM3 TV,gov_IEEE_TGOV1,gov_EDM3 ST,T3,3.0
+G5EMAR3V,EDM3 TV,gov_IEEE_TGOV1,gov_EDM3 ST,Dt,0.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Ldref,1.2
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Kturb,1.05
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Wfnl,0.01
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Kpload,0.2
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tfload,20.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tsa,0.5
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tsb,5.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Ka,10.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Ta,0.1
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Kimw,0.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tpelec,2.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Rselect,-1.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Aset,1.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,r,0.044
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,db,0.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Kpgov,5.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Kigov,0.05
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Kdgov,5.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tdgov,0.1
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tact,0.1
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Trate,0.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Dm,0.001
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Flag,0.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Teng,0.0
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tc,0.1
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Tb,0.2
+G4Q1SPED,Quisqueya 1 San Pedro,gov_GGOV1,gov_Quisqueya 1 San Pedro,Kiload,0.02
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Ldref,1.2
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Kturb,1.05
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Wfnl,0.01
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Kpload,0.2
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tfload,20.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tsa,0.5
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tsb,5.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Ka,10.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Ta,0.1
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Kimw,0.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tpelec,2.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Rselect,-1.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Aset,1.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,r,0.044
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,db,0.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Kpgov,5.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Kigov,0.05
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Kdgov,5.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tdgov,0.1
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tact,0.1
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Trate,0.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Dm,0.001
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Flag,0.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Teng,0.0
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tc,0.1
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Tb,0.2
+G4QUIS12,Quisqueya 1 Grupo 2,gov_GGOV1,gov_Quisqueya 1 G2,Kiload,0.02
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Ldref,1.2
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Kturb,1.05
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Wfnl,0.01
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Kpload,0.2
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tfload,20.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tsa,0.5
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tsb,5.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Ka,10.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Ta,0.1
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Kimw,0.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tpelec,2.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Rselect,-1.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Aset,1.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,r,0.04
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,db,0.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Kpgov,5.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Kigov,0.05
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Kdgov,5.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tdgov,0.1
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tact,0.1
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Trate,0.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Dm,0.001
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Flag,0.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Teng,0.0
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tc,0.1
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Tb,0.2
+G4QUIS21,Quisqueya 2 Grupo 1,gov_GGOV1,gov_Quisqueya 2 G1,Kiload,0.02
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Ldref,1.2
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Kturb,1.05
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Wfnl,0.01
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Kpload,0.2
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tfload,20.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tsa,0.5
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tsb,5.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Ka,10.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Ta,0.1
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Kimw,0.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tpelec,2.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Rselect,-1.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Aset,1.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,r,0.04
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,db,0.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Kpgov,5.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Kigov,0.05
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Kdgov,5.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tdgov,0.1
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tact,0.1
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Trate,0.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Dm,0.001
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Flag,0.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Teng,0.0
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tc,0.1
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Tb,0.2
+G4QUIS22,Quisqueya 2 Grupo 2,gov_GGOV1,gov_Quisqueya 2 G2,Kiload,0.02
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Ldref,1.2
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Kturb,1.05
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Wfnl,0.01
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Kpload,0.2
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tfload,20.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tsa,0.5
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tsb,5.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Ka,10.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Ta,0.1
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Kimw,0.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tpelec,2.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Rselect,-1.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Aset,1.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,r,0.04
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,db,0.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Kpgov,5.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Kigov,0.05
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Kdgov,5.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tdgov,0.1
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tact,0.1
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Trate,0.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Dm,0.001
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Flag,0.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Teng,0.0
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tc,0.1
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Tb,0.2
+G4QUIS23,Quisqueya 2 Grupo 3,gov_GGOV1,gov_Quisqueya 2 G3,Kiload,0.02
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Ldref,1.2
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Kturb,1.05
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Wfnl,0.01
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Kpload,0.2
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tfload,20.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tsa,0.5
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tsb,5.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Ka,10.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Ta,0.1
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Kimw,0.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tpelec,2.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Rselect,-1.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Aset,1.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,r,0.044
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,db,0.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Kpgov,5.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Kigov,0.05
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Kdgov,5.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tdgov,0.1
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tact,0.1
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Trate,0.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Dm,0.001
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Flag,0.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Teng,0.0
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tc,0.1
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Tb,0.2
+G4QUIS13,Quisqueya 1 Grupo 3,gov_GGOV1,gov_Quisqueya 1 G3,Kiload,0.02
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K,20.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,T1,0.2
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,T2,1.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,T3,0.15
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K1,0.224
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K2,0.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,T5,0.1
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K3,0.395
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K4,0.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,T6,0.3
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K5,0.381
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K6,0.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,T4,0.05
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,T7,1.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K7,0.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,K8,0.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,PNhp,0.0
+G3PCATA1,Punta Catalina 1,gov_IEEEG1,gov_Punta Catalina 1,PNlp,0.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K,20.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,T1,0.2
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,T2,1.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,T3,0.15
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K1,0.224
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K2,0.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,T5,0.1
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K3,0.395
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K4,0.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,T6,0.3
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K5,0.381
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K6,0.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,T4,0.05
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,T7,1.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K7,0.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,K8,0.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,PNhp,0.0
+G3PCATA2,Punta Catalina 2,gov_IEEEG1,gov_Punta Catalina 2,PNlp,0.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Ldref,10.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Kturb,1.24
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Wfnl,0.071
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Kpload,1.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tfload,1.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tsa,1.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tsb,1.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Ka,10000.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Ta,10000.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Kimw,0.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tpelec,1.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Rselect,1.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Aset,1000.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,r,0.044
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,db,0.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Kpgov,3.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Kigov,1.5
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Kdgov,0.001
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tdgov,0.01
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tact,0.025
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Trate,0.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Dm,0.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Flag,1.0
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Teng,0.0292
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tc,-0.0146
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Tb,0.0146
+G4SESTE3,Sultana del Este Grupo 3,gov_GGOV1,gov_Sultana del Este G3,Kiload,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Ldref,10.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Kturb,1.08
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Wfnl,0.071
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Kpload,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tfload,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tsa,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tsb,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Ka,10000.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Ta,10000.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Kimw,0.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tpelec,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Rselect,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Aset,1000.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,r,0.07
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,db,0.001
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Kpgov,3.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Kigov,1.5
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Kdgov,0.001
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tdgov,0.01
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tact,0.025
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Trate,0.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Dm,0.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Flag,1.0
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Teng,0.0292
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tc,-0.0146
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Tb,0.0146
+G4SESTE1,Sultana del Este Grupo 1,gov_GGOV1,gov_Sultana del Este G1,Kiload,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Ldref,10.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Kturb,1.24
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Wfnl,0.071
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Kpload,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tfload,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tsa,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tsb,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Ka,10000.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Ta,10000.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Kimw,0.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tpelec,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Rselect,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Aset,1000.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,r,0.043
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,db,0.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Kpgov,3.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Kigov,1.5
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Kdgov,0.001
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tdgov,0.01
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tact,0.025
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Trate,0.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Dm,0.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Flag,1.0
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Teng,0.0292
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tc,-0.0146
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Tb,0.0146
+G4SESTE2,Sultana del Este Grupo 2,gov_GGOV1,gov_Sultana del Este G2,Kiload,1.0
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,R,0.023367
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,T1,9.863571
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,T2,136.5859
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,T3,3.0
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,AT,1.0
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,Kt,2.0
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,Dturb,0.0
+G3CESPM3,CESPM 3,gov_GAST,gov_CESPM 3,PN,0.0
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,R,0.023367
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,T1,9.863571
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,T2,136.5859
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,T3,3.0
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,AT,1.0
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,Kt,2.0
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,Dturb,0.0
+G3CESPM2,CESPM 2,gov_GAST,gov_CESPM 2,PN,0.0
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,R,0.023367
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,T1,9.863571
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,T2,136.5859
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,T3,3.0
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,AT,1.0
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,Kt,2.0
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,Dturb,0.0
+G3CESPM1,CESPM 1,gov_GAST,gov_CESPM 1,PN,0.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Trate,0.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,R,0.04
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Rselect,1.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,db,0.0002
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tpelec,1.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Kpgov,10.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Kigov,1.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Kdgov,0.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tdgov,1.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tact,0.5
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Kturb,1.5
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Wfnl,0.2
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tc,0.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tb,0.1
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,flag,1.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Teng,0.001
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tsa,4.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tsb,5.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Tfload,3.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Kpload,2.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Ldref,1.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Dm,0.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Kimw,0.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Aset,0.01
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Ka,10.0
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Ta,0.1
+G3ENE4TG,ENERGAS 4 TG,gov_PSSE_GGOV1,GGOV1,Kiload,0.67
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K,200.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,T1,2.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,T2,1.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,T3,0.035
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,T4,0.207
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K1,1.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K2,1.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,T5,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K3,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K4,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,T6,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K5,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K6,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,T7,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K7,0.0
+G3ENE4TV,ENERGAS 4 TV,gov_PSSE_IEEEG1,IEEEG1,K8,0.0
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,K,15.0
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,T4,1.0
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,T5,0.1
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,T6,0.2
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,TD,0.01
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,Droop,0.0573
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,TE,0.1
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,T1,0.2
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,T2,0.3
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,T3,0.05
+G3BERSAL,Bersal,gov_DEGOV1_BERSAL,gov_Bersal,Droop_Control,0.0
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,K,15.0
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,T4,1.0
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,T5,0.1
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,T6,0.2
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,TD,0.01
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,Droop,0.0595
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,TE,0.1
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,T1,0.2
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,T2,0.3
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,T3,0.05
+G4LOPPL1,Los Orígenes Power Plant Grupo 1,gov_DEGOV1_LOPP,gov_Los Orígenes Grupo 1,Droop_Control,0.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Ldref,1.2
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Kturb,1.05
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Wfnl,0.01
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Kpload,0.2
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tfload,20.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tsa,0.5
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tsb,5.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Ka,10.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Ta,0.1
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Kimw,0.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tpelec,2.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Rselect,-1.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Aset,1.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,r,0.044
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,db,0.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Kpgov,5.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Kigov,0.05
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Kdgov,5.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tdgov,0.1
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tact,0.1
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Trate,0.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Dm,0.001
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Flag,0.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Teng,0.0
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tc,0.1
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Tb,0.2
+G4LOPPL2,Los Orígenes Power Plant Grupo 2,gov_GGOV1,gov_Los Orígenes Grupo 2,Kiload,0.02
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,Trate1,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,Trate2,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K,20.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,T1,9.9
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,T2,3.3
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,T3,0.3
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,T4,0.229
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K1,0.66
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K2,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,T5,0.006
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K3,0.34
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K4,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,T6,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K5,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K6,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,T7,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K7,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,K8,0.0
+G3SPBIOE,San Pedro Bio-Energy,gov_IEEE_IEEEG1,gov_SPBE,db,0.0
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,r,0.1
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,Tr,10.0
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,Tf,0.05
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,Tg,0.3
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,Tw,0.51
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,At,1.15
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,Pturb,0.0
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,Dturb,0.01
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,qnl,0.08
+G3MONCI2,Monción 2,gov_HYGOV_MONCION2,gov_Monción 2,R,0.0294
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,r,0.1
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,Tr,10.0
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,Tf,0.05
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,Tg,0.3
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,Tw,0.51
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,At,1.15
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,Pturb,0.0
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,Dturb,0.01
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,qnl,0.08
+G3MONCI1,Monción 1,gov_HYGOV_MONCION1,gov_Monción 1,R,0.056
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Ldref,10.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Kturb,1.08
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Wfnl,0.071
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Kpload,1.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tfload,1.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tsa,1.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tsb,1.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Ka,0.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Ta,0.1
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Kimw,0.007
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tpelec,1.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Rselect,1.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Aset,0.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,r,0.04
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,db,0.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Kpgov,10.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Kigov,2.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Kdgov,0.001
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tdgov,0.01
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tact,0.025
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Trate,0.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Dm,0.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Flag,1.0
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Teng,0.0292
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tc,-0.0146
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Tb,0.0146
+G3PIMEN3,Pimentel 3,gov_GGOV1,gov_Pimentel 3,Kiload,1.0
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,K,15.0
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,T4,1.0
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,T5,0.1
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,T6,0.2
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,TD,0.01
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,Droop,0.047
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,TE,0.1
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,T1,0.2
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,T2,0.3
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,T3,0.05
+G3PIMEN2,Pimentel 2,gov_DEGOV1_PIME2,gov_Pimentel 2,Droop_Control,0.0
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,K,15.0
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,T4,1.0
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,T5,0.1
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,T6,0.2
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,TD,0.01
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,Droop,0.0593
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,TE,0.1
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,T1,0.2
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,T2,0.3
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,T3,0.05
+G3PIMEN1,Pimentel 1,gov_DEGOV1_PIME1,gov_Pimentel 1,Droop_Control,0.0
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,r,0.1
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,Tr,10.0
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,Tf,0.05
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,Tg,0.3
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,Tw,0.51
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,At,1.15
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,Pturb,0.0
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,Dturb,0.01
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,qnl,0.08
+G3LANGOS,López Angostura,gov_HYGOV,gov_López Angostura,R,0.04
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,r,0.1
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,Tr,10.0
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,Tf,0.05
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,Tg,0.3
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,Tw,0.51
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,At,1.15
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,Pturb,0.0
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,Dturb,0.01
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,qnl,0.08
+G3TAVER2,Tavera 2,gov_HYGOV_TAVERA2,gov_Tavera 2,R,0.049
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,r,0.1
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,Tr,10.0
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,Tf,0.05
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,Tg,0.3
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,Tw,0.51
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,At,1.15
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,Pturb,0.0
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,Dturb,0.01
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,qnl,0.08
+G3TAVER1,Tavera 1,gov_HYGOV_TAVERA1,gov_Tavera 1,R,0.021
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,R,0.047
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,T1,0.4
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,T2,0.1
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,T3,3.0
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,AT,1.0
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,Kt,2.0
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,Dturb,0.0
+G3SFELIG,San Felipe TG,gov_GAST,gov_San Felipe TG,PN,0.0
+G3SFV,San Felipe Vapor,gov_TGOV1,gov_San Felipe Vapor,T3,5.0
+G3SFV,San Felipe Vapor,gov_TGOV1,gov_San Felipe Vapor,T2,1.5
+G3SFV,San Felipe Vapor,gov_TGOV1,gov_San Felipe Vapor,At,1.0
+G3SFV,San Felipe Vapor,gov_TGOV1,gov_San Felipe Vapor,Dt,0.2
+G3SFV,San Felipe Vapor,gov_TGOV1,gov_San Felipe Vapor,R,0.0429
+G3SFV,San Felipe Vapor,gov_TGOV1,gov_San Felipe Vapor,T1,0.5
+G3SFV,San Felipe Vapor,gov_TGOV1,gov_San Felipe Vapor,Pturb,0.0
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,r,0.1
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,Tr,10.0
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,Tf,0.05
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,Tg,0.3
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,Tw,0.51
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,At,1.15
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,Pturb,0.0
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,Dturb,0.01
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,qnl,0.08
+G3LTORO1,Los Toros 1,gov_HYGOV_LTOROS1,gov_Los Toros 1,R,0.017
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,r,0.1
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,Tr,10.0
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,Tf,0.05
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,Tg,0.3
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,Tw,0.51
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,At,1.15
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,Pturb,0.0
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,Dturb,0.01
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,qnl,0.08
+G3LTORO2,Los Toros 2,gov_HYGOV_LTOROS2,gov_Los Toros 2,R,0.043
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,r,0.1
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,Tr,10.0
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,Tf,0.05
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,Tg,0.3
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,Tw,0.51
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,At,1.15
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,Pturb,0.0
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,Dturb,0.01
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,qnl,0.08
+G3SYEGUA,Sabana Yegua,gov_HYGOV,gov_Sabana Yegua,R,0.0293
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,r,0.1
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,Tr,10.0
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,Tf,0.05
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,Tg,0.3
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,Tw,0.51
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,At,1.15
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,Pturb,0.0
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,Dturb,0.01
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,qnl,0.08
+G3SABANE,Sabaneta,gov_HYGOV,gov_Sabaneta,R,0.033
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,r,0.1
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,Tr,10.0
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,Tf,0.05
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,Tg,0.3
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,Tw,0.51
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,At,1.15
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,Pturb,0.0
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,Dturb,0.01
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,qnl,0.08
+G3LDAMAS,Las Damas,gov_HYGOV_LDAMAS,gov_Las Damas,R,0.06
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Ldref,1.2
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Kturb,1.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Wfnl,0.01
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Kpload,0.2
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tfload,20.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tsa,0.5
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tsb,5.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Ka,100000.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Ta,10000.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Kimw,0.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tpelec,1.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Rselect,1.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Aset,1.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,r,0.04
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,db,0.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Kpgov,15.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Kigov,5.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Kdgov,5.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tdgov,0.2
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tact,0.2
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Trate,106.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Dm,0.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Flag,0.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Teng,0.0
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tc,0.2
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Tb,0.5
+G3HTG,Haina TG,gov_GGOV1,gov_Haina TG,Kiload,0.075
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,r,0.1
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,Tr,10.0
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,Tf,0.05
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,Tg,0.3
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,Tw,0.51
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,At,1.15
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,Pturb,0.0
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,Dturb,0.01
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,qnl,0.08
+G3VALDE2,Valdesia 2,gov_HYGOV,gov_Valdesia 2,R,0.0534
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,r,0.1
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,Tr,10.0
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,Tf,0.05
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,Tg,0.3
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,Tw,0.51
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,At,1.15
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,Pturb,0.0
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,Dturb,0.01
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,qnl,0.08
+G3VALDE1,Valdesia 1,gov_HYGOV,gov_Valdesia 1,R,0.0494
+G3BCARBO,Barahona Carbón,gov_TGOV1,gov_Barahona Carbón,T3,5.0
+G3BCARBO,Barahona Carbón,gov_TGOV1,gov_Barahona Carbón,T2,1.5
+G3BCARBO,Barahona Carbón,gov_TGOV1,gov_Barahona Carbón,At,1.0
+G3BCARBO,Barahona Carbón,gov_TGOV1,gov_Barahona Carbón,Dt,0.2
+G3BCARBO,Barahona Carbón,gov_TGOV1,gov_Barahona Carbón,R,0.04
+G3BCARBO,Barahona Carbón,gov_TGOV1,gov_Barahona Carbón,T1,0.5
+G3BCARBO,Barahona Carbón,gov_TGOV1,gov_Barahona Carbón,Pturb,0.0
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,r,0.1
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,Tr,10.0
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,Tf,0.05
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,Tg,0.3
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,Tw,0.51
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,At,1.15
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,Pturb,0.0
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,Dturb,0.01
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,qnl,0.08
+G3JIGUE2,Jigüey 2,gov_HYGOV_JIGUEY1,gov_Jiguey 2,R,0.035
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,r,0.1
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,Tr,10.0
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,Tf,0.05
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,Tg,0.3
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,Tw,0.51
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,At,1.15
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,Pturb,0.0
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,Dturb,0.01
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,qnl,0.08
+G3JIGUE1,Jigüey 1,gov_HYGOV_JIGUEY2,gov_Jiguey 1,R,0.039
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,dbw,0.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,bp,0.04
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,kr,1.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,bt_Td,5.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,Td,12.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,Tf,1.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,Tg,3.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,kw,80.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,Tn,0.3
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,Tn1,3.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,B0,98696.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,B1,314.16
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,B2,1.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,A0,98696.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,A1,0.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,A2,1.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,B3,394780.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,B4,628.32
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,B5,1.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,A3,394780.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,A4,0.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,A5,1.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,ki1,4.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,kp1,25.0
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,Tro,0.33
+G3AGUAC2,Aguacate 2,pcu_Reivax_RTVX100,pcu_Aguacate 2,Tz,1.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,dbw,0.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,bp,0.04
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,kr,1.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,bt_Td,5.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,Td,12.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,Tf,1.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,Tg,3.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,kw,80.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,Tn,0.3
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,Tn1,3.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,B0,98696.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,B1,314.16
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,B2,1.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,A0,98696.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,A1,0.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,A2,1.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,B3,394780.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,B4,628.32
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,B5,1.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,A3,394780.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,A4,0.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,A5,1.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,ki1,4.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,kp1,25.0
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,Tro,0.33
+G3AGUAC1,Aguacate 1,pcu_Reivax_RTVX100,pcu_Aguacate 1,Tz,1.0
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,K,8.0
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,T4,1.0
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,T5,0.1
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,T6,0.2
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,TD,0.01
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,Droop,0.0565
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,TE,0.5
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,T1,0.2
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,T2,0.3
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,T3,0.5
+G4MRIO3,Monte Río Grupo 2,gov_DEGOV1,gov_Monte Rio G3,Droop_Control,1.0
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,K,8.0
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,T4,1.0
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,T5,0.1
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,T6,0.2
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,TD,0.01
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,Droop,0.057
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,TE,0.5
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,T1,0.2
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,T2,0.3
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,T3,0.5
+G4MRIO1,Monte Río Grupo 1,gov_DEGOV1,gov_Monte Rio G1,Droop_Control,1.0
+G3ITABO2,Itabo 2,gov_TGOV1,gov_Itabo 2,T3,5.0
+G3ITABO2,Itabo 2,gov_TGOV1,gov_Itabo 2,T2,1.5
+G3ITABO2,Itabo 2,gov_TGOV1,gov_Itabo 2,At,1.0
+G3ITABO2,Itabo 2,gov_TGOV1,gov_Itabo 2,Dt,0.2
+G3ITABO2,Itabo 2,gov_TGOV1,gov_Itabo 2,R,0.04
+G3ITABO2,Itabo 2,gov_TGOV1,gov_Itabo 2,T1,0.5
+G3ITABO2,Itabo 2,gov_TGOV1,gov_Itabo 2,Pturb,0.0
+G3ITABO1,Itabo 1,gov_TGOV1,gov_Itabo 1,T3,5.0
+G3ITABO1,Itabo 1,gov_TGOV1,gov_Itabo 1,T2,1.5
+G3ITABO1,Itabo 1,gov_TGOV1,gov_Itabo 1,At,1.0
+G3ITABO1,Itabo 1,gov_TGOV1,gov_Itabo 1,Dt,0.2
+G3ITABO1,Itabo 1,gov_TGOV1,gov_Itabo 1,R,0.04
+G3ITABO1,Itabo 1,gov_TGOV1,gov_Itabo 1,T1,0.5
+G3ITABO1,Itabo 1,gov_TGOV1,gov_Itabo 1,Pturb,0.0
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,dbw,0.0
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,kp,0.1
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,Tf,0.05
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,Tg,0.05
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,Tn,11.0
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,Tn1,0.02
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,kp1,3.0
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,Tp,0.05
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,kf,0.05
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,bt_Td,0.0
+G3PALOM2,Palomino 2,pcu_VOITH SIEMENS,pcu_Palomino 2,Td,0.0
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,dbw,0.0
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,kp,0.1
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,Tf,0.05
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,Tg,0.05
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,Tn,11.0
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,Tn1,0.02
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,kp1,3.0
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,Tp,0.05
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,kf,0.05
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,bt_Td,0.0
+G3PALOM1,Palomino 1,pcu_VOITH SIEMENS,pcu_Palomino 1,Td,0.0
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,K,15.0
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,T4,1.0
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,T5,0.1
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,T6,0.2
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,TD,0.01
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,Droop,0.0411
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,TE,0.1
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,T1,0.2
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,T2,0.3
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,T3,0.05
+G3PALENQ,Palenque,gov_DEGOV1_CEPP1,gov_Palenque,Droop_Control,0.0
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,R,0.053
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,T1,0.4
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,T2,0.1
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,T3,3.0
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,AT,1.0
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,Kt,2.0
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,Dturb,0.0
+G3LMINA6,Los Mina 6,gov_GAST,gov_Los Mina 6,Pturb,0.0
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,T1,0.04
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,T2,12.0
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,K1,10.0
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,T3,0.5
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,T4,80.0
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,K3,0.7
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,T6,0.6
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,K2,1.0
+G5AANDRV,AES Andrés TV,pcu_IEESGO,gov_AES Andres TV,T5,45.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Kdroop,0.02
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Kp,2.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Ki,0.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Kd,1.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Etd,0.1
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Tcd,0.1
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Trate,228.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,T,0.4
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,K6,0.2
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Ecr,0.3
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,K3,1.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,a,1.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,b,0.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,c,0.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Tf,0.1
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Kf,1.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,K4,0.2
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,K5,0.2
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,T3,30.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,T4,2.5
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Tt,250.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,T5,1.8
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Tr,510.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,af1,390.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,bf1,306.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,af2,-0.3
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,bf2,1.3
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,cf2,1.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Tc,510.0
+G5AANDRG,AES Andrés TG,pcu_GASTWD,gov_AES Andres TG,Td,0.02
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,K,8.0
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,T4,1.0
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,T5,0.1
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,T6,0.2
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,TD,0.01
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,Droop,0.044
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,TE,0.5
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,T1,0.2
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,T2,0.3
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,T3,0.5
+G3METALD,METALDOM,gov_DEGOV1,gov_METALDOM,Droop_Control,1.0
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,R,0.053
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,T1,0.4
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,T2,0.1
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,T3,3.0
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,AT,1.0
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,Kt,2.0
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,Dturb,0.001
+G3LMINA5,Los Mina 5,gov_GAST,gov_Los Mina 5,Pturb,0.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Ldref,10.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Kturb,1.08
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Wfnl,0.071
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Kpload,1.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tfload,1.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tsa,1.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tsb,1.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Ka,0.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Ta,0.1
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Kimw,0.007
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tpelec,1.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Rselect,1.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Aset,0.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,r,0.04
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,db,0.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Kpgov,10.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Kigov,2.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Kdgov,0.001
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tdgov,0.01
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tact,0.025
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Trate,0.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Dm,0.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Flag,1.0
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Teng,0.0292
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tc,-0.0146
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Tb,0.0146
+G4EMAR21,EDM2 Grupo 1,gov_GGOV1,gov_EDEMAR 2 Grupo 1,Kiload,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Ldref,10.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Kturb,1.08
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Wfnl,0.071
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Kpload,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tfload,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tsa,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tsb,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Ka,0.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Ta,0.1
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Kimw,0.007
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tpelec,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Rselect,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Aset,0.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,r,0.04
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,db,0.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Kpgov,10.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Kigov,2.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Kdgov,0.001
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tdgov,0.01
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tact,0.025
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Trate,0.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Dm,0.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Flag,1.0
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Teng,0.0292
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tc,-0.0146
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Tb,0.0146
+G4EMAR22,EDM2 Grupo 2,gov_GGOV1,gov_EDEMAR 2 Grupo 2,Kiload,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Ldref,10.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Kturb,1.08
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Wfnl,0.071
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Kpload,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tfload,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tsa,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tsb,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Ka,0.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Ta,0.1
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Kimw,0.007
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tpelec,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Rselect,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Aset,0.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,r,0.04
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,db,0.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Kpgov,10.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Kigov,2.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Kdgov,0.001
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tdgov,0.01
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tact,0.025
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Trate,0.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Dm,0.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Flag,1.0
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Teng,0.0292
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tc,-0.0146
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Tb,0.0146
+G4EMAR23,EDM2 TV,gov_GGOV1,gov_EDEMAR 2 TV,Kiload,1.0
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,T1,0.2
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,T2,1.0
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,K1,10.0
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,T3,2.0
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,T4,0.1
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,K3,0.4
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,T6,0.2
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,K2,0.4
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,T5,1.0
+G3LMINA7,Los Mina 7,gov_IEESGO,gov_Los Mina 7,PN,0.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Ecr,0.01
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,T,0.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,K3,1.15
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Tf,0.4
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Tcd,0.1
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,K6,0.469
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Kf,0.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Trate,18.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,K4,0.9
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,K5,0.1
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,T3,18.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,W,10.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,X,0.479
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Z,1.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Y,0.4
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Tc,1050.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Tt,500.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,T5,3.3
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,T4,3.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,af2,-0.885
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,bf2,1.3
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,cf2,0.5
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Etd,0.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,Tr,850.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,af1,758.3
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,bf1,1.3
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,a,1.0
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,b,0.05
+G4SIBA1,SIBA Grupo 1,pcu_GAST2A,pcuGAST2A,c,1.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Ecr,0.01
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,T,0.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,K3,1.15
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Tf,0.4
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Tcd,0.1
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,K6,0.469
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Kf,0.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Trate,18.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,K4,0.9
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,K5,0.1
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,T3,18.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,W,10.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,X,0.479
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Z,1.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Y,0.4
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Tc,1050.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Tt,500.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,T5,3.3
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,T4,3.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,af2,-0.885
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,bf2,1.3
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,cf2,0.5
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Etd,0.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,Tr,850.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,af1,758.3
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,bf1,1.3
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,a,1.0
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,b,0.05
+G4SIBA2,SIBA Grupo 2,pcu_GAST2A,pcuGAST2A,c,1.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Ecr,0.01
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,T,0.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,K3,1.15
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Tf,0.4
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Tcd,0.1
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,K6,0.469
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Kf,0.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Trate,18.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,K4,0.9
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,K5,0.1
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,T3,18.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,W,10.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,X,0.479
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Z,1.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Y,0.4
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Tc,1050.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Tt,500.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,T5,3.3
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,T4,3.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,af2,-0.885
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,bf2,1.3
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,cf2,0.5
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Etd,0.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,Tr,850.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,af1,758.3
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,bf1,1.3
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,a,1.0
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,b,0.05
+G4SIBA3,SIBA Grupo 3,pcu_GAST2A,pcuGAST2A,c,1.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Ecr,0.01
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,T,0.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,K3,1.15
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Tf,0.4
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Tcd,0.1
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,K6,0.469
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Kf,0.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Trate,18.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,K4,0.9
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,K5,0.1
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,T3,18.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,W,10.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,X,0.479
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Z,1.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Y,0.4
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Tc,1050.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Tt,500.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,T5,3.3
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,T4,3.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,af2,-0.885
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,bf2,1.3
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,cf2,0.5
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Etd,0.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,Tr,850.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,af1,758.3
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,bf1,1.3
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,a,1.0
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,b,0.05
+G4SIBA4,SIBA Grupo 4,pcu_GAST2A,pcuGAST2A,c,1.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Ecr,0.01
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,T,0.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,K3,1.15
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Tf,0.4
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Tcd,0.1
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,K6,0.469
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Kf,0.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Trate,19.7
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,K4,0.9
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,K5,0.1
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,T3,18.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,W,7.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,X,0.179
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Z,1.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Y,1.4
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Tc,1050.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Tt,500.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,T5,3.3
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,T4,3.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,af2,-0.885
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,bf2,1.3
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,cf2,0.5
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Etd,0.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,Tr,850.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,af1,758.3
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,bf1,1.3
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,a,1.0
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,b,0.05
+G4SIBA6,SIBA Grupo 6,pcu_GAST2A,pcuGAST2A,c,1.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Ecr,0.01
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,T,0.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,K3,1.15
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Tf,0.4
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Tcd,0.1
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,K6,0.469
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Kf,0.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Trate,18.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,K4,0.9
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,K5,0.1
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,T3,18.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,W,10.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,X,0.479
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Z,1.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Y,0.4
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Tc,1050.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Tt,500.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,T5,3.3
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,T4,3.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,af2,-0.885
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,bf2,1.3
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,cf2,0.5
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Etd,0.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,Tr,850.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,af1,758.3
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,bf1,1.3
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,a,1.0
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,b,0.05
+G4SIBA5,SIBA Grupo 5,pcu_GAST2A,pcuGAST2A,c,1.0
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,r,0.1
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,Tr,10.0
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,Tf,0.05
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,Tg,0.3
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,Tw,0.51
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,At,1.15
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,Pturb,0.0
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,Dturb,0.01
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,qnl,0.08
+G3PINAL2,Pinalito 2,gov_HYGOV,gov_Pinalito 2,R,0.0381
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,r,0.1
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,Tr,10.0
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,Tf,0.05
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,Tg,0.3
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,Tw,0.51
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,At,1.15
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,Pturb,0.0
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,Dturb,0.01
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,qnl,0.08
+G3PINAL1,Pinalito 1,gov_HYGOV,gov_Pinalito 1,R,0.037
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,r,0.1
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,Tr,10.0
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,Tf,0.05
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,Tg,0.3
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,Tw,0.51
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,At,1.15
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,Pturb,0.0
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,Dturb,0.01
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,qnl,0.08
+G3RBLAN2,Río Blanco 2,gov_HYGOV,gov_Río Blanco 2,R,0.035
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,r,0.1
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,Tr,10.0
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,Tf,0.05
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,Tg,0.3
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,Tw,0.51
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,At,1.15
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,Pturb,0.0
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,Dturb,0.01
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,qnl,0.08
+G3RBLAN1,Río Blanco 1,gov_HYGOV,gov_Río Blanco 1,R,0.035
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,r,0.1
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,Tr,10.0
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,Tf,0.05
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,Tg,0.3
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,Tw,0.51
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,At,1.15
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,Pturb,0.0
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,Dturb,0.01
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,qnl,0.08
+G3RINCON,Rincón,gov_HYGOV_MONCION1,gov_Rincón,R,0.053
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,K,8.0
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,T4,1.0
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,T5,0.1
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,T6,0.2
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,TD,0.01
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,Droop,0.053
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,TE,0.5
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,T1,0.2
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,T2,0.3
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,T3,0.5
+G4LVEGA1,La Vega Grupo 1,gov_DEGOV1,gov_La Vega G1,Droop_Control,1.0
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,K,8.0
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,T4,1.0
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,T5,0.1
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,T6,0.2
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,TD,0.01
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,Droop,0.06
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,TE,0.5
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,T1,0.2
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,T2,0.3
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,T3,0.5
+G4LVEGA2,La Vega Grupo 2,gov_DEGOV1,gov_La Vega G2,Droop_Control,1.0
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,T1,0.3
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,T2,1.0
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,K1,10.0
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,T3,1.0
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,T4,0.1
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,K3,0.4
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,T6,0.2
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,K2,0.4
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,T5,1.0
+G3JIMENO,Jimenoa,gov_IEESGO,gov_Jimenoa,PN,0.0
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,r,0.1
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,Tr,10.0
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,Tf,0.05
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,Tg,0.3
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,Tw,0.51
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,At,1.15
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,Pturb,0.0
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,Dturb,0.01
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,qnl,0.08
+G3HATILL,Hatillo 1,gov_HYGOV,gov_Hatillo 1,R,0.0343
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,r,0.1
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,Tr,10.0
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,Tf,0.05
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,Tg,0.3
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,Tw,0.51
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,At,1.15
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,Pturb,0.0
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,Dturb,0.01
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,qnl,0.08
+G3HATIL2,Hatillo 2,gov_HYGOV,gov_Hatillo 2,R,0.0343
