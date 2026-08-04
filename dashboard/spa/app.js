@@ -520,6 +520,17 @@ function ValidacionOc() {
           <td style=${{ color: dcol(f.delta_pct), fontWeight: 600 }}>${(f.delta_pct > 0 ? '+' : '') + f.delta_pct}</td></tr>`)}
         </table>
         <p class="sub" style="margin-top:8px">Eólica y fuel-oil se apartan porque el modelo usa perfiles renovables canónicos (no el clima del día) y prioriza gas sobre fuel-oil dual. Térmica/solar/hidro y la energía total coinciden dentro de ±10 %.</p>`)}
+      ${d.central_top && card('Despacho por central — unidad × hora', 'matcheo directo por nombre (MODOM)', html`
+        <div class="kpis">
+          ${kpi('Unidades', d.n_central)}
+          ${kpi('R² unidad×hora', d.r2_central)}
+          ${kpi('MAE', d.mae_central + ' MW')}
+        </div>
+        <table style="margin-top:10px"><tr><th>Central</th><th>OC</th><th>Sienna</th><th>Δ GWh</th></tr>
+        ${d.central_top.map((c) => html`<tr><td>${c.central}</td><td>${c.oc_GWh}</td><td>${c.sienna_GWh}</td>
+          <td style=${{ color: dcol(100 * c.delta_GWh / (c.oc_GWh || 1)), fontWeight: 600 }}>${(c.delta_GWh > 0 ? '+' : '') + c.delta_GWh}</td></tr>`)}
+        </table>
+        <p class="sub" style="margin-top:8px">Mayores diferencias por unidad. Los pares como <b>Quisqueya 2 FO ↔ GN</b> (misma planta, MWh casi iguales, modo de combustible opuesto) confirman que el despacho es correcto y la diferencia está en el combustible declarado.</p>`)}
     </div>`
 }
 

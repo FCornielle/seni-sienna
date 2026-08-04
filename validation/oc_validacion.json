@@ -258,7 +258,84 @@
         }
     ],
     "delta_total_pct": 1.3,
+    "r2_central": 0.746,
+    "central_top": [
+        {
+            "central": "QUISQUEYA 2 FO",
+            "sienna_GWh": 0,
+            "delta_GWh": -3.85,
+            "oc_GWh": 3.85
+        },
+        {
+            "central": "QUISQUEYA 2 GN",
+            "sienna_GWh": 3.63,
+            "delta_GWh": 3.63,
+            "oc_GWh": 0
+        },
+        {
+            "central": "ITABO 2",
+            "sienna_GWh": 2.76,
+            "delta_GWh": 2.59,
+            "oc_GWh": 0.17
+        },
+        {
+            "central": "MONTE RIO",
+            "sienna_GWh": 0,
+            "delta_GWh": -1.3,
+            "oc_GWh": 1.3
+        },
+        {
+            "central": "PUNTA CATALINA 1",
+            "sienna_GWh": 6.9,
+            "delta_GWh": -1.26,
+            "oc_GWh": 8.16
+        },
+        {
+            "central": "PARQUE ENERGETICO LOS MINA CC TOTAL",
+            "sienna_GWh": 5.37,
+            "delta_GWh": -1.15,
+            "oc_GWh": 6.52
+        },
+        {
+            "central": "POWERSHIP AZUA KPS 60",
+            "sienna_GWh": 0,
+            "delta_GWh": -1.12,
+            "oc_GWh": 1.12
+        },
+        {
+            "central": "LA VEGA",
+            "sienna_GWh": 0.33,
+            "delta_GWh": -1.1,
+            "oc_GWh": 1.44
+        },
+        {
+            "central": "POWERSHIP AZUA KPS 26",
+            "sienna_GWh": 0.54,
+            "delta_GWh": -0.81,
+            "oc_GWh": 1.35
+        },
+        {
+            "central": "PALAMARA",
+            "sienna_GWh": 0.5,
+            "delta_GWh": -0.74,
+            "oc_GWh": 1.24
+        },
+        {
+            "central": "QUISQUEYA 1 GN",
+            "sienna_GWh": 2.59,
+            "delta_GWh": -0.67,
+            "oc_GWh": 3.25
+        },
+        {
+            "central": "LOS ORIGENES POWER PLANT FUEL OIL",
+            "sienna_GWh": 0.03,
+            "delta_GWh": -0.66,
+            "oc_GWh": 0.69
+        }
+    ],
     "oc_GWh": 81.36,
+    "n_central": 71,
+    "mae_central": 16,
     "sienna_GWh": 82.41,
     "oc_hora": {
         "Biomasa": [

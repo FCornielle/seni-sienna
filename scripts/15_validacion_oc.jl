@@ -54,7 +54,7 @@ for row in data
     f = fuel(get(row, :CENTRAL, ""), grupo)
     hs = [Float64(get(row, Symbol("H$h"), 0.0)) for h in 1:24]
     oc_mix[f] .+= hs
-    oc_por_central[String(get(row, :CENTRAL, ""))] = hs
+    oc_por_central[_norm(get(row, :CENTRAL, ""))] = hs
     global n_plantas += 1
 end
 println("Centrales reales (sin subtotales): ", n_plantas)
@@ -62,6 +62,17 @@ println("Centrales reales (sin subtotales): ", n_plantas)
 # ---- Sienna: mix por combustible (despacho ED) --------------------------------
 sf = CSV.read(joinpath(val_dir, "despacho_fuel_hora.csv"), DataFrame)
 si_mix = Dict(f => (Symbol(f) in propertynames(sf) ? Float64.(sf[!, Symbol(f)]) : zeros(24)) for f in FUELS)
+
+# ---- Sienna: despacho por central (unidad × hora) -----------------------------
+# Los nombres de central del OC y de Sienna comparten la convención MODOM, así que
+# el matcheo por nombre normalizado es directo (validación en MW, sin moneda).
+su = CSV.read(joinpath(val_dir, "despacho_unidad_hora.csv"), DataFrame)
+si_central = Dict{String,Vector{Float64}}()
+for r in eachrow(su)
+    k = _norm(r.nombre)
+    v = get!(si_central, k, zeros(Float64, 24))
+    v[Int(r.hora)] = Float64(r.mw)
+end
 
 # ---- comparación --------------------------------------------------------------
 filas = NamedTuple[]
@@ -85,6 +96,27 @@ oc_tot = [sum(oc_mix[f][h] for f in FUELS) for h in 1:24]
 si_tot = [sum(si_mix[f][h] for f in FUELS) for h in 1:24]
 ss_res = sum((oc_tot .- si_tot) .^ 2); ss_tot = sum((oc_tot .- mean(oc_tot)) .^ 2)
 r2 = 1 - ss_res / ss_tot
+
+# ---- validación por central (unidad × hora, matcheo por nombre) ---------------
+comunes = sort(collect(intersect(keys(oc_por_central), keys(si_central))))
+oc_v = Float64[]; si_v = Float64[]; cfil = NamedTuple[]
+for k in comunes
+    oc_h = oc_por_central[k]; si_h = si_central[k]
+    append!(oc_v, oc_h); append!(si_v, si_h)
+    oe = sum(oc_h); se = sum(si_h)
+    (oe < 1 && se < 1) && continue
+    push!(cfil, (central = k, oc_GWh = round(oe / 1000; digits = 2),
+                 sienna_GWh = round(se / 1000; digits = 2),
+                 delta_GWh = round((se - oe) / 1000; digits = 2)))
+end
+r2_central = let ssr = sum((oc_v .- si_v) .^ 2), sst = sum((oc_v .- mean(oc_v)) .^ 2)
+    sst > 0 ? 1 - ssr / sst : NaN
+end
+mae_central = isempty(oc_v) ? NaN : mean(abs.(oc_v .- si_v))
+cmp_central = sort(DataFrame(cfil), :delta_GWh, by = abs, rev = true)
+CSV.write(joinpath(val_dir, "oc_validacion_central.csv"), cmp_central)
+println("\n· Por central: $(length(comunes)) unidades matcheadas | R²(unidad×hora)=",
+        round(r2_central; digits = 3), " | MAE=", round(mae_central; digits = 1), " MW")
 
 # comparación gruesa (4 grupos, = subtotales que publica el OC)
 coarse(f) = f in ("Solar", "Eólica", "Hidro") ? f : "Térmica"
@@ -120,6 +152,10 @@ resumen = Dict(
     "sienna_GWh" => round(sum(si_tot) / 1000; digits = 2),
     "delta_total_pct" => round(100 * (sum(si_tot) - sum(oc_tot)) / sum(oc_tot); digits = 1),
     "r2_horario" => round(r2; digits = 4),
+    "n_central" => length(comunes),
+    "r2_central" => round(r2_central; digits = 3),
+    "mae_central" => round(mae_central; digits = 1),
+    "central_top" => [Dict(pairs(r)...) for r in eachrow(first(cmp_central, 12))],
     "grupo" => [Dict(pairs(r)...) for r in eachrow(cmp_coarse)],
     "fuel" => [Dict(pairs(r)...) for r in eachrow(cmp)],
     "oc_hora" => Dict(f => round.(oc_mix[f]; digits = 1) for f in FUELS if sum(oc_mix[f]) > 1),

@@ -114,5 +114,21 @@ Descubierta vía el repo `FCornielle/oc_cmg`. A diferencia de `datos.gob.do`
   - `GetMargenesRPFPonderadoJSon` / `GetReservaFriaJSon` / `GetReservaCalienteJSon` — reservas
   - `GetDisponibilidadDeclaradaJSon` — disponibilidad declarada por unidad
 
-→ Con esto se puede comparar **cuantitativamente** el despacho y los precios de
-Sienna contra los del OC (cierra el gap D), tirando los datos directamente.
+→ Con esto se puede comparar **cuantitativamente** el despacho de Sienna contra
+el del OC (cierra el gap D), tirando los datos directamente.
+
+### Validación implementada (`scripts/15_validacion_oc.jl`, fecha del modelo 30-09-2025)
+- **Energía total**: OC 81.4 vs Sienna 82.4 GWh (+1.3%). Por grupo (= subtotales
+  publicados por el OC): térmica −8.2%, solar +9.8%, hidro +6.5%.
+- **Por central (unidad×hora, matcheo directo por nombre MODOM)**: 71 unidades,
+  **R²=0.746, MAE=16 MW**. Las mayores diferencias son pares de la misma planta en
+  modo de combustible opuesto (**Quisqueya 2 FO↔GN**, MWh casi iguales) → el
+  despacho es correcto; difiere el combustible declarado (dual-fuel).
+- **Eólica** se aparta (perfil canónico ≠ clima real del día de bajo viento).
+
+> **CMG/precios NO validados**: el endpoint `GetCentralMarginalPonderadaJSon`
+> devuelve "DESABASTECIMIENTO" plano (10096 RD$/MWh) en 13 de 24 horas —
+> incluido en la madrugada de mínima demanda, donde es físicamente imposible—.
+> No es un CMG limpio, así que la validación se hace sobre **cantidades** (MW),
+> no precios. Mi CVP sí está en RD$/MWh (rango 0–17822), comparable si aparece
+> una referencia de CMG fiable.
