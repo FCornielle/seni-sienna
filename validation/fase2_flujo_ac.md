@@ -45,9 +45,20 @@ Vista/La Romana/Guaymate −0.04). La extracción de shunts/SVC/tensiones
    **0.00605 pu se mantiene**; el residuo Este es una diferencia genuina de
    solución radial (Sienna ~0.85 vs PF ~0.90), no un elemento faltante.
 
-Pistas restantes (menor prioridad): curvas de capacidad Q reales de las unidades
-del Este (ahora en `escenario_P20_qcap.csv`) y saturación de los SVC de PVDC
-(PF los dejó pasar a 20.5 Mvar sobre su qmax 20).
+**Hipótesis de capacidad Q — también REFUTADA** (investigación #3, con
+`escenario_P20_qcap.csv`): mi modelo **ya usa los límites Q reales** — CESPM
+−47/+62, Energas 4 TG −34/+58, San Pedro Bio −10/+18 Mvar coinciden **exacto** con
+el qcap; y los **setpoints de tensión** (usetp: CESPM 1.02, Energas 1.02, San
+Pedro Bio 1.05) también coinciden. En el flujo, CESPM/Energas tienen **holgura Q**
+(dan 12–29 de 62 Mvar): sostienen su terminal a ~1.0–1.02 pu, pero el radial 69 kV
+aguas abajo cae por la impedancia de trafos/líneas. **No hay soporte reactivo que
+recuperar** — el modelo es correcto en Q-límites, setpoints, taps y shunts.
+
+**Conclusión**: descartadas todas las hipótesis de elemento faltante (shunts, Q,
+setpoints, taps, Tr3), el residuo del radial Este es una **diferencia de parámetros
+de red** (impedancia/carga capacitiva de las líneas del radial), no algo
+controlable. Cerrarlo requeriría una forense línea-por-línea de impedancias PF vs
+Sienna en el radial Este — retorno decreciente con la media global ya en 0.0078 pu.
 
 ## Reproducir
 
