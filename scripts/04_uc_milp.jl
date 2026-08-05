@@ -83,6 +83,36 @@ catch e
     @warn "NAMX no aplicado (API PSI cambió)" exception = e
 end
 
+# ---- Reserva Fría (RFA, PSD): reserva NO-rodante diurna -----------------------
+# En el MODOM la RFA es un 4º estado (unidad apagada en standby, ACC+ARR+PAR+RFA=1).
+# Representación en el UC: la capacidad de las unidades RFA-elegibles que quedan
+# OFF debe cubrir el requerimiento horario del PSD → Σ Pmax·(1−on) ≥ req[t].
+rfa_req = CSV.read(joinpath(val_dir, "reserva_fria_req.csv"), DataFrame)
+rfa_units = Set(String(r.codigo) for r in eachrow(
+    CSV.read(joinpath(val_dir, "reserva_fria_unidades.csv"), DataFrame)))
+_sbase = get_base_power(sys)   # el UC está en SYSTEM_BASE (pu) → pasar a MW
+pmax_de = Dict(get_name(g) => get_active_power_limits(g).max * _sbase
+               for g in get_components(ThermalStandard, sys))
+try
+    ocont = PSI.get_optimization_container(problem)
+    onv = PSI.get_variable(ocont, PSI.OnVariable(), ThermalStandard)
+    jm = PSI.get_jump_model(ocont)
+    nombres = axes(onv, 1); tiempos = axes(onv, 2)
+    elig = [g for g in rfa_units if g in nombres]
+    cap_elig = sum(get(pmax_de, g, 0.0) for g in elig; init = 0.0)
+    n_rfa = 0
+    for (ti, t) in enumerate(tiempos)
+        req = ti <= nrow(rfa_req) ? rfa_req.req_MW[ti] : 0.0
+        (req > 0.1 && req < cap_elig) || continue      # factible: req < capacidad elegible
+        JuMP.@constraint(jm, sum(pmax_de[g] * (1 - onv[g, t]) for g in elig) >= req)
+        n_rfa += 1
+    end
+    println("Reserva Fría: $(length(elig)) unidades elegibles ($(round(cap_elig)) MW), ",
+            "restricción en $n_rfa h (pico req $(round(maximum(rfa_req.req_MW))) MW)")
+catch e
+    @warn "RFA no aplicada" exception = e
+end
+
 solve!(problem)
 
 res = OptimizationProblemResults(problem)

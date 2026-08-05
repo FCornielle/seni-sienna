@@ -42,6 +42,11 @@ el código GAMS del MODOM (zip `MODOM DIARIO - 422`), el estado es:
   2 capacitores (28 Mvar), 1 paso fijo, sin conmutar entre P01–P24. El residuo de
   Fase 2 es física del radial (PF ya en 0.90), no compensación. Ver `fase2_flujo_ac.md`.
 - ~~**oarray_* FRT**~~ → ✅ **EXTRAÍDO** (`oarray_frt_completo.csv`, Ronda 2).
+- ~~**Reserva Fría (RFA)**~~ → ✅ **MODELADA** (`scripts/04`). En el MODOM es un 4º
+  estado (apagada en standby, `ACC+ARR+PAR+RFA=1`). Representada como reserva
+  no-rodante: Σ Pmax·(1−on) de las 15 unidades RFA-elegibles del PSD ≥ requerimiento
+  horario (diurno, 0→816 MW, respaldo solar). Restricción en 10 h; commitment 93.7%
+  y R² 0.927 sin degradación (`reserva_fria_req.csv`, `reserva_fria_unidades.csv`).
 - ~~**AGC como reserva separada**~~ → ✅ **RESUELTO**. La extracción de gobernadores
   (Ronda 2) confirmó que la secundaria del MODOM es **RSF-AGC combinada** (regulación
   + AGC automático = un producto 3%), no una reserva aparte: los 40 proveedores
