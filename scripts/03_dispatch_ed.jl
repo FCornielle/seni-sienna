@@ -156,6 +156,7 @@ end
 for b in 1:nb, t in 1:T           # pérdidas como carga extra por barra
     add_to_expression!(inj[b, t], -loss_load[b, t])
 end
+balance = Matrix{Any}(undef, nb, T)   # refs para extraer el precio nodal (dual)
 for (b, t) in Iterators.product(1:nb, 1:T)
     out = AffExpr(0.0)
     for br in branches
@@ -164,7 +165,7 @@ for (b, t) in Iterators.product(1:nb, 1:T)
         i == b && add_to_expression!(out, flow[(get_name(br), t)])
         j == b && add_to_expression!(out, -flow[(get_name(br), t)])
     end
-    @constraint(m, (inj[b, t] + ens[b, t] - dump[b, t]) / 100.0 == out)
+    balance[b, t] = @constraint(m, (inj[b, t] + ens[b, t] - dump[b, t]) / 100.0 == out)
 end
 @constraint(m, [t in 1:T], θ[1, t] == 0)  # referencia angular
 
@@ -218,6 +219,40 @@ end
 costo_con_perdidas = sum(cvp(g) * value(pt[get_name(g), t]) for g in thermals, t in 1:T)
 println("Costo variable  sin pérdidas: ", round(costo_sin_perdidas / 1e6; digits = 2),
         " M\$  →  con pérdidas: ", round(costo_con_perdidas / 1e6; digits = 2), " M\$")
+
+# ---- precio nodal (dual del balance) y CMG marginal --------------------------
+# LMP_b = -10·dual(balance): el factor 10 sale del escalado 1e-3 del objetivo y
+# del /100 (pu) del balance nodal. Se contrasta con el CVP de la unidad marginal
+# (mayor CVP entre las térmicas con holgura) y con la Lista de Mérito del OC.
+try
+    lmp = [10.0 * dual(balance[b, t]) for b in 1:nb, t in 1:T]      # RD$/MWh (LMP nodal)
+    dem_bus = zeros(nb, T)
+    for l in loads, t in 1:T
+        dem_bus[busnum[get_name(get_bus(l))], t] += demand[get_name(l)][t]
+    end
+    cmg_lmp = [sum(lmp[b, t] * dem_bus[b, t] for b in 1:nb) /
+               max(sum(@view dem_bus[:, t]), 1e-6) for t in 1:T]     # CMG = LMP ponderado por demanda
+    marg_gid = fill("", T); marg_cvp = fill(NaN, T)                  # unidad que fija el precio
+    for t in 1:T
+        bestd = Inf; bg = ""; bc = NaN
+        for g in thermals
+            gid = get_name(g); value(pt[gid, t]) > 1e-3 || continue
+            d = abs(cvp(g) - cmg_lmp[t])
+            (d < bestd) && (bestd = d; bg = gid; bc = cvp(g))
+        end
+        marg_gid[t] = bg; marg_cvp[t] = bc
+    end
+    cmg_rows = [(hora = t, cmg_lmp = round(cmg_lmp[t]; digits = 1),
+                 unidad_marginal = marg_gid[t],
+                 cvp_marginal = isnan(marg_cvp[t]) ? missing : round(marg_cvp[t]; digits = 1))
+                for t in 1:T]
+    CSV.write(joinpath(val_dir, "cmg_hora.csv"), DataFrame(cmg_rows))
+    println("CMG Sienna (LMP RD\$/MWh) → medio ", round(mean(cmg_lmp); digits = 0),
+            " · rango ", round(minimum(cmg_lmp); digits = 0), "–", round(maximum(cmg_lmp); digits = 0),
+            " → validation/cmg_hora.csv")
+catch e
+    @warn "CMG no extraído (duales no disponibles)" exception = e
+end
 
 # ---- mix de despacho por COMBUSTIBLE y hora (clasificación de modom-pypsa) ------
 # classify_fuel portado de modom-pypsa/dashboard.py: por nombre de central + tech.

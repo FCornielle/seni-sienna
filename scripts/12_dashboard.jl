@@ -357,6 +357,27 @@ end
     return (kpis = [(k = p.first, v = p.second) for p in k],)
 end
 
+# ---- Precios / CMG (pestaña) --------------------------------------------------
+@get "/api/precios" function ()
+    cmg = _valcsv("cmg_hora.csv")
+    cvp = _valcsv("cvp_validacion.csv")
+    cmg === nothing && return (disponible = false,)
+    curva = (horas = cmg.hora, cmg = cmg.cmg_lmp,
+             unidad = :unidad_marginal in propertynames(cmg) ? String.(cmg.unidad_marginal) : String[])
+    val = NamedTuple[]
+    r2 = NaN
+    if cvp !== nothing
+        val = [(codigo = String(r.codigo), central = String(r.central),
+                cvp_sienna = r.cvp_sienna, cvp_psd = r.cvp_psd, ratio = r.ratio) for r in eachrow(cvp)]
+        x = Float64.(cvp.cvp_sienna); y = Float64.(cvp.cvp_psd)
+        mx = sum(x) / length(x); my = sum(y) / length(y)
+        r2 = sum((x .- mx) .* (y .- my)) / sqrt(sum((x .- mx) .^ 2) * sum((y .- my) .^ 2))
+    end
+    return (disponible = true, curva = curva, cvp = val,
+            pearson = isnan(r2) ? nothing : round(r2; digits = 3),
+            ratio_medio = isempty(val) ? nothing : round(sum(v.ratio for v in val) / length(val); digits = 2))
+end
+
 # ---- Validación vs despacho real del OC (pestaña) ----------------------------
 @get "/api/validacion_oc" function ()
     p = joinpath(VAL, "oc_validacion.json")

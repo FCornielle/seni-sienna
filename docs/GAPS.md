@@ -68,4 +68,10 @@ el código GAMS del MODOM (zip `MODOM DIARIO - 422`), el estado es:
   GWh (+1.3%); térmica/solar/hidro dentro de ±10%. Diferencias explicadas:
   eólica (perfil canónico ≠ clima real del día) y fuel-oil vs gas (despacho
   dual-fuel). Extensible a más días cambiando el argumento de fecha.
+- **Precios / CMG** → ✅ **cerrado** con la Lista de Mérito del PSD. `scripts/03`
+  extrae el precio nodal (LMP = 10·dual del balance) → CMG horario (0 al mediodía
+  solar, ~8700 RD$/MWh en la punta fuel-oil). El CVP del modelo correlaciona
+  **Pearson 0.923** con el CVP definitivo del OC (ratio 1.10 por el desfase de
+  precio de combustible jun→ago-2026). Pestaña "Precios" (`cmg_hora.csv`,
+  `cvp_validacion.csv`, `psd_lista_merito.csv`).
 - Match modo-por-modo de pequeña señal vs PowerFactory (más escenarios).

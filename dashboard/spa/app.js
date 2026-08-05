@@ -15,6 +15,7 @@ const api = {
   feedOc: () => j('/api/feed_oc'), mapa: (c) => j(`/api/mapa?capa=${c || 'kv'}`), red: () => j('/api/red'),
   serie: (t) => j(`/api/serie/${t}`), kpis: () => j('/api/kpis'), mapaHora: () => j('/api/mapa_hora'),
   validacionOc: () => j('/api/validacion_oc'),
+  precios: () => j('/api/precios'),
 }
 const fig = (n) => `/figuras/${n}`
 const K = (tex) => { try { return katex.renderToString(tex, { displayMode: true, output: 'html', throwOnError: false }) } catch (e) { return '<code>' + tex + '</code>' } }
@@ -475,6 +476,40 @@ function Metodologia() {
 
 // ------------------------------------------------------------------ App -----
 const IC = (p) => html`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" dangerouslySetInnerHTML=${{ __html: p }}></svg>`
+// --------------------------------------------------------------- Precios/CMG --
+function Precios() {
+  const [d, setD] = useState(null); const [err, setErr] = useState(false)
+  useEffect(() => { api.precios().then(setD).catch(() => setErr(true)) }, [])
+  if (err) return html`<div class="vacio">No se pudo cargar precios.</div>`
+  if (!d) return html`<div class="vacio">Cargando…</div>`
+  if (d.disponible === false) return html`<div class="vacio">Ejecuta <b>Despacho ED</b> para generar el CMG (validation/cmg_hora.csv).</div>`
+  const cmg = { x: d.curva.horas, y: d.curva.cmg, mode: 'lines+markers', line: { color: COL.acc, width: 2 },
+    fill: 'tozeroy', fillcolor: 'rgba(37,99,235,0.08)',
+    text: d.curva.unidad, hovertemplate: 'H%{x}: %{y:.0f} RD$/MWh<br>marginal: %{text}<extra></extra>' }
+  const dcol = (r) => Math.abs(r - 1) < 0.15 ? COL.renov : Math.abs(r - 1) < 0.4 ? COL.warn : COL.bad
+  const lim = Math.max(...d.cvp.map((c) => Math.max(c.cvp_sienna, c.cvp_psd))) * 1.05
+  const scatter = [
+    { x: d.cvp.map((c) => c.cvp_psd), y: d.cvp.map((c) => c.cvp_sienna), text: d.cvp.map((c) => c.central),
+      mode: 'markers', type: 'scatter', marker: { color: COL.acc, size: 7, opacity: 0.7 }, showlegend: false,
+      hovertemplate: '%{text}<br>PSD %{x:.0f} · Sienna %{y:.0f}<extra></extra>' },
+    { x: [0, lim], y: [0, lim], mode: 'lines', line: { color: COL.mut, dash: 'dot', width: 1 }, hoverinfo: 'skip', showlegend: false },
+  ]
+  return html`
+    <div class="grid">
+      ${card('Costo marginal (CMG) horario', 'RD$/MWh · dual del balance nodal del ED', html`
+        <${Plot} data=${[cmg]} height=${330} layout=${{ xaxis: { title: 'Hora', dtick: 3 }, yaxis: { title: 'RD$/MWh' } }} />
+        <p class="sub" style="margin-top:8px">El CMG cae al mediodía (solar/hidro marginal, CVP≈0) y sube en la punta nocturna (fuel-oil ~8700 RD$/MWh). Cada hora el LMP coincide con el CVP de una unidad marginal específica.</p>`)}
+      ${d.cvp.length > 0 && card('Validación de CVP vs Lista de Mérito del OC (PSD)', `Pearson ${d.pearson} · ratio medio ${d.ratio_medio}`, html`
+        <${Plot} data=${scatter} height=${330} layout=${{ xaxis: { title: 'CVP OC/PSD (RD$/MWh)' }, yaxis: { title: 'CVP Sienna' } }} />
+        <p class="sub" style="margin-top:8px">Cada punto es una unidad; la diagonal es coincidencia perfecta. Correlación <b>${d.pearson}</b> con el CVP definitivo del OC. El ratio medio ${d.ratio_medio} refleja el cambio de precio de combustible entre la fecha del modelo (jun-2026) y el PSD (ago-2026).</p>`)}
+      ${d.cvp.length > 0 && card('Detalle por unidad — extremos del mérito', 'RD$/MWh', html`
+        <table><tr><th>Central</th><th>Sienna</th><th>OC/PSD</th><th>ratio</th></tr>
+        ${d.cvp.slice(0, 5).concat(d.cvp.slice(-5)).map((c) => html`<tr><td>${c.central}</td><td>${c.cvp_sienna}</td><td>${c.cvp_psd}</td>
+          <td style=${{ color: dcol(c.ratio), fontWeight: 600 }}>${c.ratio}</td></tr>`)}
+        </table>`)}
+    </div>`
+}
+
 // ------------------------------------------------------------ Validación OC --
 function OcArea({ hora, titulo, height = 300 }) {
   const orden = FUEL_STACK.filter((f) => hora[f])
@@ -556,6 +591,7 @@ const TABS = [
   ['dinamica', 'Dinámica', Dinamica, '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'],
   ['escenario', 'Escenario', Escenario, '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.81 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15H4.5a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 6 9.4l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 11 4.6V4.5a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 18 6l.06-.06a2 2 0 1 1 2.83 2.83L20.83 9A1.65 1.65 0 0 0 21 11h-.09Z"/>'],
   ['valoc', 'Validación OC', ValidacionOc, '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'],
+  ['precios', 'Precios', Precios, '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'],
   ['metodologia', 'Metodología', Metodologia, '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>'],
   ['corridas', 'Corridas', Corridas, '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>'],
   ['reporte', 'Reporte', Reporte, '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/>'],
