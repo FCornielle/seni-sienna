@@ -73,9 +73,10 @@ la Fase 2 se resuelve para cada uno de los 24 escenarios (build + control
 secundario + comparación por `for_name` W energizada, ≥69 kV). Salida:
 `validation/fase2_p01_p24.csv`.
 
-Verificado (subconjunto min/medio/pico): **P20 reproduce 0.00605** exacto, y el
-`|ΔV|` es estable en todo el rango de demanda — **P01** (mín, 3382 MW) 0.00714,
-**P20** 0.00605, **P23** (pico, 3645 MW) 0.00965 pu. El máx (~0.05–0.07) crece con
-la demanda en el radial Este, coherente con la física (a mayor carga, tensiones
-más bajas). Nota: `op_taps_P01_P24` no trae `ruta` → el script mapea `for_name→ruta`
+**Resultado (los 24 escenarios)**: **|ΔV| medio global 0.00777 pu, máx 0.0773 pu**,
+759 barras ≥69 kV por escenario. Estable en todo el rango de demanda: mejor P13
+(0.0052), P08 (0.0053); peor P19 (0.0112), P24 (0.0098); **P20 reproduce 0.00605**
+exacto. El máx (~0.05–0.07) se concentra en el radial Este y crece con la carga
+(a mayor demanda, tensiones más bajas), coherente con la física. Ningún escenario
+falló. Nota: `op_taps_P01_P24` no trae `ruta` → el script mapea `for_name→ruta`
 desde los taps de P20 para el match de `_apply_op_point!`.
