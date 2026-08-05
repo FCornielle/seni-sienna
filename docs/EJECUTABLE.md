@@ -12,26 +12,33 @@ Requisito: Julia instalado en la máquina (el `.bat` apunta a
 `%LOCALAPPDATA%\Programs\Julia-1.12.6`). Para regenerar la sysimage tras
 actualizar dependencias: `julia --project=. scripts/13_build_sysimage.jl`.
 
-## Distribución sin Julia (opcional, pendiente)
+## Distribución sin Julia — ejecutable standalone (implementado)
 
-Para un bundle relocatable instalable en una máquina **sin Julia** se usaría
-`PackageCompiler.create_app`. No está hecho porque:
+Bundle relocatable para una máquina **sin Julia**, vía `PackageCompiler.create_app`:
 
-1. Requiere reestructurar el proyecto como paquete con un `julia_main()` de
-   entrada (hoy son scripts numerados) — cambio de forma, no de fondo.
-2. El bundle de este stack (PowerSystems + PSID + Plots + Oxygen) pesa ~2–3 GB
-   y tarda 30–60 min en compilar; la construcción es frágil con tantas
-   dependencias nativas (HiGHS, Sundials, GR).
-3. El `.bat` + sysimage ya da la experiencia de "ejecutable rápido" en la
-   máquina de trabajo, que es el caso de uso actual.
+```powershell
+julia --project=. scripts/18_build_app.jl     # ~30–60 min, una vez
+```
 
-**Camino cuando se necesite** (p. ej. entregar a un operador sin entorno Julia):
-- Crear `src/app.jl` con `function julia_main()::Cint … end` que llame al
-  servidor del dashboard.
-- `create_app(".", "dist/SENI-Sienna"; precompile_execution_file=…,
-  include_lazy_artifacts=true)`.
-- Empaquetar `dist/` + `data/` + `dashboard/` en un instalador (Inno Setup),
-  igual que el `.exe` de modom-pypsa (PyInstaller allí).
+Genera `build_app/` (no versionada, ~2 GB) con `bin/SENI-Sienna.exe` + un
+`SENI-Sienna.bat` de doble clic. **Distribuir la carpeta `build_app/` completa.**
+
+Cómo funciona:
+- **Entry point** `SeniSienna.julia_main()` (en `src/SeniSienna.jl`) — arranca el
+  dashboard Oxygen y abre el navegador. Resuelve la raíz de datos/assets
+  *frozen-aware*: la carpeta del `.exe` cuando está empaquetado (vía `SENI_ROOT`),
+  o el repo en desarrollo. **Verificado**: `julia_main()` levanta el panel en
+  `http://localhost:8155` y responde todos los endpoints.
+- `scripts/18_build_app.jl` compila el paquete con `create_app` y **copia
+  `scripts/ + dashboard/ + data/ + validation/` junto al `.exe`** (create_app
+  empaqueta `src/` + el entorno, no los assets); `julia_main` los busca ahí.
+- `scripts/12_dashboard.jl` es *frozen-aware* (`ROOT = ENV["SENI_ROOT"]` o
+  `@__DIR__`), así corre igual como script o empaquetado.
+
+Notas: el build es pesado y frágil por las dependencias nativas (HiGHS, Sundials,
+GR); si falla, correr con `incremental=false`. Para un instalador de un clic se
+puede envolver `build_app/` con Inno Setup (igual que el `.exe` de modom-pypsa).
+El `.bat` + sysimage (arriba) sigue siendo la vía rápida en la máquina de trabajo.
 
 ## Frontend: React-compatible sin build (Preact + htm)
 

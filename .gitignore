@@ -35,3 +35,6 @@ Thumbs.db
 Desktop.ini
 .vscode/
 *.tmp
+
+# Ejecutable empaquetado (create_app, ~2 GB)
+build_app/

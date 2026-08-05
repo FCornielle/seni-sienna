@@ -7,10 +7,14 @@
 # Pestañas: Corridas (lanza los scripts 01–11 como subprocesos, estado y log en
 # vivo), Resultados (figuras + tablas de validation/), Reporte (consolidado).
 
-using Pkg; Pkg.activate(joinpath(@__DIR__, ".."))
+# En desarrollo activa el proyecto; empaquetado (create_app) inyecta SENI_ROOT y
+# trae su propio entorno → no se activa Pkg.
+haskey(ENV, "SENI_ROOT") || (using Pkg; Pkg.activate(joinpath(@__DIR__, "..")))
 using Oxygen, HTTP, JSON3, CSV, DataFrames, Dates
 
-const ROOT = normpath(joinpath(@__DIR__, ".."))
+# ROOT frozen-aware: junto al ejecutable cuando está empaquetado (SENI_ROOT), o el
+# repo en desarrollo.
+const ROOT = get(ENV, "SENI_ROOT", normpath(joinpath(@__DIR__, "..")))
 const VAL = joinpath(ROOT, "validation")
 const FIGS = joinpath(VAL, "figuras")
 const LOGS = joinpath(ROOT, "data", "logs")

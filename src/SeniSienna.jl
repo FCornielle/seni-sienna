@@ -38,4 +38,25 @@ export build_seni_dispatch_system, build_seni_physical_system, prune_to_main_isl
        veredicto_tension, veredicto_sobrecargas, veredicto_amortiguamiento,
        veredicto_nadir
 
+# ---- punto de entrada del ejecutable (PackageCompiler create_app) ------------
+# Arranca el dashboard Oxygen. Resuelve la raíz de datos/assets junto al .exe
+# (frozen-aware) e incluye el servidor. Abre el navegador si es posible.
+function julia_main()::Cint
+    # raíz de la app: carpeta que contiene el ejecutable (…/bin/../ = app root)
+    approot = normpath(joinpath(Sys.BINDIR, ".."))
+    root = get(ENV, "SENI_ROOT", isdir(joinpath(approot, "scripts")) ? approot : pwd())
+    ENV["SENI_ROOT"] = root
+    dash = joinpath(root, "scripts", "12_dashboard.jl")
+    if !isfile(dash)
+        @error "No se encontró el dashboard" esperado = dash
+        return 1
+    end
+    try
+        run(`cmd /c start http://localhost:8155`; wait = false)
+    catch
+    end
+    Base.include(Main, dash)      # define rutas Oxygen y llama serve() (bloquea)
+    return 0
+end
+
 end # module

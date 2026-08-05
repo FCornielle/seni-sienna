@@ -12,7 +12,7 @@ almacenados aquí para abordarlos después de cerrar A.
 | v2 dinámica: GGOV1 real | Investigado a fondo (2026-08-05): `GeneralGovModel` **no está implementado en PSID** — el struct existe en PowerSystems pero PSID 0.15 (y `main`) no tienen `mdl_tg_ode!` ni `initialize_tg!` para él (0 coincidencias de "GeneralGov" en el fuente; `init_tg.jl` cubre 11 tipos, GGOV1 no). No es un bug de init sino un modelo ausente del simulador → requeriría portar todo el GGOV1 (contribución upstream a PSID). **Mitigado**: TGOV1 con los parámetros dominantes reales del GGOV1 (droop/actuador/turbina) reproduce la respuesta de frecuencia; los estados extra (limitador carga/aceleración, supervisor MW) no se activan en un evento normal. Fuente: [PSID init_tg.jl](https://github.com/NREL-Sienna/PowerSimulationsDynamics.jl/blob/main/src/initialization/generator_components/init_tg.jl) |
 | NAMX (nº máx arranques) | Σ start ≤ NAMX (restricción post-build en el JuMP de PSI) | ✅ verificado: las 3 unidades NAMX=1 (CESPM) son must_run (0 arranques) → satisfecho |
 | Animación horaria del mapa | slider de hora en capa "vhora" (tensión por barra×hora del QDS) | ✅ 575 barras × 24 h |
-| Empaquetado + selector P01–P24 | `create_app` (exe) y selector de escenario | pendiente (P01–P24 necesita datos → B) |
+| Empaquetado (.exe standalone) | `create_app`: entry point `SeniSienna.julia_main()` + `scripts/18_build_app.jl` (frozen-aware ROOT) | ✅ infraestructura lista y **verificada** (`julia_main()` levanta el dashboard); el build final (~30–60 min, ~2 GB) se corre una vez con `scripts/18_build_app.jl` |
 
 > **Nota de pérdidas**: el efectivo ~9% es algo mayor al físico (~5-6%) porque
 > absorbe también el uplift OPLM de MODOM y el efecto de costo marginal; por eso
