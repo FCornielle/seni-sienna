@@ -48,9 +48,15 @@ _p(d, k, def) = get(d, k, def)
 function _gov_from_dsl(modelos::Dict{String,Dict{String,Float64}}, categoria)
     for (nombre, d) in modelos
         if startswith(nombre, "gov_GGOV1")
-            # PSID 0.15 no implementa initialize_tg! para GeneralGovModel →
-            # TGOV1 con los parámetros REALES dominantes del GGOV1 (droop r,
-            # actuador Tact y turbina Tb)
+            # PSID 0.15 NO implementa GeneralGovModel en absoluto: el struct existe
+            # en PowerSystems pero PSID no tiene ni `mdl_tg_ode!` ni `initialize_tg!`
+            # para él (grep "GeneralGov" en el fuente de PSID 0.15 y en main → 0
+            # coincidencias; init_tg.jl solo cubre 11 tipos, GGOV1 no está). No es un
+            # bug de init sino un modelo ausente del simulador → habría que portar
+            # todo el GGOV1 (upstream). El TGOV1 con los parámetros REALES dominantes
+            # del GGOV1 (droop r, actuador Tact, turbina Tb) reproduce la respuesta de
+            # frecuencia: los estados extra del GGOV1 (limitador de carga/aceleración,
+            # supervisor MW) no se activan en un evento normal de frecuencia.
             r = clamp(_p(d, "r", 0.05), 0.02, 0.12)
             gg = SteamTurbineGov1(; R = r,
                 T1 = max(_p(d, "Tact", 0.5), 0.05),
