@@ -67,6 +67,36 @@ t_final < 29.0 && @warn "Simulación truncada" t_final
 CSV.write(joinpath(val_dir, "fase5_rms_frecuencia_sienna.csv"),
           DataFrame(t_s = collect(tiempo), f_coi_hz = f_coi))
 
+# ---- trayectorias por generador (respuesta transitoria por unidad) -----------
+# Las unidades de mayor inercia/capacidad (las que regulan) + el disparo:
+# frecuencia del rotor y potencia activa = respuesta del governor ante el déficit.
+_nombre(d) = begin
+    m = get(get_ext(get_component(ThermalStandard, sys, get_name(d))), "maquinas", NamedTuple[])
+    isempty(m) ? get_name(d) : argmax(x -> x.p_mw, m).loc_name
+end
+gens = [(name = get_name(d), nombre = _nombre(d),
+         hs = get_H(get_shaft(d)) * get_base_power(get_component(ThermalStandard, sys, get_name(d))))
+        for d in get_components(DynamicGenerator, sys) if get_name(d) != get_name(objetivo)]
+sort!(gens, by = g -> -g.hs)
+top = first(gens, 10)
+grows = NamedTuple[]
+for g in top
+    t, w = get_state_series(res, (g.name, :ω))
+    _, p = try
+        get_activepower_series(res, g.name)
+    catch
+        (t, fill(NaN, length(t)))
+    end
+    for i in 1:5:length(t)          # downsample 0.02 → 0.1 s
+        push!(grows, (gen = g.name, nombre = g.nombre, t_s = round(t[i]; digits = 3),
+                      freq_hz = round(60 * w[i]; digits = 4),
+                      p_mw = round(p[i] * 100.0; digits = 1)))   # pu (base 100) → MW
+    end
+end
+CSV.write(joinpath(val_dir, "fase5_rms_generadores.csv"), DataFrame(grows))
+println("Trayectorias por generador → validation/fase5_rms_generadores.csv (",
+        length(top), " unidades)")
+
 println("\n── Fase 5: respuesta de frecuencia (Sienna v1) ──")
 println("  Evento: pérdida de ", round(p_trip; digits = 1), " MW en t=1 s")
 println("  Nadir COI Sienna:       ", round(nadir; digits = 3), " Hz")

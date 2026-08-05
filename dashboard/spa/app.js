@@ -16,6 +16,7 @@ const api = {
   serie: (t) => j(`/api/serie/${t}`), kpis: () => j('/api/kpis'), mapaHora: () => j('/api/mapa_hora'),
   validacionOc: () => j('/api/validacion_oc'),
   precios: () => j('/api/precios'),
+  estabilidad: () => j('/api/estabilidad'),
 }
 const fig = (n) => `/figuras/${n}`
 const K = (tex) => { try { return katex.renderToString(tex, { displayMode: true, output: 'html', throwOnError: false }) } catch (e) { return '<code>' + tex + '</code>' } }
@@ -476,6 +477,36 @@ function Metodologia() {
 
 // ------------------------------------------------------------------ App -----
 const IC = (p) => html`<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" dangerouslySetInnerHTML=${{ __html: p }}></svg>`
+// --------------------------------------------------------- Estabilidad (RMS) --
+function Estabilidad() {
+  const [d, setD] = useState(null); const [err, setErr] = useState(false)
+  useEffect(() => { api.estabilidad().then(setD).catch(() => setErr(true)) }, [])
+  if (err) return html`<div class="vacio">No se pudo cargar estabilidad.</div>`
+  if (!d) return html`<div class="vacio">Cargando…</div>`
+  if (d.disponible === false) return html`<div class="vacio">Ejecuta <b>Respuesta de frecuencia</b> (script 08) para generar las trayectorias RMS.</div>`
+  const PAL = ['#2563eb', '#f08a24', '#22c55e', '#e74c3c', '#9b7fd4', '#33c9b8', '#6b6f76', '#f4c430', '#3b9ae1', '#b0683c']
+  const freq = [
+    ...(d.coi ? [{ x: d.coi.t, y: d.coi.f, name: 'COI (sistema)', mode: 'lines', line: { color: COL.ink, width: 2.5 } }] : []),
+  ]
+  // frecuencia del rotor de cada unidad (enjambre alrededor del COI)
+  d.generadores.forEach((g, i) => freq.push({ x: g.t, y: g.freq, name: g.nombre, mode: 'lines',
+    line: { color: PAL[i % PAL.length], width: 1 }, opacity: 0.5, showlegend: false,
+    hovertemplate: `${g.nombre}: %{y:.3f} Hz<extra></extra>` }))
+  const dp = d.generadores.map((g, i) => ({ x: g.t, y: g.dp, name: g.nombre, mode: 'lines',
+    line: { color: PAL[i % PAL.length], width: 1.8 },
+    hovertemplate: `${g.nombre}: %{y:+.0f} MW<extra></extra>` }))
+  const lim = { type: 'line', x0: 0, x1: 30, y0: 59.2, y1: 59.2, line: { color: COL.bad, width: 1, dash: 'dash' } }
+  return html`
+    <div class="grid">
+      ${card('Frecuencia — pérdida de Punta Catalina 2 (360 MW)', `nadir COI ${d.nadir} Hz · límite EDAC 59.2 Hz`, html`
+        <${Plot} data=${freq} height=${340} layout=${{ xaxis: { title: 't (s)' }, yaxis: { title: 'Hz', range: [59.0, 60.2] }, shapes: [lim] }} />
+        <p class="sub" style="margin-top:8px">La línea gruesa es la frecuencia del centro de inercia (COI); las finas, el rotor de cada máquina (oscilan y convergen). Nadir <b>${d.nadir} Hz</b> vs 59.285 Hz de PowerFactory, sobre el primer escalón EDAC (59.2 Hz).</p>`)}
+      ${card('Respuesta de los generadores — ΔP activa', 'MW respecto al despacho previo al evento', html`
+        <${Plot} data=${dp} height=${360} layout=${{ xaxis: { title: 't (s)' }, yaxis: { title: 'ΔP (MW)' }, legend: { font: { size: 10 } } }} />
+        <p class="sub" style="margin-top:8px">Cada unidad sube su potencia para cubrir los 360 MW perdidos: primero por inercia (instantáneo) y luego por acción del <b>governor</b> (rampa en segundos). Aquí se verá la diferencia GGOV1↔TGOV1 cuando se porte el modelo. Se muestran las 10 unidades de mayor inercia.</p>`)}
+    </div>`
+}
+
 // --------------------------------------------------------------- Precios/CMG --
 function Precios() {
   const [d, setD] = useState(null); const [err, setErr] = useState(false)
@@ -592,6 +623,7 @@ const TABS = [
   ['escenario', 'Escenario', Escenario, '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-2.81 1.17V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15H4.5a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 6 9.4l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 11 4.6V4.5a2 2 0 0 1 4 0v.09A1.65 1.65 0 0 0 18 6l.06-.06a2 2 0 1 1 2.83 2.83L20.83 9A1.65 1.65 0 0 0 21 11h-.09Z"/>'],
   ['valoc', 'Validación OC', ValidacionOc, '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>'],
   ['precios', 'Precios', Precios, '<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>'],
+  ['estabilidad', 'Estabilidad', Estabilidad, '<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>'],
   ['metodologia', 'Metodología', Metodologia, '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/>'],
   ['corridas', 'Corridas', Corridas, '<circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>'],
   ['reporte', 'Reporte', Reporte, '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v5h5"/>'],

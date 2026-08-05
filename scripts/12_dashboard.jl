@@ -357,6 +357,24 @@ end
     return (kpis = [(k = p.first, v = p.second) for p in k],)
 end
 
+# ---- Estabilidad: respuesta transitoria por generador (pestaña) --------------
+@get "/api/estabilidad" function ()
+    g = _valcsv("fase5_rms_generadores.csv")
+    coi = _valcsv("fase5_rms_frecuencia_sienna.csv")
+    g === nothing && return (disponible = false,)
+    # agrupar por generador; ΔP = potencia − potencia inicial (quién cubre el déficit)
+    series = Any[]
+    for sub in groupby(g, :nombre)
+        s = sort(sub, :t_s)
+        p0 = s.p_mw[1]
+        push!(series, (nombre = String(s.nombre[1]), t = s.t_s,
+                       freq = s.freq_hz, dp = round.(s.p_mw .- p0; digits = 1)))
+    end
+    fcoi = coi === nothing ? nothing : (t = coi.t_s, f = coi.f_coi_hz)
+    nadir = coi === nothing ? nothing : round(minimum(coi.f_coi_hz); digits = 3)
+    return (disponible = true, generadores = series, coi = fcoi, nadir = nadir)
+end
+
 # ---- Precios / CMG (pestaña) --------------------------------------------------
 @get "/api/precios" function ()
     cmg = _valcsv("cmg_hora.csv")
