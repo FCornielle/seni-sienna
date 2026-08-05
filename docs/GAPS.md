@@ -48,8 +48,14 @@ el código GAMS del MODOM (zip `MODOM DIARIO - 422`), el estado es:
   MRSF>0 que ya usaba el UC son AGC-capaces (mrsf ⊂ gobernador∪mrsf = 72). Se hizo
   explícita renombrando la reserva a **`RSF_AGC`** (build + scripts 04/14). UC:
   commitment 93.86%, R² 0.927 (baseline preservado), reserva media 94.3 MW.
-- **Puntos de operación P01–P24**: datos en mano (`op_generacion_P01_P24.csv`).
-  **Pendiente**: script de validación de despacho/flujo por escenario (hoy solo P20).
+- **Puntos de operación P01–P24**: integrados; script `16_validacion_p01_p24.jl`
+  hecho. **Hallazgo honesto**: la validación económica por escenario NO sale limpia
+  porque (a) la extracción no capturó el despacho renovable (`genstat P_desp=0` →
+  Sienna cubre ~963 MW con térmico), (b) fecha distinta (canónico 11-06 vs PF
+  30-09), (c) swap dual-fuel Gas↔Fuel-Oil. Síncrono Sienna +18.6% vs PF. **Uso
+  correcto pendiente**: los P01–P24 son puntos de **flujo AC** → extender la Fase 2
+  a los 24 escenarios, pero falta extraer las **tensiones de referencia** de los
+  escenarios ≠ P20 (solo P20 tiene `tensiones_flujo.csv`). Tarea para la VM.
 
 ## C — Sienna NO puede (otra herramienta)
 - **Cortocircuito IEC 60909**: mantener pandapower (`calc_sc`) / PowerFactory (flujo híbrido).

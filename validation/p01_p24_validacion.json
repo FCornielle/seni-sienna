@@ -1,0 +1,269 @@
+{
+    "mix": [
+        {
+            "delta_pct": 6.4,
+            "sienna_GWh": 21.83,
+            "PF_GWh": 20.52,
+            "combustible": "Carbón"
+        },
+        {
+            "delta_pct": -84.8,
+            "sienna_GWh": 3.09,
+            "PF_GWh": 20.37,
+            "combustible": "Fuel Oil / Diesel"
+        },
+        {
+            "delta_pct": 226.5,
+            "sienna_GWh": 36.54,
+            "PF_GWh": 11.19,
+            "combustible": "Gas Natural"
+        },
+        {
+            "delta_pct": 3.1,
+            "sienna_GWh": 0.72,
+            "PF_GWh": 0.7,
+            "combustible": "Biomasa"
+        },
+        {
+            "delta_pct": 31.5,
+            "sienna_GWh": 4.01,
+            "PF_GWh": 3.05,
+            "combustible": "Hidro"
+        },
+        {
+            "delta_pct": 14357.9,
+            "sienna_GWh": 6.13,
+            "PF_GWh": 0.04,
+            "combustible": "Eólica"
+        },
+        {
+            "delta_pct": 2201,
+            "sienna_GWh": 10.09,
+            "PF_GWh": 0.44,
+            "combustible": "Solar"
+        }
+    ],
+    "pf_GWh": 55.83,
+    "r2": -5.4284,
+    "sienna_GWh": 66.19,
+    "por_escenario": [
+        {
+            "sinc_Si": 2376,
+            "demanda_PF": 2895,
+            "sinc_PF": 2222,
+            "delta_pct": 6.9,
+            "escenario": "P08",
+            "hora_sienna": 8,
+            "demanda_Si": 2815
+        },
+        {
+            "sinc_Si": 2645,
+            "demanda_PF": 2955,
+            "sinc_PF": 2276,
+            "delta_pct": 16.2,
+            "escenario": "P07",
+            "hora_sienna": 7,
+            "demanda_Si": 2818
+        },
+        {
+            "sinc_Si": 1795,
+            "demanda_PF": 3032,
+            "sinc_PF": 2326,
+            "delta_pct": -22.8,
+            "escenario": "P06",
+            "hora_sienna": 11,
+            "demanda_Si": 2876
+        },
+        {
+            "sinc_Si": 1831,
+            "demanda_PF": 3047,
+            "sinc_PF": 2159,
+            "delta_pct": -15.2,
+            "escenario": "P09",
+            "hora_sienna": 10,
+            "demanda_Si": 2880
+        },
+        {
+            "sinc_Si": 2807,
+            "demanda_PF": 3072,
+            "sinc_PF": 1913,
+            "delta_pct": 46.7,
+            "escenario": "P11",
+            "hora_sienna": 6,
+            "demanda_Si": 2880
+        },
+        {
+            "sinc_Si": 2136,
+            "demanda_PF": 3078,
+            "sinc_PF": 1919,
+            "delta_pct": 11.3,
+            "escenario": "P13",
+            "hora_sienna": 9,
+            "demanda_Si": 2899
+        },
+        {
+            "sinc_Si": 1794,
+            "demanda_PF": 3080,
+            "sinc_PF": 2363,
+            "delta_pct": -24.1,
+            "escenario": "P05",
+            "hora_sienna": 12,
+            "demanda_Si": 2912
+        },
+        {
+            "sinc_Si": 2867,
+            "demanda_PF": 3082,
+            "sinc_PF": 1978,
+            "delta_pct": 45,
+            "escenario": "P10",
+            "hora_sienna": 5,
+            "demanda_Si": 2924
+        },
+        {
+            "sinc_Si": 1865,
+            "demanda_PF": 3082,
+            "sinc_PF": 1918,
+            "delta_pct": -2.8,
+            "escenario": "P14",
+            "hora_sienna": 13,
+            "demanda_Si": 2943
+        },
+        {
+            "sinc_Si": 2947,
+            "demanda_PF": 3089,
+            "sinc_PF": 1921,
+            "delta_pct": 53.4,
+            "escenario": "P12",
+            "hora_sienna": 4,
+            "demanda_Si": 2991
+        },
+        {
+            "sinc_Si": 1856,
+            "demanda_PF": 3148,
+            "sinc_PF": 2402,
+            "delta_pct": -22.7,
+            "escenario": "P04",
+            "hora_sienna": 14,
+            "demanda_Si": 3015
+        },
+        {
+            "sinc_Si": 3040,
+            "demanda_PF": 3195,
+            "sinc_PF": 1935,
+            "delta_pct": 57.1,
+            "escenario": "P15",
+            "hora_sienna": 3,
+            "demanda_Si": 3072
+        },
+        {
+            "sinc_Si": 1934,
+            "demanda_PF": 3219,
+            "sinc_PF": 2462,
+            "delta_pct": -21.4,
+            "escenario": "P03",
+            "hora_sienna": 15,
+            "demanda_Si": 3084
+        },
+        {
+            "sinc_Si": 3156,
+            "demanda_PF": 3280,
+            "sinc_PF": 2504,
+            "delta_pct": 26,
+            "escenario": "P02",
+            "hora_sienna": 2,
+            "demanda_Si": 3176
+        },
+        {
+            "sinc_Si": 2386,
+            "demanda_PF": 3296,
+            "sinc_PF": 2127,
+            "delta_pct": 12.2,
+            "escenario": "P16",
+            "hora_sienna": 16,
+            "demanda_Si": 3256
+        },
+        {
+            "sinc_Si": 3307,
+            "demanda_PF": 3382,
+            "sinc_PF": 2518,
+            "delta_pct": 31.3,
+            "escenario": "P01",
+            "hora_sienna": 1,
+            "demanda_Si": 3289
+        },
+        {
+            "sinc_Si": 2825,
+            "demanda_PF": 3420,
+            "sinc_PF": 2334,
+            "delta_pct": 21,
+            "escenario": "P17",
+            "hora_sienna": 17,
+            "demanda_Si": 3346
+        },
+        {
+            "sinc_Si": 3335,
+            "demanda_PF": 3451,
+            "sinc_PF": 2505,
+            "delta_pct": 33.1,
+            "escenario": "P18",
+            "hora_sienna": 19,
+            "demanda_Si": 3346
+        },
+        {
+            "sinc_Si": 3156,
+            "demanda_PF": 3508,
+            "sinc_PF": 2611,
+            "delta_pct": 20.9,
+            "escenario": "P19",
+            "hora_sienna": 18,
+            "demanda_Si": 3356
+        },
+        {
+            "sinc_Si": 3521,
+            "demanda_PF": 3592,
+            "sinc_PF": 2661,
+            "delta_pct": 32.3,
+            "escenario": "P24",
+            "hora_sienna": 24,
+            "demanda_Si": 3448
+        },
+        {
+            "sinc_Si": 3599,
+            "demanda_PF": 3624,
+            "sinc_PF": 2659,
+            "delta_pct": 35.3,
+            "escenario": "P20",
+            "hora_sienna": 20,
+            "demanda_Si": 3466
+        },
+        {
+            "sinc_Si": 3632,
+            "demanda_PF": 3644,
+            "sinc_PF": 2691,
+            "delta_pct": 35,
+            "escenario": "P21",
+            "hora_sienna": 23,
+            "demanda_Si": 3529
+        },
+        {
+            "sinc_Si": 3693,
+            "demanda_PF": 3645,
+            "sinc_PF": 2713,
+            "delta_pct": 36.2,
+            "escenario": "P23",
+            "hora_sienna": 21,
+            "demanda_Si": 3548
+        },
+        {
+            "sinc_Si": 3684,
+            "demanda_PF": 3655,
+            "sinc_PF": 2713,
+            "delta_pct": 35.8,
+            "escenario": "P22",
+            "hora_sienna": 22,
+            "demanda_Si": 3553
+        }
+    ],
+    "mae": 644,
+    "n": 24
+}
