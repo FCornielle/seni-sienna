@@ -1,0 +1,44 @@
+{
+  "proyecto": "PDD 30-09-2025",
+  "escenarios": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13",
+    "P14",
+    "P15",
+    "P16",
+    "P17",
+    "P18",
+    "P19",
+    "P20",
+    "P21",
+    "P22",
+    "P23",
+    "P24"
+  ],
+  "escenario_restaurado": "P20",
+  "fecha": "2026-08-04T19:20:40.520650",
+  "conteos": {
+    "cargas": 10608,
+    "generacion": 3768,
+    "taps": 4416,
+    "shunts": 720
+  },
+  "archivos": [
+    "op_cargas_P01_P24.csv",
+    "op_generacion_P01_P24.csv",
+    "op_shunts_P01_P24.csv",
+    "op_taps_P01_P24.csv",
+    "resumen_por_escenario.csv"
+  ]
+}

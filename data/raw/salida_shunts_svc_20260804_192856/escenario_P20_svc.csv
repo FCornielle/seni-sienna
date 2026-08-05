@@ -1,0 +1,3 @@
+﻿for_name,loc_name,ruta,barra_for_name,barra_loc_name,qmin_Mvar,qmax_Mvar,usetp_pu,qsetp_Mvar,modo_ctrl_i_ctrl,Q_actual_Mvar,outserv
+ZPVD1K-SVC1,34.5 kV SVC 1 PVDC,\VM-PF.IntUser\PDD 30-09-2025.IntPrj\Network Model.IntPrjfolder\Network Data.IntPrjfolder\Expansión 345 kV.ElmNet\PVDC.ElmSite\34.5 kV SVC 1 PVDC.ElmSvs,WPVD1K,Terminal PVDC 1,-10.0,20.0,1.0399999618530273,0.0,1,-20.458787888917797,0
+ZPVD2K-SVC1,34.5 kV SVC 2 PVDC,\VM-PF.IntUser\PDD 30-09-2025.IntPrj\Network Model.IntPrjfolder\Network Data.IntPrjfolder\Expansión 345 kV.ElmNet\PVDC.ElmSite\34.5 kV SVC 2 PVDC.ElmSvs,WPVD2K,Terminal PVDC 2,-10.0,20.0,1.0399999618530273,0.0,1,-20.458787888917797,0

@@ -1,0 +1,25 @@
+{
+  "proyecto": "PDD 30-09-2025",
+  "escenario": "P20",
+  "fecha": "2026-08-04T19:21:21.337083",
+  "inventario_clases_control": {
+    "ElmSecctrl": 0,
+    "ElmAgc": 0,
+    "ElmFreqctrl": 0,
+    "ElmArea": 4,
+    "ElmZone": 11,
+    "ElmStactrl": 15
+  },
+  "conteos": {
+    "maquinas": 108,
+    "con_gobernador": 84,
+    "hidro": 25,
+    "params_gov": 1321
+  },
+  "margen_regulante_MW": 563.724,
+  "archivos": [
+    "agc_participacion.csv",
+    "gov_parametros.csv",
+    "hidro_parametros.csv"
+  ]
+}

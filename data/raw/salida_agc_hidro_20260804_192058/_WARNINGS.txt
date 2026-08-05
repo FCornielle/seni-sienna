@@ -1,0 +1,1 @@
+AGC: el proyecto NO tiene ElmSecctrl/ElmAgc/ElmFreqctrl — no hay control secundario modelado; agc_participacion.csv reporta la capacidad regulante por gobernador (proxy)

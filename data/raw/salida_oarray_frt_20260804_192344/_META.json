@@ -1,0 +1,15 @@
+{
+  "proyecto": "PDD 30-09-2025",
+  "escenario": "P20",
+  "fecha": "2026-08-04T19:23:59.314637",
+  "conteos": {
+    "arrays": 200,
+    "legibles": 70,
+    "vacios_encriptados": 110,
+    "valores": 936
+  },
+  "archivos": [
+    "oarray_frt_completo.csv",
+    "oarray_frt_resumen.csv"
+  ]
+}
