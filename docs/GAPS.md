@@ -31,17 +31,23 @@ almacenados aquí para abordarlos después de cerrar A.
   dedicada.
 
 ## B — Necesitan un DATO de la VM / OC (extracción)
-- **AGC como reserva separada** (eq. 14-15): `gen_params` no tiene columna de
-  participación/límite AGC → necesita la lista de unidades AGC del OC. (Hoy su
-  margen queda absorbido en la RSF.)
-- **Shunts/SVC por escenario**: `paso_actual` de ElmShnt + consigna SVC en P20 → cierra el residuo 0.04 pu del radial Este (Fase 2).
-- **Costos de arranque C^ARR**: no están en el workbook; buscar en otra declaración del OC o estimar por combustible de arranque.
-- **oarray_* FRT de plantas solares**: la API de PF no las lee → copiar a mano desde la GUI.
-- ~~**Embalses (RENDH, aportes, niveles)**~~ → ✅ **RESUELTO** con el código GAMS
-  del MODOM (zip `MODOM DIARIO - 422`): RENDH=1 (agua ya en MWh), presupuesto
-  diario = DAT_NFIN (línea 743). Modelo de embalse implementado en `scripts/03`
-  (`HYDRO_BUDGET=1`). C^ARR también confirmado (CVP×PMN×TARR, ya implementado).
-- **Puntos de operación P01–P24**: para validar despacho hora a hora y R² por escenario.
+Tras las Rondas 1–2 de extracción VM (`vm-extraccion-20260717`, `-2-20260804`) y
+el código GAMS del MODOM (zip `MODOM DIARIO - 422`), el estado es:
+- ~~**Embalses (RENDH, aportes, niveles)**~~ → ✅ **RESUELTO**: RENDH=1 (agua ya en
+  MWh), presupuesto diario = DAT_NFIN (GAMS línea 743). Modelo en `scripts/03`
+  (`HYDRO_BUDGET=1`).
+- ~~**Costos de arranque C^ARR**~~ → ✅ **CONFIRMADO**: no es costo declarado, es
+  CVP×PMN×TARR (ya en `build_modom_system.jl`).
+- ~~**Shunts/SVC**~~ → ✅ **EXTRAÍDO y REFUTADO como causa** del residuo Este: solo
+  2 capacitores (28 Mvar), 1 paso fijo, sin conmutar entre P01–P24. El residuo de
+  Fase 2 es física del radial (PF ya en 0.90), no compensación. Ver `fase2_flujo_ac.md`.
+- ~~**oarray_* FRT**~~ → ✅ **EXTRAÍDO** (`oarray_frt_completo.csv`, Ronda 2).
+- **AGC como reserva separada** (eq. 14-15): datos en mano — 84 unidades con
+  gobernador + margen 563 MW (`agc_participacion.csv`) y asignación por unidad del
+  S_AGC (workbook). **Pendiente**: reconciliar el naming PF nivel-máquina
+  (`G4PALAM3`) ↔ unidad MODOM (`G3PALAMA`) antes de añadir la reserva AGC al UC.
+- **Puntos de operación P01–P24**: datos en mano (`op_generacion_P01_P24.csv`).
+  **Pendiente**: script de validación de despacho/flujo por escenario (hoy solo P20).
 
 ## C — Sienna NO puede (otra herramienta)
 - **Cortocircuito IEC 60909**: mantener pandapower (`calc_sc`) / PowerFactory (flujo híbrido).
