@@ -62,6 +62,12 @@ plim(g) = get_active_power_limits(g)  # MW (NATURAL_UNITS)
 # HYDRO_BUDGET=1 → hidro se optimiza en el tiempo bajo ese presupuesto (embalse
 # real); por defecto (0) la hidro queda fija al despacho MODOM (reproducción).
 const HYDRO_BUDGET = get(ENV, "HYDRO_BUDGET", "0") == "1"
+# valor del agua (RD$/MWh): costo de oportunidad de la hidro (dual del balance de
+# embalse en el problema semanal del MODOM). Con >0, la hidro solo se despacha
+# cuando el CMG supera el valor del agua → conserva agua en horas baratas (solar).
+# Calibrado: VALOR_AGUA≈5000 reproduce el uso hidro del MODOM (Sienna 2987 vs 2982
+# MWh); con 0 la hidro llena el presupuesto (3168). Recomendado con HYDRO_BUDGET=1.
+const VALOR_AGUA = parse(Float64, get(ENV, "VALOR_AGUA", "0"))
 _hydro_dir = joinpath(raw_dir, "processed", "hydro")
 gen2res = Dict(String(r.generator_id) => String(r.reservoir_id)
                for r in eachrow(CSV.read(joinpath(_hydro_dir, "gen_reservoir.csv"), DataFrame)))
@@ -182,10 +188,12 @@ for iface in get_components(TransmissionInterface, sys)
     end
 end
 
-# objetivo escalado 1e-3 (HiGHS: duales excesivos con CENS=2e6 sin escalar)
+# objetivo escalado 1e-3 (HiGHS: duales excesivos con CENS=2e6 sin escalar).
+# La hidro entra a su valor del agua (VALOR_AGUA) como costo de oportunidad; con
+# VALOR_AGUA=0 y ph acotado a 0 (modo no-presupuesto) el término se anula.
 @objective(m, Min, 1e-3 * (
     sum(cvp(g) * pt[get_name(g), t] for g in thermals, t in 1:T) +
-    CENS * sum(ens) + CENS * sum(dump)))
+    VALOR_AGUA * sum(ph) + CENS * sum(ens) + CENS * sum(dump)))
 
 optimize!(m)
 println("Estado: ", termination_status(m), " / ", raw_status(m))

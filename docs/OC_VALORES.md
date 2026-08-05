@@ -134,10 +134,17 @@ El zip `MODOM DIARIO - 422` trae el **código fuente GAMS** del modelo del OC
   gobiernan la coordinación *semanal* del agua.
 
 Implementado en `scripts/03` (flag `HYDRO_BUDGET=1`): la hidro pasa de fija a
-optimizarse bajo `Σ_t PG ≤ DAT_NFIN` por embalse. Resultado: Sienna 3168 MWh vs
-MODOM 2982 (ambos ≤ presupuesto 3243). Sienna llena el presupuesto porque, en un
-**día aislado**, le falta el VALOR_AGUA semanal que hace al OC conservar agua →
-diferencia esperada, no error. Detalle en `validation/hidro_presupuesto.csv`.
+optimizarse bajo `Σ_t PG ≤ DAT_NFIN` por embalse. Con VALOR_AGUA=0 Sienna llena el
+presupuesto (3168 MWh vs MODOM 2982) porque en un día aislado la hidro es gratis.
+
+**VALOR_AGUA (valor del agua, refinamiento)**: el MODOM calcula `VALOR_AGUA` como
+el dual del balance de embalse (costo de oportunidad del agua para días futuros).
+Se añadió como costo de oportunidad de la hidro en el objetivo del ED
+(`ENV["VALOR_AGUA"]`, RD$/MWh): la hidro solo corre cuando el CMG supera ese valor
+→ **conserva agua en horas baratas (solar) y la concentra en la punta**. Calibrado:
+**V≈5000 RD$/MWh reproduce el uso del MODOM** (Sienna 2987 vs 2982 MWh; barrido
+V=0→3168, V=2000→3125, V=5000→2987), y baja la desviación de costo de −12.2% a
+−10.2%. Detalle en `validation/hidro_presupuesto.csv`.
 
 > **Costo de arranque C^ARR**: el GAMS confirma que **no es un costo declarado** —
 > el arranque se modela como combustible durante `TARR` horas (CVP×PMN×TARR), que
