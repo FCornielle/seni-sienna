@@ -64,3 +64,18 @@ radial Este (Higüey −0.055, Bení/Chavón/La Romana/Guaymate −0.04) **no** 
 Romana tap 13, SPM tap 9, ambos ElmTr2 aplicados) → queda como **hipótesis 1**:
 estado de **shunts/SVC conmutables** (`iopt_asht=1`), no extraído por la VM →
 próxima extracción (`paso_actual` de ElmShnt + consigna SVC en P20).
+
+## Extensión por escenario P01–P24 (`scripts/17_fase2_por_escenario.jl`)
+
+Con los puntos de operación de la Ronda 2 (`op_*_P01_P24`) y las tensiones de
+referencia de la Ronda 3 (`tensiones_P01_P24`, byte-idénticas a la Ronda 2 en P20),
+la Fase 2 se resuelve para cada uno de los 24 escenarios (build + control
+secundario + comparación por `for_name` W energizada, ≥69 kV). Salida:
+`validation/fase2_p01_p24.csv`.
+
+Verificado (subconjunto min/medio/pico): **P20 reproduce 0.00605** exacto, y el
+`|ΔV|` es estable en todo el rango de demanda — **P01** (mín, 3382 MW) 0.00714,
+**P20** 0.00605, **P23** (pico, 3645 MW) 0.00965 pu. El máx (~0.05–0.07) crece con
+la demanda en el radial Este, coherente con la física (a mayor carga, tensiones
+más bajas). Nota: `op_taps_P01_P24` no trae `ruta` → el script mapea `for_name→ruta`
+desde los taps de P20 para el match de `_apply_op_point!`.
