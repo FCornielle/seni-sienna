@@ -37,7 +37,7 @@ function correr_uc(; overrides_file)
     set_device_model!(template, Line, StaticBranchUnbounded)
     set_device_model!(template, Transformer2W, StaticBranchUnbounded)
     set_service_model!(template, ServiceModel(VariableReserve{ReserveUp}, RangeReserve, "RPF"))
-    set_service_model!(template, ServiceModel(VariableReserve{ReserveUp}, RangeReserve, "RSF"))
+    set_service_model!(template, ServiceModel(VariableReserve{ReserveUp}, RangeReserve, "RSF_AGC"))
     set_service_model!(template, ServiceModel(TransmissionInterface, ConstantMaxInterfaceFlow))
 
     problem = DecisionModel(template, sys; name = "UC_ESC",

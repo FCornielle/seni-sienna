@@ -361,7 +361,7 @@ const EQS = [
     sienna: 'VariableReserve{ReserveUp} "RPF" co-optimizada (RangeReserve), requisito = 3% de la demanda horaria (Art. 399). ξ = slack.' },
   { n: 11, grp: '', titulo: 'Requisito de RSF', ref: '§7.4.2', cob: 'si',
     tex: S`\sum_{g\in G_{RSF}}(MR_{n,g}^{RSF}+HSF_{g,n}v_{n,g}^{ACC}+\xi_{n,g}^{RSF})+\sum_{g\in G_{AGC}}MR_{n,g}^{AGC}=RRSF_n\sum_g P_{n,g}`,
-    sienna: 'VariableReserve{ReserveUp} "RSF" co-optimizada. La componente AGC no se separa (ver eq. 14).' },
+    sienna: 'VariableReserve{ReserveUp} "RSF_AGC" co-optimizada. La secundaria es la RSF-AGC del MODOM (regulación+AGC = un producto 3%); sus 40 proveedores (MRSF>0) se confirmaron AGC-capaces con la extracción de gobernadores (Ronda 2 VM).' },
   { n: 12, grp: '7.5 · Margen por central', titulo: 'Margen — centrales regulares', ref: '§7.5.1', cob: 'par',
     tex: S`MR_{n,g}^{RSF}\le\min(MTSF_{g,n},MRSFU_g UND_{g,n},MRSF_g)v_{n,g}^{ACC}DRS_{g,n}-MR_{n,g}^{AGC}`,
     sienna: 'max_participation_factor limita la contribución de cada unidad a la reserva; los sub-límites MTSF/MRSFU/DRS no se desagregan.' },

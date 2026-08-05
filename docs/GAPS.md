@@ -42,10 +42,12 @@ el código GAMS del MODOM (zip `MODOM DIARIO - 422`), el estado es:
   2 capacitores (28 Mvar), 1 paso fijo, sin conmutar entre P01–P24. El residuo de
   Fase 2 es física del radial (PF ya en 0.90), no compensación. Ver `fase2_flujo_ac.md`.
 - ~~**oarray_* FRT**~~ → ✅ **EXTRAÍDO** (`oarray_frt_completo.csv`, Ronda 2).
-- **AGC como reserva separada** (eq. 14-15): datos en mano — 84 unidades con
-  gobernador + margen 563 MW (`agc_participacion.csv`) y asignación por unidad del
-  S_AGC (workbook). **Pendiente**: reconciliar el naming PF nivel-máquina
-  (`G4PALAM3`) ↔ unidad MODOM (`G3PALAMA`) antes de añadir la reserva AGC al UC.
+- ~~**AGC como reserva separada**~~ → ✅ **RESUELTO**. La extracción de gobernadores
+  (Ronda 2) confirmó que la secundaria del MODOM es **RSF-AGC combinada** (regulación
+  + AGC automático = un producto 3%), no una reserva aparte: los 40 proveedores
+  MRSF>0 que ya usaba el UC son AGC-capaces (mrsf ⊂ gobernador∪mrsf = 72). Se hizo
+  explícita renombrando la reserva a **`RSF_AGC`** (build + scripts 04/14). UC:
+  commitment 93.86%, R² 0.927 (baseline preservado), reserva media 94.3 MW.
 - **Puntos de operación P01–P24**: datos en mano (`op_generacion_P01_P24.csv`).
   **Pendiente**: script de validación de despacho/flujo por escenario (hoy solo P20).
 

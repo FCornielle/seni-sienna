@@ -490,9 +490,12 @@ end
 
 # -------------------------------------------------------------- reservas -----
 
-# RPF/RSF como VariableReserve{ReserveUp} con requisito horario = RRPF/RRSF
-# (3%, model_options.csv) de la demanda del sistema. Participan los térmicos
-# con MRPF/MRSF > 0 en gen_params y las hidro.
+# RPF / RSF-AGC como VariableReserve{ReserveUp} con requisito horario = RRPF/RRSF
+# (3%, model_options.csv) de la demanda. La secundaria es la **RSF-AGC** del MODOM
+# (regulación secundaria + AGC automático son un solo producto de 3%): contribuyen
+# los térmicos con MRSF>0, que la extracción de gobernadores de la VM (Ronda 2,
+# `agc_participacion.csv` → `agc_eligible.csv`) confirma AGC-capaces (mrsf ⊂
+# gobernador∪mrsf). El primario RPF usa MRPF>0.
 function _add_reserves!(sys::System, t, timestamps; pct::Float64 = 0.03)
     demanda_h = zeros(length(timestamps))
     for g in groupby(t["loads"], :load_id)
@@ -500,7 +503,7 @@ function _add_reserves!(sys::System, t, timestamps; pct::Float64 = 0.03)
         demanda_h .+= [_num(v, 0.0) for v in sorted.p_set_mw]
     end
     params = Dict(String(r.generator_id) => r for r in eachrow(t["gen_params"]))
-    for (nombre, col, tframe) in (("RPF", :MRPF, 30.0), ("RSF", :MRSF, 600.0))
+    for (nombre, col, tframe) in (("RPF", :MRPF, 30.0), ("RSF_AGC", :MRSF, 600.0))
         req = pct .* demanda_h                       # MW
         peak = maximum(req)
         contrib = Device[]
