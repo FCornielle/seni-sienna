@@ -171,6 +171,35 @@ end
 
 _es_hidro(categoria::AbstractString) = occursin(r"hidro|hydro"i, categoria)
 
+# DynamicInverter WECC grid-following (REGCA1 + REECB1 + REPCA1) con parámetros
+# típicos WECC. Grid-following (FrequencyEstimator = KauraPLL) — aporta corriente
+# pero no forma red; su efecto en frecuencia es de día (solar>0). v2 dinámica.
+function _wecc_inverter(name::AbstractString)
+    converter = RenewableEnergyConverterTypeA(; T_g = 0.02, Rrpwr = 10.0, Brkpt = 0.9,
+        Zerox = 0.4, Lvpl1 = 1.22, Vo_lim = 1.2, Lv_pnts = (0.4, 0.8),
+        Io_lim = -1.3, T_fltr = 0.02, K_hv = 0.7, Iqr_lims = (-100.0, 100.0),
+        Accel = 0.7, Lvpl_sw = 0, Q_ref = 1.0, R_source = 0.0, X_source = 1.0e5)
+    active = ActiveRenewableControllerAB(; bus_control = 0, from_branch_control = 0,
+        to_branch_control = 0, branch_id_control = "0", Freq_Flag = 0, K_pg = 0.1,
+        K_ig = 0.0, T_p = 0.25, fdbd_pnts = (0.0, 0.0), fe_lim = (-99.0, 99.0),
+        P_lim = (0.0, 1.5), T_g = 0.02, D_dn = 0.0, D_up = 0.0, dP_lim = (-99.0, 99.0),
+        P_lim_inner = (0.0, 1.5), T_pord = 0.02)
+    reactive = ReactiveRenewableControllerAB(; bus_control = 0, from_branch_control = 0,
+        to_branch_control = 0, branch_id_control = "0", VC_Flag = 0, Ref_Flag = 0,
+        PF_Flag = 0, V_Flag = 1, T_fltr = 0.02, K_p = 0.1, K_i = 0.0, T_ft = 0.0,
+        T_fv = 0.05, V_frz = 0.0, R_c = 0.0, X_c = 0.0, K_c = 0.0, e_lim = (-0.1, 0.1),
+        dbd_pnts = (0.0, 0.0), Q_lim = (-0.4, 0.4), T_p = 0.02, Q_lim_inner = (-0.4, 0.4),
+        V_lim = (0.9, 1.1), K_qp = 0.1, K_qi = 0.0)
+    inner = RECurrentControlB(; Q_Flag = 0, PQ_Flag = 0, Vdip_lim = (-99.0, 99.0),
+        T_rv = 0.02, dbd_pnts = (0.0, 0.0), K_qv = 0.0, Iqinj_lim = (-1.1, 1.1),
+        V_ref0 = 0.0, K_vp = 0.0, K_vi = 0.0, T_iq = 0.02, I_max = 1.11)
+    return DynamicInverter(; name = name, ω_ref = 1.0, converter = converter,
+        outer_control = OuterControl(active, reactive), inner_control = inner,
+        dc_source = FixedDCSource(; voltage = 600.0),
+        freq_estimator = KauraPLL(; ω_lp = 500.0, kp_pll = 0.084, ki_pll = 4.69),
+        filter = RLFilter(; rf = 0.0, lf = 0.0))
+end
+
 """
     attach_dynamic_models!(sys, raw_dir; dyn_export) -> (n_detallados, n_clasicos)
 
@@ -184,6 +213,7 @@ function attach_dynamic_models!(
                                           "salida_dinamica_20260714_203429"),
     avr_mode::Symbol = :dsl,    # :dsl (v2, reales) | :sexs | :sexs_wide | :fixed
     gov_mode::Symbol = :dsl,    # :dsl (v2, reales) | :tipico | :sin_hygov | :fixed
+    inverters::Bool = false,    # v2: DynamicInverter WECC en renovables (grid-following)
 )
     by_for, by_loc = load_machine_params(joinpath(raw_dir, dyn_export))
     dsl = (avr_mode == :dsl || gov_mode == :dsl) ?
@@ -257,11 +287,21 @@ function attach_dynamic_models!(
         end
         add_component!(sys, dyn, gen)
     end
-    # inversores estáticos sin modelo dinámico → fuera de servicio en dinámica
-    # (13 unidades, ~13 MW en el escenario nocturno; v2: DynamicInverter WECC)
+    # renovables: v2 con DynamicInverter WECC grid-following (REGCA/REECB/REPCA);
+    # si la inicialización falla (aporte nocturno ≈0, riesgo PSID) → fuera de servicio.
+    n_inv = 0
     for g in get_components(RenewableDispatch, sys)
-        set_available!(g, false)
+        if inverters && get_available(g) && get_max_active_power(g) * get_base_power(g) > 1.0
+            try
+                add_component!(sys, _wecc_inverter(get_name(g)), g); n_inv += 1
+            catch
+                set_available!(g, false)
+            end
+        else
+            set_available!(g, false)
+        end
     end
+    inverters && @info "Inversores WECC adjuntos" inversores = n_inv
     _loads_to_impedance!(sys)
     @info "Capa dinámica adjunta" detallados = n_full clasicos = n_clasico
     (gov_mode == :dsl || avr_mode == :dsl) &&

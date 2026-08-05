@@ -8,7 +8,7 @@ almacenados aquí para abordarlos después de cerrar A.
 |---|---|---|
 | must-run en el UC | Unidades siempre ON en MODOM → `must_run=true` | ✅ commitment 89.9→**93.9%**, R² 0.72→**0.93** |
 | Lazo de pérdidas DC (eq. 29-30) | pérdidas P=r·f² por rama, 50/50 a barras, re-solve caliente | ✅ costo −16%→**−2.8%**, R² 0.957→**0.971** |
-| v2 dinámica: inversores WECC | `DynamicInverter` (REGC/REEC/REPC) para PV/eólica/BESS | pendiente (esfuerzo focalizado) |
+| v2 dinámica: inversores WECC | `DynamicInverter` REGCA1+REECB1+REPCA1 grid-following en las 13 renovables (`attach_dynamic_models!(...; inverters=true)`) | ✅ **RMS inicializa** (Simulation ResidualModel con 13 inversores). Pequeña señal con inversores topa un bug interno de PSID (`UndefVarError i`, `jacobian.jl:216`) → estudios modales quedan en su baseline sin inversores. Aporte nocturno ≈0 (solar 0); útil en escenario diurno |
 | v2 dinámica: GGOV1 real | Modelo custom en Julia (PSID 0.15 no inicializa GeneralGovModel) | pendiente (esfuerzo focalizado) |
 | NAMX (nº máx arranques) | Σ start ≤ NAMX (restricción post-build en el JuMP de PSI) | ✅ verificado: las 3 unidades NAMX=1 (CESPM) son must_run (0 arranques) → satisfecho |
 | Animación horaria del mapa | slider de hora en capa "vhora" (tensión por barra×hora del QDS) | ✅ 575 barras × 24 h |
