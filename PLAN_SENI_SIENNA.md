@@ -1,7 +1,7 @@
 # Plan: Recreación del SENI (República Dominicana) en Sienna (NREL)
 
 **Fecha:** 14 de julio de 2026
-**Autor:** Fernando Cornielle (con asistencia de Claude)
+**Autor:** Fernando Cornielle
 **Estado:** Plan aprobado — Fase 0 pendiente de iniciar
 
 ---

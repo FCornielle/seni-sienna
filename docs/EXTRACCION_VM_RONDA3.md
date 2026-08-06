@@ -5,7 +5,7 @@ escenarios**. Hoy solo P20 tiene tensiones de referencia
 (`escenario_P20_tensiones_flujo.csv`, Ronda 2). Se necesitan las de P01–P24 para
 comparar `|ΔV|` de Sienna por escenario, no solo en P20.
 
-## Reglas duras (recap de CLAUDE.md)
+## Reglas duras (recap de las reglas del proyecto)
 1. **SOLO LECTURA**. El flujo corre en un study case **sandbox** que se borra al
    final; **restaurar el escenario activo a P20** al terminar.
 2. Una sola instancia de PowerFactory por proceso.

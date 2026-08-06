@@ -45,7 +45,7 @@ cerrados) y BFS: al abrir la rama, todo componente que pierde el camino al slack
 (Punta Catalina 1) queda "aguas abajo". Cargas y generadores del componente se
 listan con su P del escenario.
 
-### Respuestas a las preguntas del CLAUDE.md
+### Respuestas a las preguntas de las reglas del proyecto
 
 1. **Semántica de `etapa_outserv`**: es **real, no artefacto** — es la asignación
    de cada alimentador a su(s) escalón(es). Cada relé de 6 etapas tiene fuera de

@@ -52,7 +52,7 @@ def conectar():
 
 
 def attr(obj, nombre, default=""):
-    """GetAttribute robusto (regla 3 del CLAUDE.md)."""
+    """GetAttribute robusto (regla 3 de las reglas del proyecto)."""
     try:
         v = obj.GetAttribute(nombre)
         return default if v is None else v

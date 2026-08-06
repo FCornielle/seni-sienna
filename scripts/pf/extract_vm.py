@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Extractor para la VM con DIgSILENT PowerFactory 2024 (SOLO LECTURA).
 
-Misión y prioridades: ver CLAUDE.md (raíz del repo), sección VM.
+Misión y prioridades: ver las reglas del proyecto (raíz del repo), sección VM.
 Bloques y columnas exactas: docs/EXTRACCION_DINAMICA_DIGSILENT.md.
 
 Prioridad 1 — Bloque I: punto de operación exacto del escenario (P20):

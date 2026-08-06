@@ -4,7 +4,7 @@ Segunda extracción en la VM con PowerFactory 2024 (proyecto **"PDD 30-09-2025"*
 Cierra el residuo de la Fase 2 y desbloquea validación por escenario, AGC e hidro.
 Complementa la Ronda 1 (`validation/extraccion_vm_20260717.md`, Bloque I + EDAC).
 
-## Reglas duras (recap de CLAUDE.md)
+## Reglas duras (recap de las reglas del proyecto)
 1. **SOLO LECTURA**: no modificar, no borrar. Estudios que requieran study case →
    sandbox y limpiarlo (patrón Feasibility-Study). Al barrer escenarios, **restaurar
    siempre a P20** al final.
@@ -139,7 +139,7 @@ git push -u origin vm-extraccion-2-YYYYMMDD
 
 - `data/raw/` es **excepción autorizada** solo en esta rama de extracción (como en la
   Ronda 1); no se mergea a `main` sin filtrar (en la PC principal integramos solo lo
-  necesario, preservando `CLAUDE.md` y los README).
+  necesario, preservando los README).
 - Documentar en `validation/extraccion_vm_2_YYYYMMDD.md`: qué se extrajo, conteos,
   hallazgos (sobre todo los shunts capacitivos del Este) y qué quedó con warnings.
 

@@ -38,3 +38,8 @@ Desktop.ini
 
 # Ejecutable empaquetado (create_app, ~2 GB)
 build_app/
+
+# Instrucciones locales de asistente (no versionar)
+CLAUDE.md
+AGENTS.md
+.claude/

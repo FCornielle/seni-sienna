@@ -2,12 +2,42 @@
 
 Recreación del **SENI** (Sistema Eléctrico Nacional Interconectado, República Dominicana) en **[Sienna](https://sienna-platform.github.io/Sienna/)**, la plataforma open-source de modelado de sistemas de potencia de NREL (Julia, BSD-3).
 
-Unifica en una sola plataforma lo que hoy hacen dos proyectos:
+El SENI abastece a la República Dominicana con ~3.600 MW de demanda pico sobre una
+red de 717 barras (líneas de 230, 138 y 69 kV) y un parque de generación térmico,
+hidroeléctrico y renovable. Este proyecto lo reconstruye en una sola herramienta
+open-source en Julia y lo somete a los estudios que hoy se hacen con software
+comercial, contrastando cada resultado contra las referencias reales del sistema.
 
-- [Feasibility-Study](https://github.com/FCornielle/Feasibility-Study) — estudios de interconexión PV+BESS sobre el modelo PowerFactory del SENI
-- [modom-pypsa](https://github.com/FCornielle/modom-pypsa) — réplica del despacho diario del OC (MODOM) en PyPSA + pandapower
+Unifica en una sola plataforma lo que hoy hacen dos proyectos separados:
 
-📋 **Plan completo**: [PLAN_SENI_SIENNA.md](PLAN_SENI_SIENNA.md) — matriz de cobertura, arquitectura, fases, riesgos y criterios de validación.
+- [Feasibility-Study](https://github.com/FCornielle/Feasibility-Study) — estudios eléctricos (flujo de carga, contingencias, cortocircuito, estabilidad) sobre el modelo PowerFactory del SENI
+- [modom-pypsa](https://github.com/FCornielle/modom-pypsa) — réplica del despacho diario del Organismo Coordinador (MODOM) en PyPSA + pandapower
+
+## Qué hace
+
+A partir de la red y las tablas de costos/reservas del SENI, la plataforma corre,
+en secuencia, la cadena completa de estudios de operación:
+
+- **Despacho económico y unit commitment** — decide, hora a hora, cuánto genera cada
+  unidad al mínimo costo, con arranques, rampas, tiempos mínimos y reservas primaria,
+  secundaria-AGC y fría co-optimizadas (LP/MILP sobre red DC).
+- **Flujo de carga AC** — resuelve tensiones y flujos sobre la red física completa,
+  con control secundario de tensión y límites de reactiva.
+- **Contingencias N-1** — evalúa la salida de cada elemento de transmisión (screening
+  con factores de distribución LODF, verificación AC en las críticas) y emite un
+  veredicto según el Código de Conexión (Ley 125-01).
+- **Cuasi-dinámico 24 h** — una secuencia de flujos AC con el perfil horario.
+- **Dinámica (RMS y pequeña señal)** — respuesta de frecuencia ante la pérdida del
+  mayor generador (nadir vs. el esquema de deslastre EDAC), amortiguamiento de los
+  modos electromecánicos y trayectoria de cada máquina, con modelos de gobernador,
+  AVR e inversores.
+- **Embalses, precios nodales y validación** — balance de energía hidro con valor del
+  agua, costo marginal (CMG) por hora, y comparación cuantitativa contra el despacho
+  y los precios **reales** publicados por el Organismo Coordinador.
+
+Todo se orquesta desde un **dashboard web** (abajo) que lanza cada estudio y grafica
+los resultados. El detalle de fases, arquitectura y criterios de validación está en
+[PLAN_SENI_SIENNA.md](PLAN_SENI_SIENNA.md).
 
 ## Inicio rápido
 
@@ -96,26 +126,25 @@ combustible y central, más la representatividad multi-día:
 
 | Ruta | Contenido |
 |---|---|
-| `src/` | Módulo `SeniSienna`: traductor PowerFactory/MODOM → PowerSystems.jl, capa dinámica |
-| `scripts/00–08` | Un script por fase: setup, build, power flow, despacho ED, UC MILP, N-1, cuasi-dinámico, pequeña señal, transitorios |
-| `data/raw/` | Datos confidenciales (no versionados — ver su README) |
+| `src/` | Módulo `SeniSienna`: traductor PowerFactory/MODOM → PowerSystems.jl, capa dinámica y veredictos |
+| `scripts/` | Un script por estudio (`01` build … `08` transitorios) + N-1, EDAC, dashboard, validación OC y empaquetado |
+| `dashboard/` | Frontend del panel (SPA Preact + htm, sin build) |
+| `data/raw/` | Datos confidenciales del modelo y del OC (no versionados — ver su README) |
 | `data/sys/` | System serializado (`to_json`) |
-| `validation/` | Comparativas vs PowerFactory / modom-pypsa / MODOM real |
+| `validation/` | Comparativas vs PowerFactory, MODOM y el OC real |
 | `test/` | Tests del traductor |
 
-## Estado
+## Validación
 
-- [x] Fase 0 — Esqueleto, plan, entorno Julia + datos en `data/raw/`
-- [x] Fase 1 — `System` de despacho MODOM (717 barras, tests 7/7)
-- [x] Fase 2 — System físico AC + flujo de carga (|ΔV| medio 0.019 pu; meta 0.005 pendiente del punto de operación P20 exacto — Bloque I)
-- [x] Fase 3a — Despacho ED con commitment fijo (**R² 0.957 vs MODOM**, ENS 0)
-- [x] Fase 3b — UC MILP con PSI + reservas RPF/RSF co-optimizadas (commitment 89.9% vs MODOM)
-- [x] Fase 4 — Contingencias N-1 (659 evaluadas, LODF + AC en críticas) y cuasi-dinámico 24h (24/24 convergen)
-- [x] Fase 5 — Dinámica v1 en PSID: pequeña señal (estable; 22 modos ζ<10% vs 26 en PF) y respuesta de frecuencia (nadir 59.463 Hz vs 59.285 PF, pérdida de Punta Catalina 2)
-- [x] Fase 6 — Veredictos del Código de Conexión (`src/verdicts.jl`), reporte consolidado con figuras (`validation/REPORTE_SENI_SIENNA.md`) y gaps documentados (cortocircuito/protecciones → flujo híbrido)
-- [x] Barrido 1 — Fase 2 cerrada: |ΔV| medio **0.006 pu** con punto P20 exacto + controladores de estación + límites Q (`validation/fase2_flujo_ac.md`)
-- [x] Barridos 2–3 — Sobredeslastre EDAC cuantificado (1.39×; escalón 1 completo 3.2×) y costos de arranque (neutro) (`validation/barrido2_3_edac_arranques.md`)
-- [x] v2 dinámica — parámetros DSL reales (23 governors + 32 AVR reales; nadir 59.432 vs 59.285 PF) y **estudio de deslastre selectivo**: 30% por alimentador logra mejor recuperación con 3.3× menos carga interrumpida (`validation/v2_dinamica_selectivo.md`, figura f7)
-- [ ] **Hito siguiente: ejecutable + dashboard** (estilo modom-pypsa): corridas ED/UC/N-1/QDS/dinámica desde una UI, sysimage precompilada (arranque en segundos), feed OC integrado (`docs/OC_DROPBOX_FEED.md`) y empaquetado distribuible
+Cada estudio se contrasta contra tres referencias independientes: el optimizador
+**MODOM** (despacho del OC), el modelo **PowerFactory** (red y dinámica) y los
+resultados **reales publicados por el OC** (API + programa semanal). Las tablas y
+figuras de contraste viven en [`validation/`](validation/); el detalle metodológico,
+en [PLAN_SENI_SIENNA.md](PLAN_SENI_SIENNA.md) y en el reporte consolidado
+`validation/REPORTE_SENI_SIENNA.md`.
 
-> ⚠️ Los datos del modelo (exports PowerFactory, tablas MODOM, datos OC) son confidenciales y **no** se versionan en este repositorio.
+## Licencia y datos
+
+Código bajo el módulo `SeniSienna` (Julia). Los datos del modelo —exportaciones de
+PowerFactory, tablas MODOM y datos del OC— son **confidenciales** y **no** se
+versionan en este repositorio; ver `data/raw/README.md` para colocarlos localmente.
