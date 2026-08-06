@@ -30,16 +30,20 @@ julia scripts/01_build_system.jl
 .\SENI-Sienna.bat          # → http://localhost:8155
 ```
 
-SPA React-compatible (Preact + htm, sin build) servida por Oxygen, 7 pestañas:
+SPA React-compatible (Preact + htm, sin build) servida por Oxygen, **12 pestañas**:
+- **Operación**: KPIs, mix por combustible horario y heatmap de commitment
 - **Mapa**: las 678 barras georreferenciadas sobre Leaflet, con capas de nivel de
-  tensión, tensión del flujo AC (pu) y deslastre EDAC
-- **Corridas**: lanza cualquier corrida (01–11) con un clic, estado y log en vivo
+  tensión, tensión del flujo AC (pu), tensión por hora y deslastre EDAC
+- **Despacho**: despacho por central y comparación vs MODOM
+- **Dinámica**: pequeña señal (modos) y respuesta de frecuencia
+- **Estabilidad**: trayectorias RMS por generador (frecuencia y ΔP) ante la pérdida de PC2
+- **Precios**: costo marginal (CMG) nodal y validación de CVP vs la Lista de Mérito del OC
+- **Validación OC**: despacho/mix real del OC (API) vs Sienna, por grupo, combustible y central
 - **Escenario** (*Scenario Studio*): perillas de demanda, reserva y unidades fuera
   de servicio → UC alternativo con delta vs la línea base
-- **Resultados**: galería de figuras + tablas de `validation/`
-- **Reporte**: reporte consolidado renderizado
 - **Metodología**: ecuaciones MODOM (KaTeX) ↔ implementación Sienna + criterios
-- **Datos**: procedencia de cada insumo (feed del OC)
+- **Corridas**: lanza cualquier corrida (01–17) con un clic, estado y log en vivo
+- **Reporte** · **Datos**: reporte consolidado y procedencia de cada insumo
 
 El frontend (`dashboard/spa/`) usa un stack vendorizado localmente
 (Preact/htm/Leaflet/KaTeX en `spa/vendor/`) porque la red bloquea npm; no requiere
@@ -50,6 +54,43 @@ Para arranque en segundos, compilar una vez la sysimage:
 ```powershell
 julia --project=. scripts/13_build_sysimage.jl   # ~30–60 min, una sola vez
 ```
+
+Para distribuir sin Julia instalado, un **ejecutable standalone**:
+
+```powershell
+julia --project=. scripts/18_build_app.jl        # create_app → build_app/SENI-Sienna.exe
+```
+
+## Capturas
+
+**Operación** — KPIs del sistema, mix de despacho por combustible y commitment horario:
+
+![Operación](docs/img/operacion.png)
+
+**Mapa** — el SENI georreferenciado: 678 barras y 818 ramas por nivel de tensión
+(230 kV rojo · 138 kV azul · 69 kV verde) sobre basemap oscuro:
+
+![Mapa de la red](docs/img/mapa.png)
+
+**Estabilidad** — respuesta transitoria ante la pérdida de Punta Catalina 2 (360 MW):
+frecuencia del COI (nadir 59.43 Hz, sobre el escalón EDAC de 59.2 Hz) y la potencia
+que aporta cada generador (inercia + governor):
+
+![Estabilidad](docs/img/estabilidad.png)
+
+**Precios** — costo marginal (CMG) nodal por hora y validación del CVP contra la Lista
+de Mérito definitiva del OC (Pearson 0.923):
+
+![Precios / CMG](docs/img/precios.png)
+
+**Validación OC** — despacho real del OC (API `apps.oc.org.do`) vs Sienna, por grupo,
+combustible y central, más la representatividad multi-día:
+
+![Validación OC](docs/img/validacion-oc.png)
+
+**Despacho** — despacho por central y comparación vs MODOM:
+
+![Despacho](docs/img/despacho.png)
 
 ## Estructura
 
